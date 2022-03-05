@@ -1,4 +1,4 @@
-name: "Emmaus D9"
+name: "Mri D9"
 type: theme
 base theme: classy
 description: Devvly subtheme D9 Theme
@@ -25,4 +25,4 @@ regions:
   footer_bottom: 'Footer Bottom'
 
 libraries:
-  - emmaus/global-styling
+  - mri/global-styling

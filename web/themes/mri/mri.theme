@@ -6,19 +6,19 @@ use Drupal\Core\Url;
 use Drupal\media\Entity\Media;
 use Drupal\field\Entity\FieldConfig;
 
-function emmaus_preprocess_page(&$variables) {
+function mri_preprocess_page(&$variables) {
 
   // output mobile menu and themplate suggestion
-  $variables['mobile_main_menu'] = emmaus_build_mobile_menu('main');
+  $variables['mobile_main_menu'] = mri_build_mobile_menu('main');
   $variables['mobile_main_menu']['#theme'] = 'menu__main__mobile';
 
-  $variables['mobile_header_menu_left_menu'] = emmaus_build_mobile_menu('header-menu-left');
+  $variables['mobile_header_menu_left_menu'] = mri_build_mobile_menu('header-menu-left');
   $variables['mobile_header_menu_left_menu']['#theme'] = 'menu__main__mobile';
 
-  $variables['mobile_header_menu_right_menu'] = emmaus_build_mobile_menu('header-menu-right');
+  $variables['mobile_header_menu_right_menu'] = mri_build_mobile_menu('header-menu-right');
   $variables['mobile_header_menu_right_menu']['#theme'] = 'menu__main__mobile';
 
-  $variables['mobile_top_menu_with_icons_menu'] = emmaus_build_mobile_menu('top-menu-with-icons');
+  $variables['mobile_top_menu_with_icons_menu'] = mri_build_mobile_menu('top-menu-with-icons');
   $variables['mobile_top_menu_with_icons_menu']['#theme'] = 'menu__main__mobile';
 
   // Convenience variables
@@ -55,7 +55,7 @@ function emmaus_preprocess_page(&$variables) {
 /**
  * grab main and account menus and output them for the mobile menu
  */
-function emmaus_build_mobile_menu($name) {
+function mri_build_mobile_menu($name) {
   // Build Main Menu
   $menu_tree = \Drupal::service('menu.link_tree');
   $parameters = new \Drupal\Core\Menu\MenuTreeParameters();
@@ -78,7 +78,7 @@ function emmaus_build_mobile_menu($name) {
 /**
  * Implements hook_preprocess_paragraph() for paragaph--combo.html.twig.
  */
-function emmaus_preprocess_paragraph(array &$variables) {
+function mri_preprocess_paragraph(array &$variables) {
 
   /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
   $paragraph = $variables['paragraph'];
@@ -153,7 +153,7 @@ function emmaus_preprocess_paragraph(array &$variables) {
 /**
  * Implements hook_preprocess_block()
  */
-function emmaus_preprocess_block(&$variables) {
+function mri_preprocess_block(&$variables) {
 
   $content = isset($variables['elements']['content']['content']) ? $variables['elements']['content']['content'] : $variables['elements']['content'];
 
@@ -381,12 +381,12 @@ function emmaus_preprocess_block(&$variables) {
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function emmaus_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+function mri_theme_suggestions_field_alter(array &$suggestions, array $variables) {
   $element = $variables['element'];
   $suggestions[] = 'field__' . $element['#entity_type'] . '__' . $element['#field_name'] . '__' . $element['#bundle'] . '__' . $element['#view_mode'];
 }
 
-function emmaus_preprocess_breadcrumb(&$variables) {
+function mri_preprocess_breadcrumb(&$variables) {
   if ($variables['breadcrumb']) {
     $request = \Drupal::request();
     $route_match = \Drupal::routeMatch();

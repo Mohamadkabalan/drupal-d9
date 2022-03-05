@@ -1,16 +1,16 @@
-emmaus.mobile:
+mri.mobile:
   label: mobile
   mediaQuery: 'all and (max-width: 767px)'
   weight: 0
   multipliers:
     - 1x
-emmaus.tablet:
+mri.tablet:
   label: tablet
   mediaQuery: 'all and (min-width: 768px)'
   weight: 1
   multipliers:
     - 1x
-emmaus.wide:
+mri.wide:
   label: wide
   mediaQuery: 'all and (min-width: 1024px)'
   weight: 2

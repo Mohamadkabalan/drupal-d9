@@ -61,7 +61,7 @@ hooks:
   # The deploy hook runs after your application has been deployed and started.
   build: |
     curl -sS https://platform.sh/cli/installer | php
-    cd web/themes/emmaus
+    cd web/themes/mri
     npm install --only=prod
   deploy: |
     set -e
