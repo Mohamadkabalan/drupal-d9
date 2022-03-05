@@ -1,0 +1,70 @@
+<?php
+
+/**
+ * @file
+ * Contains url_alias_permissions.module.
+ */
+
+use Drupal\Core\Entity\EntityFormInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function url_alias_permissions_help(string $route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the Field Permissions module.
+    case 'help.page.url_alias_permissions':
+      return '<p>' . t('Grant access to users to edit and create path aliases for each entity type.') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_field_widget_multivalue_form_alter().
+ */
+function url_alias_permissions_field_widget_multivalue_form_alter(array &$elements, FormStateInterface $form_state, array $context) {
+  // Don't disable fields when we're not on an entity form.
+  if (!$form_state->getFormObject() instanceof EntityFormInterface) {
+    return;
+  }
+
+  // Check if the items element isset.
+  if (!isset($context['items']) || !$context['items'] instanceof FieldItemListInterface) {
+    return;
+  }
+
+  $field_definition = $context['items']->getFieldDefinition();
+  // Check if the field is of the type 'path'.
+  if ($field_definition->getType() !== 'path') {
+    return;
+  }
+
+  $entity = $context['items']->getEntity();
+  $entity_type_id = $entity->getEntityTypeId();
+  $bundle_id = $entity->bundle();
+  $entity_type = $entity->getEntityType();
+
+  if (!$entity_type instanceof EntityTypeInterface) {
+    return;
+  }
+
+  $permission = NULL;
+  switch ($entity_type->getPermissionGranularity()) {
+    case 'bundle':
+      $permission = "edit $bundle_id $entity_type_id url alias";
+      break;
+
+    case 'entity_type':
+      $permission = "edit $entity_type_id url alias";
+      break;
+  }
+
+  if ($permission === NULL) {
+    return;
+  }
+
+  $elements['#access'] = \Drupal::currentUser()->hasPermission($permission);
+}

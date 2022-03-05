@@ -1,0 +1,13 @@
+name: URL Alias Permissions
+description: Adds permissions to create and edit url aliases for each entity type.
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: Permissions
+dependencies:
+  - drupal:path
+type: module
+
+# Information added by Drupal.org packaging script on 2021-09-21
+version: '8.x-1.3'
+project: 'url_alias_permissions'
+datestamp: 1632210763

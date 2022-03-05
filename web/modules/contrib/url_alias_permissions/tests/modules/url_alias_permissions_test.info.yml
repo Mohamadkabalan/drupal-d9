@@ -1,0 +1,13 @@
+name: 'URL Alias Permissions Test'
+type: module
+description: 'Support module for URL Alias Permissions tests.'
+package: Testing
+dependencies:
+  - url_alias_permissions:url_alias_permissions
+  - entity_test:entity_test
+hidden: true
+
+# Information added by Drupal.org packaging script on 2021-09-21
+version: '8.x-1.3'
+project: 'url_alias_permissions'
+datestamp: 1632210763

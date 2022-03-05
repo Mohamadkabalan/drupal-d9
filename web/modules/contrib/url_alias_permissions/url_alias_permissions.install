@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update functions for URL Alias Permissions.
+ */
+
+use Drupal\node\Entity\NodeType;
+use Drupal\user\Entity\Role;
+
+/**
+ * Convert URL alias permissions to the new ones.
+ */
+function url_alias_permissions_update_8001() {
+  $roles = Role::loadMultiple();
+  $node_types = NodeType::loadMultiple();
+  foreach ($roles as $role) {
+    foreach ($node_types as $node_type) {
+      if ($role->hasPermission("edit {$node_type->id()} URL alias")) {
+        $role->grantPermission("edit {$node_type->id()} node url alias");
+        $role->revokePermission("edit {$node_type->id()} URL alias");
+      }
+      $role->save();
+    }
+  }
+}
