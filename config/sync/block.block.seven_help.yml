@@ -1,10 +1,9 @@
-uuid: ae8e6844-5ab8-4cff-a27e-1a4445029a91
+uuid: 7325aa0a-5112-470c-b9e2-5e581484fe44
 langcode: en
 status: true
 dependencies:
   module:
     - help
-    - system
   theme:
     - seven
 _core:
@@ -20,8 +19,4 @@ settings:
   label: Help
   provider: help
   label_display: '0'
-visibility:
-  request_path:
-    id: request_path
-    pages: '/node/*/layout'
-    negate: true
+visibility: {  }

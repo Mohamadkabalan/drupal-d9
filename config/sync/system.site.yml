@@ -1,15 +1,14 @@
-uuid: f696377a-ed0e-430d-99ea-1bf8e095926b
-name: 'D9 Starter'
-mail: justin@devvly.com
+uuid: a9d2e7a4-5967-4363-aa8c-0110080d00f8
+name: drupal
+mail: mkabalane@gmail.com
 slogan: ''
 page:
   403: ''
   404: ''
-  front: /node/2
+  front: /node
 admin_compact_mode: false
 weight_select_max: 100
 langcode: en
 default_langcode: en
 _core:
   default_config_hash: yTxtFqBHnEWxQswuWvkjE8mKw2t8oKuCL1q8KnfHuGE
-mail_notification: ''

@@ -1,8 +1,0 @@
-uuid: ebe8da98-2803-4511-b756-62bc9f0aae5e
-langcode: en
-status: true
-dependencies: {  }
-id: image_video_feature
-label: 'Image/Video Feature'
-revision: 0
-description: ''

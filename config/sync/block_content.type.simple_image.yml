@@ -1,8 +1,0 @@
-uuid: 022fa3af-a337-40ed-9196-9b7e418a06c9
-langcode: en
-status: true
-dependencies: {  }
-id: simple_image
-label: 'Simple Image'
-revision: 0
-description: ''

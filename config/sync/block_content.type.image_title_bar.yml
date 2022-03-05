@@ -1,8 +1,0 @@
-uuid: 59c4a96b-0dc5-4811-9312-646e32c709da
-langcode: en
-status: true
-dependencies: {  }
-id: image_title_bar
-label: 'Image Title Bar'
-revision: 0
-description: ''

@@ -1,8 +1,0 @@
-uuid: 49bd0598-2f92-4eae-9c41-7b2d01feed49
-langcode: en
-status: true
-dependencies: {  }
-id: text_with_background
-label: 'Text with Background'
-revision: 0
-description: ''

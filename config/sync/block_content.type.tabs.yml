@@ -1,8 +1,0 @@
-uuid: 0cc077bd-812d-4770-bce1-687962e1cc1d
-langcode: en
-status: true
-dependencies: {  }
-id: tabs
-label: Tabs
-revision: 0
-description: ''

@@ -1,8 +1,0 @@
-uuid: ac0d4d15-d0c7-4560-b628-a1b82072bb00
-langcode: en
-status: true
-dependencies: {  }
-id: document_list
-label: 'Document List'
-revision: 0
-description: ''

@@ -1,8 +1,0 @@
-uuid: d5d313cf-2993-47cc-bca2-73c6749a618e
-langcode: en
-status: true
-dependencies: {  }
-id: header-menu-left
-label: 'Header menu (left)'
-description: ''
-locked: false

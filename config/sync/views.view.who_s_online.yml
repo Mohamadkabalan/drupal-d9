@@ -1,11 +1,11 @@
-uuid: afa9f45a-5402-43ff-ac39-67d20986fd37
+uuid: 75e8345b-21fd-4b8c-a3e8-6ee0dc407ad1
 langcode: en
 status: true
 dependencies:
   module:
     - user
 _core:
-  default_config_hash: m0vmYmhrzMR6S_IC0UlK0Cl-q5lEvL8-EbxbbcDtk34
+  default_config_hash: oZCZq8MBtIG4FvWKljxJ2sY3jp-K6ts5Z5OCF7-p8ms
 id: who_s_online
 label: 'Who''s online block'
 module: user
@@ -17,7 +17,7 @@ display:
   default:
     display_plugin: default
     id: default
-    display_title: Master
+    display_title: Default
     position: 0
     display_options:
       access:

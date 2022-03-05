@@ -1,25 +1,22 @@
-uuid: 4015fbcb-f3f1-489b-8343-cb0ddb1e2c11
+uuid: bb6f1baf-9ce4-4789-882d-b8cdb74c4fc5
 langcode: en
 status: true
 dependencies:
-  config:
-    - core.entity_view_mode.media.full
   module:
     - editor
-    - media
 _core:
   default_config_hash: P8ddpAIKtawJDi5SzOwCzVnnNYqONewSTJ6Xn0dW_aQ
-name: Editor
+name: 'Basic HTML'
 format: basic_html
 weight: 0
 filters:
   filter_html:
     id: filter_html
     provider: filter
-    status: false
+    status: true
     weight: -10
     settings:
-      allowed_html: '<a href hreflang data-entity-type data-entity-uuid data-entity-substitution> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <p> <br> <span> <img src alt height width data-entity-type data-entity-uuid data-entity-substitution data-align data-caption> <s> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr>'
+      allowed_html: '<a href hreflang> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <p> <br> <span> <img src alt height width data-entity-type data-entity-uuid data-align data-caption>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_align:
@@ -46,30 +43,3 @@ filters:
     status: true
     weight: 11
     settings: {  }
-  filter_htmlcorrector:
-    id: filter_htmlcorrector
-    provider: filter
-    status: true
-    weight: 10
-    settings: {  }
-  media_embed:
-    id: media_embed
-    provider: media
-    status: true
-    weight: 100
-    settings:
-      default_view_mode: default
-      allowed_media_types:
-        audio: audio
-        file: file
-        image: image
-        remote_video: remote_video
-      allowed_view_modes:
-        full: full
-  linkit:
-    id: linkit
-    provider: linkit
-    status: true
-    weight: -11
-    settings:
-      title: false

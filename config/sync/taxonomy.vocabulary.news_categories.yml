@@ -1,8 +1,0 @@
-uuid: fca6382b-b11b-479a-940f-fd30f9988fcf
-langcode: en
-status: true
-dependencies: {  }
-name: 'News categories'
-vid: news_categories
-description: ''
-weight: 0

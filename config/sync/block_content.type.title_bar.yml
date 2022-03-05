@@ -1,8 +1,0 @@
-uuid: fd55243b-1dac-4209-a588-9ca36859dce8
-langcode: en
-status: true
-dependencies: {  }
-id: title_bar
-label: 'Title Bar'
-revision: 0
-description: ''

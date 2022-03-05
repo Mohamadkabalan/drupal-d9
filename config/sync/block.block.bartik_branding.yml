@@ -1,15 +1,17 @@
-uuid: f5a372d7-d034-420c-93cd-4c7ef0844ab4
+uuid: 70a52455-b6fc-4806-8b4f-71685b617b1a
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - emmaus
-id: sitebranding
-theme: emmaus
-region: footer_left
-weight: -7
+    - bartik
+_core:
+  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
+id: bartik_branding
+theme: bartik
+region: header
+weight: 0
 provider: null
 plugin: system_branding_block
 settings:
@@ -18,6 +20,6 @@ settings:
   provider: system
   label_display: '0'
   use_site_logo: true
-  use_site_name: false
+  use_site_name: true
   use_site_slogan: true
 visibility: {  }
