@@ -1,0 +1,19 @@
+uuid: 9291866e-a4ae-40ae-b94d-4c4e01ff7730
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.title_bar
+    - field.storage.block_content.field_call_to_action
+id: block_content.title_bar.field_call_to_action
+field_name: field_call_to_action
+entity_type: block_content
+bundle: title_bar
+label: 'Call to Action'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

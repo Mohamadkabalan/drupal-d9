@@ -1,0 +1,23 @@
+uuid: 1d7056af-bbcf-4f7f-a28b-aee1d59f01c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.three_items_with_icons
+    - field.storage.block_content.field_color_scheme
+  module:
+    - options
+id: block_content.three_items_with_icons.field_color_scheme
+field_name: field_color_scheme
+entity_type: block_content
+bundle: three_items_with_icons
+label: 'Color Scheme'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: blue
+default_value_callback: ''
+settings: {  }
+field_type: list_string

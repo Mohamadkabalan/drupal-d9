@@ -1,0 +1,17 @@
+uuid: 8d521189-5775-40ef-8979-f83b387629f6
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Job Posting'
+type: job_posting
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

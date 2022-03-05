@@ -1,0 +1,10 @@
+uuid: 15e9ac5e-a933-4b3a-8976-4ac79c7a7750
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.teaser_overview
+label: 'Teaser (Overview)'
+targetEntityType: node
+cache: true

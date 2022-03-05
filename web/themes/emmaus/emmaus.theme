@@ -1,0 +1,399 @@
+<?php
+
+use Drupal\Core\Link;
+use Drupal\Core\Render\Markup;
+use Drupal\Core\Url;
+use Drupal\media\Entity\Media;
+use Drupal\field\Entity\FieldConfig;
+
+function emmaus_preprocess_page(&$variables) {
+
+  // output mobile menu and themplate suggestion
+  $variables['mobile_main_menu'] = emmaus_build_mobile_menu('main');
+  $variables['mobile_main_menu']['#theme'] = 'menu__main__mobile';
+
+  $variables['mobile_header_menu_left_menu'] = emmaus_build_mobile_menu('header-menu-left');
+  $variables['mobile_header_menu_left_menu']['#theme'] = 'menu__main__mobile';
+
+  $variables['mobile_header_menu_right_menu'] = emmaus_build_mobile_menu('header-menu-right');
+  $variables['mobile_header_menu_right_menu']['#theme'] = 'menu__main__mobile';
+
+  $variables['mobile_top_menu_with_icons_menu'] = emmaus_build_mobile_menu('top-menu-with-icons');
+  $variables['mobile_top_menu_with_icons_menu']['#theme'] = 'menu__main__mobile';
+
+  // Convenience variables
+  if (isset($variables['page']['sidebar_first'])) {
+    $left = $variables['page']['sidebar_first'];
+  }
+  if (isset($variables['page']['sidebar_second'])) {
+    $right = $variables['page']['sidebar_second'];
+  }
+
+  // Dynamic sidebars
+  if (!empty($left) && !empty($right)) {
+    $variables['main_grid'] = 'auto medium-order-2';
+    $variables['sidebar_first_grid'] = 'shrink medium-order-1';
+    $variables['sidebar_sec_grid'] = 'shrink medium-3';
+  }
+  elseif (empty($left) && !empty($right)) {
+    $variables['main_grid'] = 'auto';
+    $variables['sidebar_first_grid'] = '';
+    $variables['sidebar_sec_grid'] = 'shrink';
+  }
+  elseif (!empty($left) && empty($right)) {
+    $variables['main_grid'] = 'auto medium-order-2';
+    $variables['sidebar_first_grid'] = 'shrink medium-order-1';
+    $variables['sidebar_sec_grid'] = '';
+  }
+  else {
+    $variables['main_grid'] = '';
+    $variables['sidebar_first_grid'] = '';
+    $variables['sidebar_sec_grid'] = '';
+  }
+}
+
+/**
+ * grab main and account menus and output them for the mobile menu
+ */
+function emmaus_build_mobile_menu($name) {
+  // Build Main Menu
+  $menu_tree = \Drupal::service('menu.link_tree');
+  $parameters = new \Drupal\Core\Menu\MenuTreeParameters();
+  $parameters
+    ->setMaxDepth(3)
+    ->onlyEnabledLinks()
+    ->excludeRoot();
+  $tree = $menu_tree->load($name, $parameters);
+
+  $manipulators = array(
+    array('callable' => 'menu.default_tree_manipulators:checkAccess'),
+    array('callable' => 'menu.default_tree_manipulators:generateIndexAndSort'),
+  );
+  $tree = $menu_tree->transform($tree, $manipulators);
+  // Split it into right and left menus
+  return $menu_tree->build($tree);
+
+}
+
+/**
+ * Implements hook_preprocess_paragraph() for paragaph--combo.html.twig.
+ */
+function emmaus_preprocess_paragraph(array &$variables) {
+
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+  $bundle = $paragraph->bundle();
+
+  switch ($bundle) {
+    case 'cta_homepage_hero':
+      $background_image = $paragraph->get('field_image')->getValue();
+      if (!empty($background_image)) {
+        $entity = Media::load($background_image[0]['target_id']);
+        $variables['background'] = file_create_url($entity->field_media_image->entity->getFileUri());
+      }
+      break;
+
+    case 'button_with_icon':
+      $buttons = $paragraph->get('field_button')->getValue();
+      $button_icons = $paragraph->get('field_font_awesome_icon')->getValue();
+
+      foreach ($buttons as $k => $button) {
+        $url_text = $button['title'];
+        if (isset($button_icons[$k])) {
+          $url_text = Markup::create('<i class="' . $button_icons[$k]['value'] . '"></i>' . $button['title']);
+        }
+        $url = Url::fromUri($button['uri']);
+        $variables['button_' . $k] = Link::fromTextAndUrl($url_text, $url);
+      }
+      break;
+
+    case 'grid_item':
+      $icon = $paragraph->get('field_font_awesome_icon')->getValue();
+      $link = $paragraph->get('field_link')->getValue();
+      if (!empty($icon)) {
+        $variables['icon'] = Markup::create('<i class="' . $icon[0]['value'] . '"></i>');
+      }
+      if (!empty($link)) {
+        $url_text = Markup::create($link[0]['title'] . '<i class="fas fa-arrow-right"></i>');
+        $url = Url::fromUri($link[0]['uri']);
+        $variables['link'] = Link::fromTextAndUrl($url_text, $url);
+      }
+      break;
+
+    case 'faq_item':
+      $type = $paragraph->get('field_type')->getValue();
+      $variables['attributes']['class'][] = !empty($type) ? $type[0]['value'] : '';
+      break;
+
+    case 'document_list_item':
+      $icon = $paragraph->get('field_font_awesome_icon')->getValue();
+      $link = $paragraph->get('field_link')->getValue();
+      if (!empty($icon) && !empty($link)) {
+        $url_text = Markup::create('<i class="' . $icon[0]['value'] . '"></i>' . $link[0]['title']);
+        $url = Url::fromUri($link[0]['uri']);
+        $variables['document_link'] = Link::fromTextAndUrl($url_text, $url);
+      }
+      break;
+
+    case 'item':
+      $icon = $paragraph->get('field_font_awesome_icon')->getValue();
+      if (!empty($icon)) {
+        $variables['font_awesome_icon'] = Markup::create('<div class="icon"><i class="' . $icon[0]['value'] . '"></i>' . '</div>');
+      }
+      break;
+    case 'icon_and_title':
+      $icon = $paragraph->get('field_font_awesome_icon')->getValue();
+      if (!empty($icon)) {
+        $variables['font_awesome_icon'] = Markup::create('<div class="icon"><i class="' . $icon[0]['value'] . ' fa-2x"></i>' . '</div>');
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_block()
+ */
+function emmaus_preprocess_block(&$variables) {
+
+  $content = isset($variables['elements']['content']['content']) ? $variables['elements']['content']['content'] : $variables['elements']['content'];
+
+  if (isset($content['#block_content']) && $content['#block_content']) {
+    $bundle = $content['#block_content']->bundle();
+    // Add unique id
+    $variables['attributes']['id'] = $bundle . '_' . $content['#block_content']->id();
+
+    $variables['bundle'] = $bundle;
+    switch ($bundle) {
+      case 'three_items_with_icons':
+        $color_scheme = $content['#block_content']->get('field_color_scheme')->getValue();
+        if (!empty($color_scheme)) {
+          $variables['color_scheme'] = $color_scheme[0]['value'];
+        }
+      break;
+
+      case 'title_and_text_with_background':
+        $variables['attributes']['class'][] = !empty($content['#block_content']->get('field_box_color')->getValue()) ? 'box-color-' . $content['#block_content']->get('field_box_color')->getValue()[0]['value'] : '';
+        $variables['attributes']['class'][] = !empty($content['#block_content']->get('field_highlight_color')->getValue()) ? 'highlight-color-' . $content['#block_content']->get('field_highlight_color')->getValue()[0]['value'] : '';
+        $variables['attributes']['class'][] = !empty($content['#block_content']->get('field_position')->getValue()) ? 'position-' . $content['#block_content']->get('field_position')->getValue()[0]['value'] : '';
+        $background_image = $content['#block_content']->get('field_image')->getValue();
+        $background_video = $content['#block_content']->get('field_video')->getValue();
+        if (!empty($background_image)) {
+          $entity = Media::load($background_image[0]['target_id']);
+          $variables['attributes']['style'][] = 'background-image:url(' . file_create_url($entity->field_media_image->entity->getFileUri()) . ');';
+          $variables['attributes']['style'][] = 'background-position: 50% 50%;';
+          $variables['attributes']['style'][] = 'background-size: cover;';
+        }
+        else if (!empty($background_video)) {
+          $variables['video'] = true;
+          $variables['no_background'] = true;
+        }
+      break;
+
+      case 'image_video_feature':
+        $variables['attributes']['class'][] = !empty($content['#block_content']->get('field_color_scheme')->getValue()) ? 'color-scheme-' . $content['#block_content']->get('field_color_scheme')->getValue()[0]['value'] : '';
+        $variables['attributes']['class'][] = !empty($content['#block_content']->get('field_position')->getValue()) ? 'position-' . $content['#block_content']->get('field_position')->getValue()[0]['value'] : '';
+        $image = $content['#block_content']->get('field_image')->getValue();
+        $video = $content['#block_content']->get('field_video')->getValue();
+        if (!empty($image)) {
+          $variables['image'] = true;
+        }
+        else if (!empty($video)) {
+          $variables['video'] = true;
+        }
+      break;
+      
+      case 'cta':
+        $variables['attributes']['class'][] = !empty($content['#block_content']->get('field_color_scheme')->getValue()) ? 'color-scheme-' . $content['#block_content']->get('field_color_scheme')->getValue()[0]['value'] : '';
+      break;
+
+      case 'program_icon_triptych':
+        $padding_top = !empty($content['#block_content']->get('field_padding_top')->getValue()) ? $content['#block_content']->get('field_padding_top')->getValue()[0]['value'] : 0;
+        $padding_bottom = !empty($content['#block_content']->get('field_padding_bottom')->getValue()) ? $content['#block_content']->get('field_padding_bottom')->getValue()[0]['value'] : 0;
+        $variables['attributes']['style'][] = 'margin-top: ' . $padding_top . 'px; ' . 'margin-bottom: ' . $padding_bottom . 'px;';
+
+        $color_scheme = $content['#block_content']->get('field_color_scheme')->getValue();
+        if (!empty($color_scheme)) {
+          $variables['color_scheme'] = $color_scheme[0]['value'];
+        }
+        
+      break;
+
+      case 'video':
+        $padding_top = !empty($content['#block_content']->get('field_padding_top')->getValue()) ? $content['#block_content']->get('field_padding_top')->getValue()[0]['value'] : 0;
+        $padding_bottom = !empty($content['#block_content']->get('field_padding_bottom')->getValue()) ? $content['#block_content']->get('field_padding_bottom')->getValue()[0]['value'] : 0;
+        $variables['attributes']['style'][] = 'padding-top: ' . $padding_top . 'px; ' . 'padding-bottom: ' . $padding_bottom . 'px;';
+      break;
+
+      case 'blockquote':
+        $padding_top = !empty($content['#block_content']->get('field_padding_top')->getValue()) ? $content['#block_content']->get('field_padding_top')->getValue()[0]['value'] : 0;
+        $padding_bottom = !empty($content['#block_content']->get('field_padding_bottom')->getValue()) ? $content['#block_content']->get('field_padding_bottom')->getValue()[0]['value'] : 0;
+
+        $variables['attributes']['class'][] = !empty($content['#block_content']->get('field_highlight_color')->getValue()) ? 'highlight-color-' . $content['#block_content']->get('field_highlight_color')->getValue()[0]['value'] : '';
+
+        $variables['attributes']['style'][] = 'padding-top: ' . $padding_top . 'px; ' . 'padding-bottom: ' . $padding_bottom . 'px;';
+      break;
+
+      case 'video':
+        $padding_top = !empty($content['#block_content']->get('field_padding_top')->getValue()) ? $content['#block_content']->get('field_padding_top')->getValue()[0]['value'] : 0;
+        $padding_bottom = !empty($content['#block_content']->get('field_padding_bottom')->getValue()) ? $content['#block_content']->get('field_padding_bottom')->getValue()[0]['value'] : 0;
+        $variables['attributes']['style'][] = 'padding-top: ' . $padding_top . 'px; ' . 'padding-bottom: ' . $padding_bottom . 'px;';
+      break;
+
+      case 'heading':
+        $variables['attributes']['class'][] = !empty($content['#block_content']->get('field_highlight_color')->getValue()) ? 'highlight-color-' . $content['#block_content']->get('field_highlight_color')->getValue()[0]['value'] : '';
+        $variables['title_separator'] = FALSE;
+        if(!empty($content['#block_content']->get('field_section_header')->getValue())) {
+          $variables['attributes']['class'][] = 'section-heading';
+          if($content['#block_content']->get('field_section_header')->getValue()[0]['value'] == 1) {
+            $variables['title_separator'] = TRUE;
+          }
+        }
+        $variables['hx'] = $content['#block_content']->get('field_htype')->getValue()[0]['value'];
+      break;
+
+      case 'two_columns_image_and_text':
+        $variables['attributes']['class'][] = !empty($content['#block_content']->get('field_color_scheme')->getValue()) ? 'color-scheme-' . $content['#block_content']->get('field_color_scheme')->getValue()[0]['value'] : '';
+        $variables['attributes']['class'][] = !empty($content['#block_content']->get('field_position')->getValue()) ? 'image-position-' . $content['#block_content']->get('field_position')->getValue()[0]['value'] : '';
+        $icon = $content['#block_content']->get('field_font_awesome_icon')->getValue();
+        if($icon) {
+          $variables['title_icon'] = Markup::create('<i class="' . $icon[0]['value'] . '"></i>');
+        }
+      break;
+
+      case 'accordion':
+      case 'tabs':
+        $variables['attributes']['class'][] = !empty($content['#block_content']->get('field_accordion_color_scheme')->getValue()) ? 'color-scheme-' . $content['#block_content']->get('field_accordion_color_scheme')->getValue()[0]['value'] : '';
+      break;
+
+      case 'homepage_hero':
+      case 'testimonials':
+      case 'image_hero':
+        $background_image = $content['#block_content']->get('field_image')->getValue();
+        if (!empty($background_image[0])) {
+          $entity = Media::load($background_image[0]['target_id']);
+          $variables['background'] = file_create_url($entity->field_media_image->entity->getFileUri());
+        }
+      break;
+
+      case 'text_with_background':
+        $padding_top = !empty($content['#block_content']->get('field_padding_top')->getValue()) ? $content['#block_content']->get('field_padding_top')->getValue()[0]['value'] : 0;
+        $padding_right = !empty($content['#block_content']->get('field_padding_right')->getValue()) ? $content['#block_content']->get('field_padding_right')->getValue()[0]['value'] : 0;
+        $padding_bottom = !empty($content['#block_content']->get('field_padding_bottom')->getValue()) ? $content['#block_content']->get('field_padding_bottom')->getValue()[0]['value'] : 0;
+        $padding_left = !empty($content['#block_content']->get('field_padding_left')->getValue()) ? $content['#block_content']->get('field_padding_left')->getValue()[0]['value'] : 0;
+        $background_image = $content['#block_content']->get('field_image')->getValue();
+        if (!empty($background_image)) {
+          $entity = Media::load($background_image[0]['target_id']);
+          $variables['attributes']['style'][] = 'background-image:url(' . file_create_url($entity->field_media_image->entity->getFileUri()) . ');';
+          $variables['attributes']['style'][] = 'background-position: 50% 50%;';
+          $variables['attributes']['style'][] = 'background-size: cover;';
+        }
+        $variables['attributes']['style'][] = 'padding:' . $padding_top . 'px ' . $padding_right . 'px ' . $padding_bottom . 'px ' . $padding_left . 'px;';
+
+      break;
+
+      case 'simple_textarea':
+        $padding_top = !empty($content['#block_content']->get('field_padding_top')->getValue()) ? $content['#block_content']->get('field_padding_top')->getValue()[0]['value'] : 0;
+        $padding_right = !empty($content['#block_content']->get('field_padding_right')->getValue()) ? $content['#block_content']->get('field_padding_right')->getValue()[0]['value'] : 0;
+        $padding_bottom = !empty($content['#block_content']->get('field_padding_bottom')->getValue()) ? $content['#block_content']->get('field_padding_bottom')->getValue()[0]['value'] : 0;
+        $padding_left = !empty($content['#block_content']->get('field_padding_left')->getValue()) ? $content['#block_content']->get('field_padding_left')->getValue()[0]['value'] : 0;
+        $variables['attributes']['style'][] = 'padding:' . $padding_top . 'px ' . $padding_right . 'px ' . $padding_bottom . 'px ' . $padding_left . 'px;';
+      break;
+
+      case 'image_title_bar':
+        $background_image = $content['#block_content']->get('field_image')->getValue();
+        if (!empty($background_image)) {
+          $entity = Media::load($background_image[0]['target_id']);
+          $variables['background'] = file_create_url($entity->field_media_image->entity->getFileUri());
+        }
+      break;
+
+      case 'button':
+        $button_size = $content['#block_content']->get('field_button_size')->getValue();
+        $button_width = $content['#block_content']->get('field_button_width')->getValue();
+        if (!empty($button_size)) {
+          $variables['button_size'] = $button_size[0]['value'];
+        }
+        if (!empty($button_width)) {
+          $variables['button_width'] = $button_width[0]['value'];
+        }
+      break;
+
+      case 'image_gallery':
+        $images_per_row = $content['#block_content']->get('field_images_per_row')->getValue();
+        $images = $content['#block_content']->get('field_images')->getValue();
+        if (!empty($images_per_row)) {
+          $variables['images_per_row'] = (int) $images_per_row[0]['value'];
+          $variables['count'] = count($images);
+        }
+      break;
+
+      case 'profiles':
+        $profiles = $content['#block_content']->get('field_profiles')->referencedEntities();
+        foreach ($profiles as $profile) {
+          $variables['nids'][] = $profile->id();
+        }
+        $variables['is_modal'] = $content['#block_content']->field_link_to_modal->value;
+        $variables['is_email'] = $content['#block_content']->field_include_email->value;
+        $variables['is_overview'] = $content['#block_content']->field_show_overview->value;
+      break;
+
+      case 'faqs':
+        $faq_items = $content['#block_content']->get('field_items_unlimited')->referencedEntities();
+        if (!empty($faq_items)) {
+          $faq_item = reset($faq_items);
+          $allowed_values = $faq_item->field_type->getSetting('allowed_values');
+          $faq_categories = '<div class="wrp-faq-categories"><span class="sort-label">'. t('Sort by:') .'</span><ul class="faq-categories"><li class="faq-category active" data-type="all"><span>' . t('All') . '</span></li>';
+          foreach ($allowed_values as $k => $allowed_value) {
+            $faq_categories .= '<li class="faq-category" data-type="'. $k .'"><span>' . $allowed_value . '</span></li>';
+          }
+          $faq_categories .= '</ul></div>';
+          $variables['faq_categories'] = Markup::create($faq_categories);
+        }
+      break;
+
+      case 'document_list':
+      case 'border_box':
+        $variables['title_icon'] = '';
+        $icon = $content['#block_content']->get('field_font_awesome_icon')->getValue();
+        if($icon) {
+          $variables['title_icon'] = Markup::create('<i class="' . $icon[0]['value'] . '"></i>');
+        }
+      break;
+
+      case 'testimonials':
+        $variables['attributes']['class'][] = !empty($content['#block_content']->get('field_testimonial_type')->getValue()) ? 'testimonial-type-' . $content['#block_content']->get('field_testimonial_type')->getValue()[0]['value'] : '';
+      break;
+
+      case 'programs_grid':
+        $variables['program_links'] = '';
+        $links = $content['#block_content']->get('field_link_unlimited')->getValue();
+        if(!empty($links)) {
+          foreach($links as $key => $link) {
+            $links[$key]['url'] = Url::fromUri($link['uri']);
+          }
+        }
+        $variables['program_links'] = $links;
+      break;
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function emmaus_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+  $element = $variables['element'];
+  $suggestions[] = 'field__' . $element['#entity_type'] . '__' . $element['#field_name'] . '__' . $element['#bundle'] . '__' . $element['#view_mode'];
+}
+
+function emmaus_preprocess_breadcrumb(&$variables) {
+  if ($variables['breadcrumb']) {
+    $request = \Drupal::request();
+    $route_match = \Drupal::routeMatch();
+    $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+    
+    if (!empty($page_title)) {
+      $variables['page_title'] = $page_title;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.title-separator {
+    width: 0;
+    height: 0;
+    border-left: 9px solid rgba($black, 0.2);
+    border-right: 9px solid rgba($black, 0.2);
+    border-top: 9px solid rgba($black, 0.1);
+    border-bottom: 9px solid rgba($black, 0.05);
+    position: relative;
+    margin: 0 auto;
+    &::before {
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 100px;
+        background: rgba($black, 0.2);
+        top: calc(50%);
+        right: calc(100% + 20px);
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 100px;
+        background: rgba($black, 0.2);
+        top: calc(50%);
+        left: calc(100% + 20px);
+    }
+    &--white {
+        border-left: 9px solid rgba($white, 0.2);
+        border-right: 9px solid rgba($white, 0.2);
+        border-top: 9px solid rgba($white, 0.1);
+        border-bottom: 9px solid rgba($white, 0.05);
+        &::before {
+            background: rgba($white, 0.2);
+        }
+        &::after {
+            background: rgba($white, 0.2);
+        }
+    }
+}
+
+
+
+.color-scheme-black {
+    .title-separator {
+        border-left: 10px solid rgba($white, 0.2);
+        border-right: 10px solid rgba($white, 0.2);
+        border-top: 10px solid rgba($white, 0.1);
+        border-bottom: 10px solid rgba($white, 0.05);
+        &::before {
+            background: rgba($white, 0.2);
+        }
+        &::after {
+            background: rgba($white, 0.2);
+        }
+    }
+}

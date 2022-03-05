@@ -1,0 +1,42 @@
+uuid: 8738927f-4d32-4474-ba50-e66ef743b005
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_type
+field_name: field_type
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: denomination
+      label: Denomination
+    -
+      value: applying
+      label: Applying
+    -
+      value: student_life
+      label: 'Student Life'
+    -
+      value: academics
+      label: Academics
+    -
+      value: financial_aid
+      label: 'Financial Aid'
+    -
+      value: auditions
+      label: Auditions
+    -
+      value: music_scholarships
+      label: 'Music Scholarships'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

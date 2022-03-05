@@ -1,0 +1,21 @@
+uuid: 718d4558-435e-41a6-903a-36e547b2d2a7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: general
+label: General
+description: ''
+matchers:
+  be86ad61-876e-4520-80e5-a6402df578d4:
+    uuid: be86ad61-876e-4520-80e5-a6402df578d4
+    id: 'entity:node'
+    weight: 0
+    settings:
+      bundles:
+        page: page
+      group_by_bundle: true
+      include_unpublished: true
+      substitution_type: canonical
+      metadata: Content

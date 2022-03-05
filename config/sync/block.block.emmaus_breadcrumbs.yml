@@ -1,0 +1,22 @@
+uuid: 4bd46b85-23c6-4e25-9b50-764d1b71c824
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - emmaus
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: emmaus_breadcrumbs
+theme: emmaus
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,21 @@
+uuid: 554a182b-1d86-41fd-9b65-0a3a6a6fa26a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.video
+    - field.storage.block_content.field_padding_top
+  module:
+    - options
+id: block_content.video.field_padding_top
+field_name: field_padding_top
+entity_type: block_content
+bundle: video
+label: 'Padding top'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

@@ -1,0 +1,8 @@
+uuid: f01a02a9-8b7b-44c1-bef4-c7622ce98f70
+langcode: en
+status: true
+dependencies: {  }
+id: simple_textarea
+label: 'Simple Textarea'
+revision: 0
+description: ''

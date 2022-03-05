@@ -1,0 +1,9 @@
+.paragraph--type--simple-table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid $gray_light;
+    color: $gray_darker;
+    .field__item {
+        padding: 0.75rem 0.5rem;
+    }
+}

@@ -1,0 +1,33 @@
+.paragraph--type--accordion-item {
+    border-bottom: 1px solid rgba($black, 0.25);
+    .field--name-field-title {
+        font-size: 1.125rem;
+        font-weight: 700;
+        position: relative;
+        cursor: pointer;
+        padding: 1.125rem;
+        &:after {
+            font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f054";
+            position: absolute;
+            right: 1.5rem;
+            top: calc(50% - 2px);
+            margin-top: -0.75rem;
+            //transform: rotateZ(90deg);
+            transition: all 200ms ease-in;
+        }
+    }
+    &.active {
+        .field--name-field-title {
+            color: $primary;
+            background: $gray-light;
+
+            &:after {
+                transform: rotateZ(90deg);
+            }
+        }
+    }
+    .field--name-field-text {
+        padding: 1.5rem;
+        color: $gray-darker;
+    }
+}

@@ -1,0 +1,34 @@
+uuid: 853817cb-0b0f-48a2-9af2-39d86af5547b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.grid_item.field_description
+    - field.field.paragraph.grid_item.field_font_awesome_icon
+    - field.field.paragraph.grid_item.field_link
+    - field.field.paragraph.grid_item.field_title
+    - paragraphs.paragraphs_type.grid_item
+id: paragraph.grid_item.default
+targetEntityType: paragraph
+bundle: grid_item
+mode: default
+content:
+  field_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  field_font_awesome_icon: true
+  field_link: true
+  search_api_excerpt: true

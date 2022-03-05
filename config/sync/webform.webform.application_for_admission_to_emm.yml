@@ -1,0 +1,1302 @@
+uuid: 055f68aa-3b50-4598-8871-d9b231b257f4
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 14
+template: false
+archive: false
+id: application_for_admission_to_emm
+title: 'Application for Admission to Emmaus Bible College'
+description: ''
+category: ''
+elements: |-
+  personal_information:
+    '#type': webform_wizard_page
+    '#title': 'Personal Information'
+    '#open': true
+    '#next_button_label': Next
+    full_name:
+      '#type': webform_name
+      '#title': Name
+      '#title_display': before
+      '#required': true
+      '#title__access': false
+      '#first__title': 'First Name'
+      '#first__placeholder': 'First Name'
+      '#first__title_display': invisible
+      '#first__required': true
+      '#middle__title': 'Middle Name'
+      '#middle__placeholder': 'Middle Name'
+      '#middle__title_display': invisible
+      '#last__title': 'Last Name'
+      '#last__placeholder': 'Last Name'
+      '#last__title_display': invisible
+      '#last__required': true
+      '#suffix__access': false
+      '#degree__access': false
+      '#flexbox': '1'
+    goes_by_:
+      '#type': textfield
+      '#title': 'Goes by:'
+      '#size': 50
+    mailing_address:
+      '#type': webform_address
+      '#title': 'Mailing Address'
+      '#title_display': before
+      '#flexbox': '1'
+    phone_numbers:
+      '#type': webform_flexbox
+      phone_number:
+        '#type': webform_telephone
+        '#title': 'Phone Number'
+        '#required': true
+        '#phone__international_initial_country': US
+      alternate_phone_number:
+        '#type': webform_telephone
+        '#title': 'Alternate Phone Number'
+        '#required': true
+        '#phone__international_initial_country': US
+    email:
+      '#type': email
+      '#title': Email
+    personal_info_1:
+      '#type': webform_flexbox
+      birth_date:
+        '#type': date
+        '#title': 'Birth Date'
+      gender:
+        '#type': select
+        '#title': Gender
+        '#options':
+          Male: Male
+          Female: Female
+      t_shirt_size:
+        '#type': select
+        '#title': 'T-shirt Size'
+        '#options':
+          Small: Small
+          Medium: Medium
+          Large: Large
+          X-Large: X-Large
+          XX-Large: XX-Large
+          XXX-Large: XXX-Large
+    personal_info_2:
+      '#type': webform_flexbox
+      are_you_a_u_s_citizen_or_permanent_resident_:
+        '#type': radios
+        '#title': 'Are you a U.S. Citizen or Permanent Resident?'
+        '#options':
+          'U.S. Citizen': 'U.S. Citizen'
+          'Permanent Resident': 'Permanent Resident'
+          Neither: Neither
+      please_indicate_your_ethnic_origin_:
+        '#type': select
+        '#title': 'Please indicate your ethnic origin.'
+        '#options': ethnicity
+    social_security_:
+      '#type': textfield
+      '#title': 'Social Security #'
+      '#input_mask': 999-99-9999
+      '#states':
+        visible:
+          - ':input[name="are_you_a_u_s_citizen_or_permanent_resident_"]':
+              value: 'U.S. Citizen'
+          - or
+          - ':input[name="are_you_a_u_s_citizen_or_permanent_resident_"]':
+              value: 'Permanent Resident'
+    birth_citizenship_country:
+      '#type': webform_flexbox
+      country_of_birth:
+        '#type': select
+        '#title': 'Country of Birth'
+        '#options': country_names
+        '#states':
+          visible:
+            - ':input[name="are_you_a_u_s_citizen_or_permanent_resident_"]':
+                value: Neither
+            - xor
+            - ':input[name="are_you_a_u_s_citizen_or_permanent_resident_"]':
+                value: 'Permanent Resident'
+      country_of_citizenship:
+        '#type': select
+        '#title': 'Country of Citizenship'
+        '#options': country_names
+        '#states':
+          visible:
+            ':input[name="are_you_a_u_s_citizen_or_permanent_resident_"]':
+              value: Neither
+    marital_status_questions:
+      '#type': webform_flexbox
+      marital_status:
+        '#type': select
+        '#title': 'Marital Status'
+        '#options':
+          Single: Single
+          Married: Married
+          Widowed: Widowed
+          Divorced: Divorced
+      name_of_spouse:
+        '#type': textfield
+        '#title': 'Name of Spouse'
+        '#states':
+          visible:
+            ':input[name="marital_status"]':
+              value: Married
+      maiden_name_if_applicable_:
+        '#type': textfield
+        '#title': 'Maiden Name (if applicable)'
+        '#states':
+          visible:
+            ':input[name="marital_status"]':
+              value: Married
+      date_of_divorce:
+        '#type': date
+        '#title': 'Date of Divorce'
+        '#states':
+          visible:
+            ':input[name="marital_status"]':
+              value: Divorced
+    veteran_questions:
+      '#type': webform_flexbox
+      are_you_a_united_states_veteran_:
+        '#type': radios
+        '#title': 'Are you a United States Veteran?'
+        '#options': yes_no
+        '#options_display': side_by_side
+      are_you_planning_on_using_va_benefits_while_you_are_at_emmaus_:
+        '#type': radios
+        '#title': 'Are you planning on using VA benefits while you are at Emmaus?'
+        '#options': yes_no
+        '#options_display': side_by_side
+        '#states':
+          visible:
+            ':input[name="are_you_a_united_states_veteran_"]':
+              value: 'Yes'
+    parent_veteran_questions:
+      '#type': webform_flexbox
+      are_either_of_your_parents_active_duty_military_or_veterans_:
+        '#type': radios
+        '#title': 'Are either of your parents active duty military or veterans?'
+        '#options': yes_no
+        '#options_display': side_by_side
+      are_you_planning_on_using_a_dependence_education_assistance_prog:
+        '#type': radios
+        '#title': 'Are you Planning on using a Dependence Education Assistance Program?'
+        '#options': yes_no
+        '#options_display': side_by_side
+        '#states':
+          visible:
+            ':input[name="are_either_of_your_parents_active_duty_military_or_veterans_"]':
+              value: 'Yes'
+    do_you_have_any_immediate_family_members_that_have_attended_emma:
+      '#type': radios
+      '#title': 'Do you have any immediate family members that have attended Emmaus?'
+      '#options': yes_no
+      '#options_display': side_by_side
+    please_list_any_immediate_family_members_who_have_attended_emmau:
+      '#type': webform_custom_composite
+      '#title': 'Please list any immediate family members who have attended Emmaus'
+      '#title_display': invisible
+      '#states':
+        visible:
+          ':input[name="do_you_have_any_immediate_family_members_that_have_attended_emma"]':
+            value: 'Yes'
+      '#multiple__header_label': 'Please list any immediate family members who have attended Emmaus'
+      '#multiple__item_label': 'Family Member'
+      '#multiple__add_more_input_label': 'more family member(s)'
+      '#element':
+        family_name_relationship:
+          '#type': textfield
+          '#title': 'Name & Relationship to you'
+          '#placeholder': 'Name & Relationship to you'
+        dates_attended:
+          '#type': textfield
+          '#title': 'Dates Attended'
+          '#placeholder': 'Dates Attended'
+  enrollment_information:
+    '#type': webform_wizard_page
+    '#title': 'Enrollment Information'
+    '#open': true
+    '#prev_button_label': Back
+    '#next_button_label': Next
+    i_am_applying_:
+      '#type': select
+      '#title': 'I am applying...'
+      '#options':
+        'as a traditional degree seeking student (for the first time on the Emmaus campus)': 'as a traditional degree seeking student (for the first time on the Emmaus campus)'
+        'for re-enrollment (as a student who has previously attended Emmaus on campus)': 'for re-enrollment (as a student who has previously attended Emmaus on campus)'
+        'as an international student': 'as an international student'
+        'as a Jump Start student (dual enrollment: taking college course while in high school)': 'as a Jump Start student (dual enrollment: taking college course while in high school)'
+        'as a non-degree seeking or casual student': 'as a non-degree seeking or casual student'
+        'as a licensed teacher seeking an additional teacher ed endorsement': 'as a licensed teacher seeking an additional teacher ed endorsement'
+    start_date_classes:
+      '#type': webform_flexbox
+      when_do_you_wish_to_begin_studies_at_emmaus_:
+        '#type': select
+        '#title': 'When do you wish to begin studies at Emmaus?'
+        '#options':
+          'Fall 2022': 'Fall 2022'
+          'Spring 2023': 'Spring 2023'
+          'Fall 2023': 'Fall 2023'
+          'Spring 2024': 'Spring 2024'
+          'Fall 2024': 'Fall 2024'
+          'Spring 2025': 'Spring 2025'
+      how_many_classes_do_you_intend_to_take_per_semester_:
+        '#type': textfield
+        '#title': 'How many classes do you intend to take per semester?'
+        '#description': '<em>Non-degree seeking students are limited to a total of 18 semester credit hours over enrollment lifetime.</em>'
+        '#states':
+          visible:
+            - ':input[name="i_am_applying_"]':
+                value: 'as a Jump Start student (dual enrollment: taking college course while in high school)'
+            - or
+            - ':input[name="i_am_applying_"]':
+                value: 'as a non-degree seeking or casual student'
+            - or
+            - ':input[name="i_am_applying_"]':
+                value: 'as a licensed teacher seeking an additional teacher ed endorsement'
+    i_want_to_pursue_a_:
+      '#type': radios
+      '#title': 'I want to pursue a...'
+      '#options':
+        'Certificate (1 year)': 'Certificate (1 year)'
+        'Associate Degree (2 years)': 'Associate Degree (2 years)'
+        'Bachelor Degree (4 years)': 'Bachelor Degree (4 years)'
+        Undecided: Undecided
+      '#options_display': two_columns
+      '#states':
+        visible:
+          - ':input[name="i_am_applying_"]':
+              value: 'as a traditional degree seeking student (for the first time on the Emmaus campus)'
+          - or
+          - ':input[name="i_am_applying_"]':
+              value: 'for re-enrollment (as a student who has previously attended Emmaus on campus)'
+          - or
+          - ':input[name="i_am_applying_"]':
+              value: 'as an international student'
+    which_certificate_do_you_plan_to_pursue_:
+      '#type': select
+      '#title': 'Which certificate do you plan to pursue?'
+      '#options':
+        Undecided: Undecided
+        'Biblical Studies (1 year)': 'Biblical Studies (1 year)'
+        'Biblical Studies (1 year Continuing Ed.)': 'Biblical Studies (1 year Continuing Ed.)'
+        'Computer Information Systems (1 year Continuing Ed.)': 'Computer Information Systems (1 year Continuing Ed.)'
+        'Elementary Education (3 year Continuing Ed.)': 'Elementary Education (3 year Continuing Ed.)'
+        'Missions (1 year Continuing Ed.)': 'Missions (1 year Continuing Ed.)'
+        'TESOL (1 year Continuing Ed.)': 'TESOL (1 year Continuing Ed.)'
+        'TESOL & Biblical Studies (1 year)': 'TESOL & Biblical Studies (1 year)'
+        'Youth Ministries (1 year Continuing Ed.)': 'Youth Ministries (1 year Continuing Ed.)'
+      '#states':
+        visible:
+          ':input[name="i_want_to_pursue_a_"]':
+            value: 'Certificate (1 year)'
+    which_associate_degree_do_you_plan_to_pursue_:
+      '#type': select
+      '#title': 'Which Associate degree do you plan to pursue?'
+      '#options':
+        Undecided: Undecided
+        'Biblical Studies (2 year)': 'Biblical Studies (2 year)'
+        'Business (2 year)': 'Business (2 year)'
+        'General Studies (2 year)': 'General Studies (2 year)'
+        'K-12 Education (2 year)': 'K-12 Education (2 year)'
+        'Youth Ministry (2 year)': 'Youth Ministry (2 year)'
+      '#states':
+        visible:
+          ':input[name="i_want_to_pursue_a_"]':
+            value: 'Associate Degree (2 years)'
+    which_bachelor_degree_to_you_plan_to_pursue_:
+      '#type': select
+      '#title': 'Which Bachelor degree to you plan to pursue?'
+      '#options':
+        Undecided: Undecided
+        'Applied Mathematics': 'Applied Mathematics'
+        'Biblical Studies ': 'Biblical Studies '
+        'Business Administration': 'Business Administration'
+        'Computer Information Systems': 'Computer Information Systems'
+        'Computer Science': 'Computer Science'
+        'Counseling Psychology': 'Counseling Psychology'
+        'Cross-Cultural Nursing': 'Cross-Cultural Nursing'
+        'Dental Assisting (Diploma) & Bible/Theology': 'Dental Assisting (Diploma) & Bible/Theology'
+        'Digital Marketing': 'Digital Marketing'
+        'Educational Ministries: Children''s Ministries': 'Educational Ministries: Children''s Ministries'
+        'Educational Ministries: Ministry Leadership': 'Educational Ministries: Ministry Leadership'
+        'Educational Ministries: Youth Ministries': 'Educational Ministries: Youth Ministries'
+        'Elementary Education': 'Elementary Education'
+        'Intercultural Studies': 'Intercultural Studies'
+        'K-12 ESL Education': 'K-12 ESL Education'
+        'Medical Assistant (Diploma) & Bible/Theology': 'Medical Assistant (Diploma) & Bible/Theology'
+        'Nursing (RN) & Bible/Theology': 'Nursing (RN) & Bible/Theology'
+        'Paramedic (AAS) & Bible/Theology': 'Paramedic (AAS) & Bible/Theology'
+        'Pre-Professional Health Sciences & Biblical Studies': 'Pre-Professional Health Sciences & Biblical Studies'
+        'Radiology Technology (AAS) & Bible/Theology': 'Radiology Technology (AAS) & Bible/Theology'
+        'Respiratory Care (AAS) & Bible/Theology': 'Respiratory Care (AAS) & Bible/Theology'
+        'Secondary Education Undecided': 'Secondary Education Undecided'
+        'Secondary Education Bible (ASCI Certification)': 'Secondary Education Bible (ASCI Certification)'
+        'Secondary Education Business': 'Secondary Education Business'
+        'Secondary Education English': 'Secondary Education English'
+        'Secondary Education Mathematics': 'Secondary Education Mathematics'
+        'Secondary Education Psychology & World History': 'Secondary Education Psychology & World History'
+        'Secondary Education World History': 'Secondary Education World History'
+        'Bible/Theology with 3+1 Transfer': 'Bible/Theology with 3+1 Transfer'
+      '#states':
+        visible:
+          ':input[name="i_want_to_pursue_a_"]':
+            value: 'Bachelor Degree (4 years)'
+    which_program_are_you_interested_in_:
+      '#type': select
+      '#title': 'Which program are you interested in?'
+      '#options':
+        Undecided: Undecided
+        'Applied Mathematics': 'Applied Mathematics'
+        Bible/Theology: Bible/Theology
+        Business: Business
+        'Computer Studies': 'Computer Studies'
+        'Counseling Psychology': 'Counseling Psychology'
+        'Educational Ministries': 'Educational Ministries'
+        'General Studies': 'General Studies'
+        'Health Sciences': 'Health Sciences'
+        'Intercultural Studies': 'Intercultural Studies'
+        Music: Music
+        'Teacher Education': 'Teacher Education'
+        '3+1 Transfer': '3+1 Transfer'
+      '#states':
+        visible:
+          ':input[name="i_want_to_pursue_a_"]':
+            value: Undecided
+    which_biblical_studies_track_do_you_want_to_pursue_:
+      '#type': select
+      '#title': 'Which Biblical Studies track do you want to pursue?'
+      '#options':
+        Undecided: Undecided
+        'Biblical Exegesis': 'Biblical Exegesis'
+        'English Bible': 'English Bible'
+        Ministry: Ministry
+        'New Testament': 'New Testament'
+        'Old Testament': 'Old Testament'
+        Theology: Theology
+      '#states':
+        visible:
+          ':input[name="which_bachelor_degree_to_you_plan_to_pursue_"]':
+            value: 'Biblical Studies '
+    are_you_planning_on_taking_courses_for_credit_or_audit_:
+      '#type': radios
+      '#title': 'Are you planning on taking courses for credit or audit?'
+      '#options':
+        Credit: Credit
+        Audit: Audit
+      '#options_display': side_by_side
+      '#states':
+        visible:
+          ':input[name="i_am_applying_"]':
+            value: 'as a non-degree seeking or casual student'
+    minor_course_load:
+      '#type': webform_flexbox
+      do_you_plan_on_taking_a_minor_:
+        '#type': select
+        '#title': 'Do you plan on taking a minor?'
+        '#options':
+          None: None
+          Undecided: Undecided
+          'Minor in Archaeology': 'Minor in Archaeology'
+          'Minor in Biblical Languages': 'Minor in Biblical Languages'
+          'Minor in Business': 'Minor in Business'
+          'Minor in Certified Financial Planning (CFP)': 'Minor in Certified Financial Planning (CFP)'
+          'Minor in Church Planting and Revitalization': 'Minor in Church Planting and Revitalization'
+          'Minor in Computer Applications in Ministry': 'Minor in Computer Applications in Ministry'
+          'Minor in Counseling': 'Minor in Counseling'
+          'Minor in Digital Marketing': 'Minor in Digital Marketing'
+          'Minor in History': 'Minor in History'
+          'Minor in Intercultural Studies': 'Minor in Intercultural Studies'
+          'Minor in Mathematics': 'Minor in Mathematics'
+          'Minor in Music': 'Minor in Music'
+          'Minor in Music Ministry': 'Minor in Music Ministry'
+          'Minor in Pastoral Ministry': 'Minor in Pastoral Ministry'
+          'Minor in TESOL': 'Minor in TESOL'
+          'Minor in Youth Ministries': 'Minor in Youth Ministries'
+        '#states':
+          visible:
+            - ':input[name="i_am_applying_"]':
+                value: 'as a traditional degree seeking student (for the first time on the Emmaus campus)'
+            - or
+            - ':input[name="i_am_applying_"]':
+                value: 'for re-enrollment (as a student who has previously attended Emmaus on campus)'
+            - or
+            - ':input[name="i_am_applying_"]':
+                value: 'as an international student'
+      what_is_your_intended_course_load_:
+        '#type': select
+        '#title': 'What is your intended course load?'
+        '#description': '<em>Students living in the dorms must take a minimum of 12 credits.</em>'
+        '#options':
+          'Full-Time (12 semester credit hours or more)': 'Full-Time (12 semester credit hours or more)'
+          'Part-Time (1-11 semester credit hours)': 'Part-Time (1-11 semester credit hours)'
+        '#states':
+          visible:
+            - ':input[name="i_am_applying_"]':
+                value: 'as a traditional degree seeking student (for the first time on the Emmaus campus)'
+            - or
+            - ':input[name="i_am_applying_"]':
+                value: 'for re-enrollment (as a student who has previously attended Emmaus on campus)'
+            - or
+            - ':input[name="i_am_applying_"]':
+                value: 'as an international student'
+    are_you_interested_in_playing_one_of_the_following_sports_on_an_:
+      '#type': checkboxes
+      '#title': 'Are you interested in playing one of the following sports on an inter-collegiate level (against other colleges and universities)?'
+      '#options':
+        Basketball: Basketball
+        Cross-Country: Cross-Country
+        'Men''s Soccer': 'Men''s Soccer'
+        'Women''s Volleyball': 'Women''s Volleyball'
+      '#options_display': two_columns
+      '#states':
+        visible:
+          - ':input[name="i_am_applying_"]':
+              value: 'as a traditional degree seeking student (for the first time on the Emmaus campus)'
+          - or
+          - ':input[name="i_am_applying_"]':
+              value: 'for re-enrollment (as a student who has previously attended Emmaus on campus)'
+          - or
+          - ':input[name="i_am_applying_"]':
+              value: 'as an international student'
+    do_you_have_any_interest_in_being_involved_with_music_while_atte:
+      '#type': checkboxes
+      '#title': 'Do you have any interest in being involved with music while attending Emmaus?'
+      '#options':
+        'Choral ensembles': 'Choral ensembles'
+        'Instrumental ensembles (via partnerships with other colleges/community groups)': 'Instrumental ensembles (via partnerships with other colleges/community groups)'
+        'Vocal or instrumental lessons': 'Vocal or instrumental lessons'
+        'Pianist/accompanist for choirs, soloists, or small groups': 'Pianist/accompanist for choirs, soloists, or small groups'
+        'Instrumental music in collaboration with choral concerts': 'Instrumental music in collaboration with choral concerts'
+        'Chapel music teams': 'Chapel music teams'
+      '#options_none': true
+      '#states':
+        visible:
+          - ':input[name="i_am_applying_"]':
+              value: 'as a traditional degree seeking student (for the first time on the Emmaus campus)'
+          - or
+          - ':input[name="i_am_applying_"]':
+              value: 'for re-enrollment (as a student who has previously attended Emmaus on campus)'
+          - or
+          - ':input[name="i_am_applying_"]':
+              value: 'as an international student'
+    music_questions:
+      '#type': webform_flexbox
+      please_note_the_instrument_s_of_interest_:
+        '#type': textfield
+        '#title': 'Please note the instrument(s) of interest:'
+        '#description': '<em>Availability of lessons for instruments other than piano may vary.</em>'
+        '#states':
+          visible:
+            ':input[name="do_you_have_any_interest_in_being_involved_with_music_while_atte[Vocal or instrumental lessons]"]':
+              checked: true
+      please_specify_the_instrument_s_you_would_play_in_collaboration_:
+        '#type': textfield
+        '#title': 'Please specify the instrument(s) you would play in collaboration with choral concerts.'
+        '#states':
+          visible:
+            ':input[name="do_you_have_any_interest_in_being_involved_with_music_while_atte[Instrumental music in collaboration with choral concerts]"]':
+              checked: true
+    lead_source_questions:
+      '#type': webform_flexbox
+      how_did_you_first_hear_about_emmaus_:
+        '#type': textarea
+        '#title': 'How did you first hear about Emmaus?'
+        '#states':
+          visible:
+            ':input[name="i_am_applying_"]':
+              '!value': 'for re-enrollment (as a student who has previously attended Emmaus on campus)'
+      what_who_most_influenced_you_to_apply_:
+        '#type': textarea
+        '#title': 'What/Who most influenced you to apply?'
+        '#states':
+          visible:
+            ':input[name="i_am_applying_"]':
+              '!value': 'for re-enrollment (as a student who has previously attended Emmaus on campus)'
+    previous_attendance:
+      '#type': webform_flexbox
+      have_you_previously_attended_emmaus_:
+        '#type': radios
+        '#title': 'Have you previously attended Emmaus?'
+        '#options': yes_no
+        '#states':
+          visible:
+            - ':input[name="i_am_applying_"]':
+                value: 'as a traditional degree seeking student (for the first time on the Emmaus campus)'
+            - or
+            - ':input[name="i_am_applying_"]':
+                value: 'as an international student'
+      when_did_you_previously_attend_emmaus_:
+        '#type': date
+        '#title': 'When did you previously attend Emmaus?'
+        '#states':
+          visible:
+            - ':input[name="i_am_applying_"]':
+                value: 'for re-enrollment (as a student who has previously attended Emmaus on campus)'
+            - or
+            - ':input[name="have_you_previously_attended_emmaus_"]':
+                value: 'Yes'
+    housing_information:
+      '#type': webform_section
+      '#title': 'Housing Information'
+      '#states':
+        visible:
+          - ':input[name="i_am_applying_"]':
+              value: 'as a traditional degree seeking student (for the first time on the Emmaus campus)'
+          - or
+          - ':input[name="i_am_applying_"]':
+              value: 'for re-enrollment (as a student who has previously attended Emmaus on campus)'
+          - or
+          - ':input[name="i_am_applying_"]':
+              value: 'as an international student'
+      housing_details:
+        '#type': processed_text
+        '#display_on': both
+        '#text': |
+          <p>All full-time unmarried students under the age of 24 upon enrollment are required to live&nbsp;on campus&nbsp;unless they are&nbsp;living with parents, grandparents, legal guardians, or have a dependent living with them.</p>
+
+          <p>Unmarried students who are 26 or older are encouraged to find their own housing off campus, but on campus housing may be available.</p>
+
+          <p>Married student housing is not available on campus.&nbsp;</p>
+        '#format': basic_html
+      are_you_planning_on_living_in_the_student_dorm_:
+        '#type': radios
+        '#title': 'Are you planning on living in the student dorm?'
+        '#options': yes_no
+        '#options_display': side_by_side
+  family_information:
+    '#type': webform_wizard_page
+    '#title': 'Family Information'
+    '#open': true
+    '#states':
+      invisible:
+        - ':input[name="i_am_applying_"]':
+            value: 'as a non-degree seeking or casual student'
+        - or
+        - ':input[name="i_am_applying_"]':
+            value: 'as a licensed teacher seeking an additional teacher ed endorsement'
+    '#prev_button_label': Back
+    '#next_button_label': Next
+    family_info_heading:
+      '#type': processed_text
+      '#display_on': both
+      '#text': |
+        <h2>Family Information</h2>
+      '#format': basic_html
+    parent_guardian_1_name:
+      '#type': webform_name
+      '#title': 'Parent/Guardian 1 Name'
+      '#title_display': before
+      '#title__access': false
+      '#middle__access': false
+      '#suffix__access': false
+      '#degree__access': false
+      '#flexbox': '1'
+    parent_one_phone_email:
+      '#type': webform_flexbox
+      parent_guardian_1_phone:
+        '#type': webform_telephone
+        '#title': 'Parent/Guardian 1 Phone'
+        '#ext__access': false
+        '#phone__international_initial_country': US
+      parent_guardian_1_email:
+        '#type': email
+        '#title': 'Parent/Guardian 1 Email'
+    is_this_parent_s_address_the_same_as_your_current_address_:
+      '#type': radios
+      '#title': 'Is this parent/guardian''s address the same as your current address?'
+      '#options': yes_no
+      '#options_display': side_by_side
+    parent_guardian_1_address:
+      '#type': webform_address
+      '#title': 'Parent/Guardian 1 Address'
+      '#title_display': before
+      '#states':
+        visible:
+          ':input[name="is_this_parent_s_address_the_same_as_your_current_address_"]':
+            value: 'No'
+      '#flexbox': '1'
+    parent_guardian_2_name:
+      '#type': webform_name
+      '#title': 'Parent/Guardian 2 Name'
+      '#title_display': before
+      '#title__access': false
+      '#middle__access': false
+      '#suffix__access': false
+      '#degree__access': false
+      '#flexbox': '1'
+    parent_two_phone_email:
+      '#type': webform_flexbox
+      parent_guardian_2_phone:
+        '#type': webform_telephone
+        '#title': 'Parent/Guardian 2 Phone'
+        '#ext__access': false
+        '#phone__international_initial_country': US
+      parent_guardian_2_email:
+        '#type': email
+        '#title': 'Parent/Guardian 2 Email'
+    parent_2_address_questions:
+      '#type': webform_flexbox
+      is_this_parent_guardian_s_address_the_same_as_your_current_addre:
+        '#type': radios
+        '#title': 'Is this parent/guardian''s address the same as your current address?'
+        '#options': yes_no
+        '#options_display': side_by_side
+      is_this_parent_guardian_s_address_the_same_as_what_is_listed_abo:
+        '#type': radios
+        '#title': 'Is this parent/guardian''s address the same as what is listed above for Parent/Guardian 1?'
+        '#options': yes_no
+        '#options_display': side_by_side
+    parent_guardian_2_address:
+      '#type': webform_address
+      '#title': 'Parent/Guardian 2 Address'
+      '#title_display': before
+      '#states':
+        visible:
+          ':input[name="is_this_parent_guardian_s_address_the_same_as_your_current_addre"]':
+            value: 'No'
+          ':input[name="is_this_parent_guardian_s_address_the_same_as_what_is_listed_abo"]':
+            value: 'No'
+      '#flexbox': '1'
+    siblings:
+      '#type': webform_custom_composite
+      '#title': Siblings
+      '#title_display': invisible
+      '#multiple__header_label': Siblings
+      '#multiple__item_label': Sibling
+      '#multiple__add_more_input_label': 'more sibling(s)'
+      '#element':
+        sibling_name:
+          '#type': textfield
+          '#title': 'Sibling Name'
+          '#placeholder': 'Sibling Name'
+        birth_date:
+          '#type': date
+          '#title': 'Birth Date'
+          '#placeholder': 'Birth Date'
+  educational_information:
+    '#type': webform_wizard_page
+    '#title': 'Educational Information'
+    '#states':
+      invisible:
+        - ':input[name="i_am_applying_"]':
+            value: 'as a licensed teacher seeking an additional teacher ed endorsement'
+        - or
+        - ':input[name="i_am_applying_"]':
+            value: 'as a non-degree seeking or casual student'
+    '#prev_button_label': Back
+    '#next_button_label': Next
+    educational_info_heading:
+      '#type': processed_text
+      '#display_on': both
+      '#text': |
+        <h2>Educational Information</h2>
+      '#format': basic_html
+    high_school_name_type:
+      '#type': webform_flexbox
+      high_school_type:
+        '#type': webform_select_other
+        '#title': 'High School Type'
+        '#options':
+          Homeschool: Homeschool
+          'Private Christian': 'Private Christian'
+          'Private Non-Christian': 'Private Non-Christian'
+          'Public School': 'Public School'
+        '#required': true
+      name_of_high_school:
+        '#type': textfield
+        '#title': 'Name of High School'
+    hs_gpa_grad_date:
+      '#type': webform_flexbox
+      high_school_gpa:
+        '#type': textfield
+        '#title': 'High School GPA'
+        '#description': '<em>Must be at least through your junior year. (Unless applying as a JumpStart student.)</em>'
+        '#input_mask': '9.9'
+        '#required': true
+      date_of_graduation_or_ged_completion:
+        '#type': date
+        '#title': 'Date of Graduation or GED Completion'
+        '#description': '<em>Please put your anticipated date if you have not yet graduated.</em>'
+        '#required': true
+    are_you_currently_attending_or_have_you_previously_attended_a_co:
+      '#type': radios
+      '#title': 'Are you currently attending or have you previously attended a college or university (either while in high school or after high school graduation)?'
+      '#options': yes_no
+      '#options_display': side_by_side
+      '#states':
+        visible:
+          ':input[name="i_am_applying_"]':
+            '!value': 'as a Jump Start student (dual enrollment: taking college course while in high school)'
+    have_you_attended_any_other_colleges_while_in_high_school_:
+      '#type': radios
+      '#title': 'Have you attended any other colleges while in high school?'
+      '#options': yes_no
+      '#options_display': side_by_side
+      '#states':
+        visible:
+          ':input[name="i_am_applying_"]':
+            value: 'as a Jump Start student (dual enrollment: taking college course while in high school)'
+    colleges_attended_jump_start_student:
+      '#type': webform_custom_composite
+      '#title': 'Colleges Attended - Jump Start Student'
+      '#title_display': invisible
+      '#states':
+        visible:
+          ':input[name="have_you_attended_any_other_colleges_while_in_high_school_"]':
+            value: 'Yes'
+      '#multiple__header_label': 'Colleges Attended'
+      '#multiple__item_label': Institution
+      '#multiple__add_more_input_label': 'more institution(s)'
+      '#element':
+        institution:
+          '#type': textfield
+          '#title': Institution
+          '#placeholder': Institution
+        dates_attended:
+          '#type': textfield
+          '#title': 'Dates Attended'
+          '#placeholder': 'Dates Attended'
+        number_credits:
+          '#type': number
+          '#title': 'Number of Credits Earned'
+          '#placeholder': 'Number of Credits Earned'
+    colleges_attended:
+      '#type': webform_custom_composite
+      '#title': 'Colleges Attended'
+      '#title_display': invisible
+      '#states':
+        visible:
+          ':input[name="are_you_currently_attending_or_have_you_previously_attended_a_co"]':
+            value: 'Yes'
+      '#multiple__header_label': 'Colleges Attended'
+      '#multiple__item_label': Institution
+      '#multiple__add_more_input_label': 'more institution(s)'
+      '#element':
+        institution:
+          '#type': textfield
+          '#title': Institution
+          '#placeholder': Institution
+        dates_attended:
+          '#type': textfield
+          '#title': 'Dates Attended'
+          '#placeholder': 'Dates Attended'
+        attended_prior_hs:
+          '#type': radios
+          '#options': yes_no
+          '#title': 'Attended prior to High School graduation?'
+        number_credits:
+          '#type': number
+          '#title': 'Semester Credit Hours Earned'
+          '#placeholder': 'Semester Credit Hours Earned'
+        cumulative_gpa:
+          '#type': textfield
+          '#title': 'Cumulative GPA'
+          '#placeholder': 'Cumulative GPA'
+        taking_future_credits:
+          '#type': radios
+          '#options': yes_no
+          '#title': 'Are you taking or will you be taking any additional credit hours before enrolling at Emmaus?'
+        current_future_credits:
+          '#type': number
+          '#title': 'Current and/or Future Semester Credit Hours'
+          '#placeholder': 'Current and/or Future Semester Credit Hours'
+    previous_degrees:
+      '#type': webform_flexbox
+      '#states':
+        visible:
+          ':input[name="i_am_applying_"]':
+            '!value': 'as a Jump Start student (dual enrollment: taking college course while in high school)'
+      have_you_earned_a_degree_from_any_college_or_university_:
+        '#type': radios
+        '#title': 'Have you earned a degree from any college or university?'
+        '#options': yes_no
+        '#options_display': two_columns
+      list_degree_:
+        '#type': textfield
+        '#title': 'List degree:'
+        '#states':
+          visible:
+            ':input[name="have_you_earned_a_degree_from_any_college_or_university_"]':
+              value: 'Yes'
+    ap_tests:
+      '#type': webform_flexbox
+      '#states':
+        visible:
+          - ':input[name="i_am_applying_"]':
+              value: 'as a traditional degree seeking student (for the first time on the Emmaus campus)'
+          - or
+          - ':input[name="i_am_applying_"]':
+              value: 'as an international student'
+          - or
+          - ':input[name="i_am_applying_"]':
+              value: 'as a Jump Start student (dual enrollment: taking college course while in high school)'
+      have_you_taken_any_advanced_placement_tests_in_high_school_:
+        '#type': radios
+        '#title': 'Have you taken any Advanced Placement tests in High School?'
+        '#options': yes_no
+        '#options_display': two_columns
+      which_advanced_placement_tests_have_you_taken_:
+        '#type': textarea
+        '#title': 'Which Advanced Placement tests have you taken?'
+        '#states':
+          visible:
+            ':input[name="have_you_taken_any_advanced_placement_tests_in_high_school_"]':
+              value: 'Yes'
+    previous_applied:
+      '#type': webform_flexbox
+      '#states':
+        visible:
+          ':input[name="i_am_applying_"]':
+            '!value': 'for re-enrollment (as a student who has previously attended Emmaus on campus)'
+      have_you_previously_applied_to_emmaus_:
+        '#type': radios
+        '#title': 'Have you previously applied to Emmaus?'
+        '#options': yes_no
+        '#options_display': two_columns
+      when_did_you_previously_apply_:
+        '#type': textfield
+        '#title': 'When did you previously apply?'
+        '#states':
+          visible:
+            ':input[name="have_you_previously_applied_to_emmaus_"]':
+              value: 'Yes'
+    previous_attended:
+      '#type': webform_flexbox
+      '#states':
+        visible:
+          ':input[name="i_am_applying_"]':
+            '!value': 'for re-enrollment (as a student who has previously attended Emmaus on campus)'
+      have_you_previously_attended_emmaus_bible_college_:
+        '#type': radios
+        '#title': 'Have you previously attended Emmaus Bible College?'
+        '#options': yes_no
+        '#options_display': two_columns
+      when_did_you_attend_:
+        '#type': textfield
+        '#title': 'When did you attend?'
+        '#states':
+          visible:
+            ':input[name="have_you_previously_attended_emmaus_bible_college_"]':
+              value: 'Yes'
+    have_you_submitted_or_plan_to_submit_an_application_to_any_other:
+      '#type': radios
+      '#title': 'Have you submitted or plan to submit an application to any other school or college?'
+      '#options': yes_no
+      '#options_display': two_columns
+    college_or_school_applications:
+      '#type': webform_custom_composite
+      '#title': 'College or School Applications'
+      '#title_display': invisible
+      '#states':
+        visible:
+          ':input[name="have_you_submitted_or_plan_to_submit_an_application_to_any_other"]':
+            value: 'Yes'
+      '#multiple__header_label': 'College or School Applications'
+      '#multiple__item_label': School
+      '#multiple__add_more_input_label': 'more school(s)'
+      '#element':
+        name_of_school:
+          '#type': textfield
+          '#title': 'Name of School'
+          '#placeholder': 'Name of School'
+        school_location:
+          '#type': textfield
+          '#title': 'Location of School'
+          '#placeholder': 'Location of School'
+    which_standardized_tests_have_you_taken_:
+      '#type': checkboxes
+      '#title': 'Which standardized tests have you taken?'
+      '#options':
+        ACT: ACT
+        SAT: SAT
+        CLT: CLT
+      '#options_none': true
+      '#states':
+        visible:
+          - ':input[name="i_am_applying_"]':
+              value: 'as a traditional degree seeking student (for the first time on the Emmaus campus)'
+          - or
+          - ':input[name="i_am_applying_"]':
+              value: 'as an international student'
+    standardized_tests:
+      '#type': webform_flexbox
+      act_composite_score:
+        '#type': number
+        '#title': 'ACT Composite Score'
+        '#states':
+          visible:
+            ':input[name="which_standardized_tests_have_you_taken_[ACT]"]':
+              checked: true
+      sat_composite_score:
+        '#type': number
+        '#title': 'SAT Composite Score'
+        '#description': '<em>(excluding writing component)</em>'
+        '#states':
+          visible:
+            ':input[name="which_standardized_tests_have_you_taken_[SAT]"]':
+              checked: true
+      clt_composite_score:
+        '#type': number
+        '#title': 'CLT Composite Score'
+        '#states':
+          visible:
+            ':input[name="which_standardized_tests_have_you_taken_[CLT]"]':
+              checked: true
+  personal_statement:
+    '#type': webform_wizard_page
+    '#title': 'Personal Statement'
+    '#open': true
+    '#prev_button_label': Back
+    personal_statement_heading:
+      '#type': processed_text
+      '#display_on': both
+      '#text': |
+        <h2>Personal Statement</h2>
+
+        <p><em>Please complete this section thoroughly and thoughtfully.</em></p>
+      '#format': basic_html
+    please_describe_when_and_how_you_came_to_faith_in_christ_include:
+      '#type': textarea
+      '#title': 'Please describe when and how you came to faith in Christ. Include in your testimony scripture references that relate to your salvation.'
+      '#required': true
+    approximate_date_of_salvation_if_known_:
+      '#type': textfield
+      '#title': 'Approximate Date of Salvation (if known):'
+    please_describe_experiences_and_or_people_that_have_contributed_:
+      '#type': textarea
+      '#title': 'Please describe experiences and/or people that have contributed to your spiritual growth, including your involvement and service in your local church and other Christian ministries.'
+      '#required': true
+      '#states':
+        visible:
+          ':input[name="i_am_applying_"]':
+            '!value': 'as a licensed teacher seeking an additional teacher ed endorsement'
+    church_info_heading:
+      '#type': processed_text
+      '#display_on': both
+      '#text': |
+        <h2>Church Information</h2>
+      '#format': basic_html
+    church_details:
+      '#type': webform_flexbox
+      name_of_church_you_attend_:
+        '#type': textfield
+        '#title': 'Name of church you attend:'
+      church_denomination_affiliation:
+        '#type': webform_select_other
+        '#title': 'Church Denomination/Affiliation'
+        '#options':
+          'Assembly (Plymouth Brethren)': 'Assembly (Plymouth Brethren)'
+          'Assembly of God': 'Assembly of God'
+          Baptist: Baptist
+          Catholic: Catholic
+          'Christian Missionary Alliance': 'Christian Missionary Alliance'
+          'Church of Christ': 'Church of Christ'
+          'Evangelical Free': 'Evangelical Free'
+          'Foursquare Gospel': 'Foursquare Gospel'
+          IFCA: IFCA
+          Lutheran: Lutheran
+          Mennonite: Mennonite
+          Methodist: Methodist
+          Non-Denominational: Non-Denominational
+          Pentecostal: Pentecostal
+          Presbyterian: Presbyterian
+          Reformed: Reformed
+          Wesleyan: Wesleyan
+          Unknown: Unknown
+        '#required': true
+    reference_information:
+      '#type': webform_section
+      '#title': 'Reference Information'
+      '#description': '<em>Emmaus requires a reference from a leader of your local church (elder, youth leader, pastor, Sunday School teacher, etc.). Do not have a member of your family complete the reference. You may either print the reference form (to be mailed upon completion), or you may have the form emailed to your reference (to be submitted electronically).</em>'
+      '#states':
+        visible:
+          ':input[name="i_am_applying_"]':
+            '!value': 'as a licensed teacher seeking an additional teacher ed endorsement'
+      reference_details:
+        '#type': webform_flexbox
+        would_you_like_to_print_the_reference_form_or_have_it_emailed_to:
+          '#type': radios
+          '#title': 'Would you like to print the reference form or have it emailed to your church leader?'
+          '#options':
+            Print: Print
+            Email: Email
+        reference_email:
+          '#type': email
+          '#title': 'Reference Email'
+          '#states':
+            visible:
+              ':input[name="would_you_like_to_print_the_reference_form_or_have_it_emailed_to"]':
+                value: Email
+      download_reference:
+        '#type': processed_text
+        '#display_on': both
+        '#text': |
+          <p><a data-mce-href="http://www.emmaus.edu/sites/default/files/emmausreferenceform_2017.pdf" href="http://www.emmaus.edu/sites/default/files/emmausreferenceform_2017.pdf" target="_blank">Click here to download and print the reference form.</a></p>
+        '#format': basic_html
+    certification_heading:
+      '#type': processed_text
+      '#display_on': both
+      '#text': |
+        <h2>Certification</h2>
+      '#format': basic_html
+    probation_suspension:
+      '#type': webform_flexbox
+      have_you_ever_been_put_on_academic_probation_in_any_postsecondar:
+        '#type': radios
+        '#title': 'Have you ever been put on academic probation in any postsecondary school?'
+        '#options': yes_no
+        '#options_display': two_columns
+        '#required': true
+      have_you_ever_dropped_out_of_been_suspended_from_or_been_expelle:
+        '#type': radios
+        '#title': 'Have you ever dropped out of, been suspended from, or been expelled from any school?'
+        '#options': yes_no
+        '#options_display': two_columns
+    list_the_name_of_the_school_s_reasons_for_probation_and_dates_:
+      '#type': textarea
+      '#title': 'List the name of the school(s), reasons for probation and dates:'
+      '#states':
+        visible:
+          ':input[name="have_you_ever_been_put_on_academic_probation_in_any_postsecondar"]':
+            value: 'Yes'
+    please_explain_your_reason_for_dropping_out_your_suspension_or_y:
+      '#type': textarea
+      '#title': 'Please explain your reason for dropping out, your suspension, or your expulsion.'
+      '#states':
+        visible:
+          ':input[name="have_you_ever_dropped_out_of_been_suspended_from_or_been_expelle"]':
+            value: 'Yes'
+    lifestyle_commitment:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="i_am_applying_"]':
+            '!value': 'as a licensed teacher seeking an additional teacher ed endorsement'
+      '#display_on': both
+      '#text': |
+        <p>By submitting this application, I certify that the information on this application is complete and correct, and I understand that the submission of false information is grounds for denial of my application, withdrawal of any offer of acceptance, cancellation of enrollment or any appropriate disciplinary action. I authorize the college to verify the information I have provided with all the schools I have attended. I agree to notify the proper officials of the institution of any changes in the information provided. I also waive my right of access to admission letters of recommendation.</p>
+
+        <p>I am also certifying that I have read the&nbsp;<a data-mce-href="https://emmaus.edu/sites/default/files/faith_and_lifestyle_commitment_2018.pdf" href="https://emmaus.edu/sites/default/files/faith_and_lifestyle_commitment_2018.pdf" target="_blank">Lifestyle Covenant</a>&nbsp;of Emmaus Bible College and upon admission and subsequent enrollment to the College, I will gladly adhere to its guidelines and standards.</p>
+      '#format': basic_html
+    non_trad_lifestyle_commitment:
+      '#type': processed_text
+      '#states':
+        visible:
+          ':input[name="i_am_applying_"]':
+            value: 'as a licensed teacher seeking an additional teacher ed endorsement'
+      '#display_on': both
+      '#text': |
+        <p>By submitting this application, I certify that the information on this application is complete and correct, and I understand that the submission of false information is grounds for denial of my application, withdrawal of any offer of acceptance, cancellation of enrollment or any appropriate disciplinary action. I authorize the college to verify the information I have provided with all the schools I have attended. I agree to notify the proper officials of the institution of any changes in the information provided. I also waive my right of access to admission letters of recommendation.</p>
+
+        <p>I am also certifying that I have read the&nbsp;<a data-mce-href="https://emmaus.edu/sites/default/files/faith_and_lifestyle_commitment_2018.pdf" href="https://emmaus.edu/sites/default/files/faith_and_lifestyle_commitment_2018.pdf" target="_blank">Lifestyle Covenant</a>&nbsp;of Emmaus Bible College and upon admission and subsequent enrollment to the College, I will gladly adhere to its guidelines and standards.</p>
+      '#format': basic_html
+    certification_name:
+      '#type': webform_name
+      '#title': 'Certification Name'
+      '#title__access': false
+      '#first__title': 'First Name'
+      '#middle__access': false
+      '#last__title': 'Last Name'
+      '#suffix__access': false
+      '#degree__access': false
+      '#flexbox': '1'
+      '#required': true
+    signature_date:
+      '#type': webform_flexbox
+      signature:
+        '#type': webform_signature
+        '#title': Signature
+        '#description': ''
+        '#required': true
+      certification_date:
+        '#type': date
+        '#title': 'Certification Date'
+        '#required': true
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: source_entity_webform
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_disable_remote_addr: false
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: true
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: true
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  form_method: ''
+  form_action: ''
+  form_attributes: {  }
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: true
+  wizard_progress_states: false
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: name
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: true
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: all
+  draft_multiple: false
+  draft_auto_save: true
+  draft_saved_message: '<p>Submission saved. You may return to this form later and it will restore the current values.</p>'
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: page
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: draft
+  purge_days: 365
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+  token_delete: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

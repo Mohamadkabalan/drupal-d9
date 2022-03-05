@@ -1,0 +1,24 @@
+global-styling:
+  version: VERSION
+  css:
+    theme:
+      css/mlpushmenu.css: {}
+      css/style.css: {}
+  js:
+    js/modernizr.custom.js: { }
+    js/classie.js: { }
+    js/mlpushmenu.js: { }
+    js/mobile.menu.js: { }
+    js/script.js: { }
+    js/slick/slick.min.js: { }
+  dependencies:
+    - core/jquery
+    - core/drupal.ajax
+    - core/jquery.ui
+    - core/jquery.ui.dialog
+    - core/jquery.once
+    - core/drupal.dialog
+    - core/system
+    - core/drupal
+    - core/drupalSettings
+    - core/drupal.dialog.ajax

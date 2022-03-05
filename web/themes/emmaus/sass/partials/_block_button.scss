@@ -1,0 +1,39 @@
+.block-button {
+
+  .field--name-field-button {
+    text-align: center;
+  }
+
+  &.large {
+    .field--name-field-button {
+      a {
+        font-size: rem-calc(16);
+        padding: 10px 20px;
+        @media (min-width: 64em) {
+          font-size: rem-calc(24);
+          padding: 20px 30px;
+        }
+      }
+    }
+  }
+
+  &.full_width {
+    .field--name-field-button {
+      a {
+        display: block;
+      }
+    }
+  }
+}
+
+.section-second-top .right-side {
+  .block-button {
+    .field--name-field-button {
+      margin-top: 10px;
+      @media (min-width: 64em) {
+        margin-top: 0;
+        text-align: right;
+      }
+    }
+  }
+}

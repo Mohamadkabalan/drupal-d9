@@ -1,0 +1,44 @@
+.block-type-document_list {
+
+  .block-title {
+    margin: 0;
+    text-align: left;
+    font-size: rem-calc(18px);
+    font-weight: bold;
+    padding: 30px;
+    color: $primary_dark;
+    background-color: #fbfbfb;
+
+    i {
+      border-radius: 50%;
+      border: 1px solid $primary_dark;
+      padding: 5px;
+      margin-right: 15px;
+    }
+  }
+
+  .field--name-field-items-unlimited {
+    & > .field__item {
+      & +  .field__item {
+        border-top: 1px solid $white;
+      }
+
+      a {
+        display: block;
+        background-color: $gray_light;
+        padding: 15px 30px;
+        color: $secondary;
+        transition: all 0.4s;
+        font-weight: bold;
+
+        i {
+          margin-right: 15px;
+        }
+
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+  }
+}

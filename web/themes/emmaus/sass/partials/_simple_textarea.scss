@@ -1,0 +1,20 @@
+.block-type-simple_textarea {
+
+  .field--name-body {
+    width: 100%;
+  }
+}
+
+.section-second-top .left-side {
+  .block-type-simple_textarea {
+    .field--name-body {
+      text-align: center;
+
+      @media (min-width: 64em) {
+        text-align: left;
+      }
+    }
+  }
+}
+
+

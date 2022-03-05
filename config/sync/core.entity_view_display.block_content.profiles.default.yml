@@ -1,0 +1,29 @@
+uuid: 9e57c2c3-60c3-48ff-ae61-c572e1fdce67
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.profiles
+    - field.field.block_content.profiles.field_include_email
+    - field.field.block_content.profiles.field_link_to_modal
+    - field.field.block_content.profiles.field_profiles
+    - field.field.block_content.profiles.field_show_overview
+id: block_content.profiles.default
+targetEntityType: block_content
+bundle: profiles
+mode: default
+content:
+  field_profiles:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  field_include_email: true
+  field_link_to_modal: true
+  field_show_overview: true
+  search_api_excerpt: true

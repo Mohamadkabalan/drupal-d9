@@ -1,0 +1,95 @@
+.block-type-card_grid {
+  max-width: $global-width;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+
+  .field--name-field-items-unlimited {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1rem;
+
+    & > .field__item {
+      margin-bottom: 1rem;
+      @include breakpoint(medium) {}
+    }
+
+    .paragraph--type--grid-item {
+      height: 100%;
+      background-color: $gray_lighter;
+      padding: 2rem;
+      display: flex;
+      border-radius: 0.5rem;
+      transition: all 200ms ease-in;
+
+      &:hover {
+        background-color: $gray_light;
+      }
+
+      .left-side {
+        margin-right: 1.25rem;
+        i {
+          width: 4rem;
+          height: 4rem;
+          text-align: center;
+          color: $white;
+          border-radius: 0.5rem;
+          background-color: $primary_dark;
+          line-height: 65px;
+          font-size: 30px;
+          overflow: hidden;
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: -35px;
+            left: -15px;
+            width: 150%;
+            background-color: rgba(255, 255, 255, 0.25);
+            height: 100%;
+            transform: rotate(-20deg);
+          }
+        }
+      }
+
+      .field--name-field-title {
+        font-size: 18px;
+        line-height: 24px;
+        position: relative;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        font-weight: bold;
+        color: $primary_dark;
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 1px;
+          background-color: $primary-light;
+          width: 125px;
+        }
+      }
+
+      .field--name-field-description {
+        color: $black;
+        margin-bottom: 1rem;
+        font-weight: 400;
+      }
+
+      .link {
+        display: flex;
+        a {
+          @extend .em-button;
+          padding: 0;
+
+          i {
+            margin-left: 0.5rem;
+          }
+
+        }
+      }
+    }
+  }
+}

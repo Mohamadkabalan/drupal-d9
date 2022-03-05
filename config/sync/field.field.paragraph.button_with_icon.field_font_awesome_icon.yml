@@ -1,0 +1,19 @@
+uuid: d60dfe19-1d86-47cf-a6ed-c4bd81be814f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_font_awesome_icon
+    - paragraphs.paragraphs_type.button_with_icon
+id: paragraph.button_with_icon.field_font_awesome_icon
+field_name: field_font_awesome_icon
+entity_type: paragraph
+bundle: button_with_icon
+label: 'Font awesome icon'
+description: 'Search for icons at https://fontawesome.com/icons. Then paste the style and name here, for example fas fa-star'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

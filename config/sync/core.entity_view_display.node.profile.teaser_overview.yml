@@ -1,0 +1,55 @@
+uuid: 013075f4-93e9-41b6-babd-f9f4dbfd7944
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser_overview
+    - field.field.node.profile.body
+    - field.field.node.profile.field_content
+    - field.field.node.profile.field_email
+    - field.field.node.profile.field_image
+    - field.field.node.profile.field_subtitle
+    - node.type.profile
+  module:
+    - layout_builder
+    - media
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.profile.teaser_overview
+targetEntityType: node
+bundle: profile
+mode: teaser_overview
+content:
+  field_content:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: media_thumbnail
+    region: content
+  field_subtitle:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  body: true
+  field_email: true
+  links: true
+  search_api_excerpt: true

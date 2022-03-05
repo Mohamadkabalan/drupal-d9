@@ -1,0 +1,24 @@
+uuid: a04b16c4-949e-40cb-9488-1de80a7e0bf0
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.site_settings
+  module:
+    - views
+  theme:
+    - emmaus
+id: views_block__site_settings_social_links
+theme: emmaus
+region: footer_right
+weight: -8
+provider: null
+plugin: 'views_block:site_settings-social_links'
+settings:
+  id: 'views_block:site_settings-social_links'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility: {  }

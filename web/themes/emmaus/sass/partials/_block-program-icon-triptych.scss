@@ -1,0 +1,157 @@
+.block-type-program_icon_triptych {
+  padding: 2.5rem 0;
+
+  .field--name-field-items {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    &::before, &::after {
+      content: '';
+      height: 4px;
+      width: 100px;
+      background: $secondary;
+      position: absolute;
+      left: calc(50% - 50px);
+    }
+    &::before {
+      top: calc(0% - 2.5rem);
+    }
+    &::after {
+      top: calc(100% + 2.5rem - 4px);
+    }
+    @include breakpoint(medium) {
+      flex-direction: row;
+      column-gap: 30px;
+      align-items: flex-start;
+    }
+
+    & > .field__item {
+      flex: 0 1 100%;
+      max-width: 300px;
+
+      & + .field__item {
+        margin-top: 30px;
+      }
+      @media only screen and (min-width: 48em) {
+        flex: 0 1 33.3%;
+        max-width: none;
+
+        & + .field__item {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+
+  .icon {
+    margin-bottom: 15px;
+    text-align: center;
+    color: $primary;
+    i {
+      font-size: rem-calc(48);
+    }
+  }
+  .field--name-field-subtitle {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: $primary;
+  }
+  .field--name-field-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: $black;
+  }
+
+  &.white_with_gold {
+    .icon {
+      color: $secondary;
+    }
+    .field--name-field-subtitle {
+      color: $secondary;
+    }
+    .field--name-field-title {
+      color: $black;
+    }
+    .field--name-field-items {
+      &::before, &::after {
+        background: $primary;
+      }
+    }
+  }
+
+  &.white_with_black {
+    .icon {
+      color: $black;
+    }
+    .field--name-field-subtitle {
+      color: $black;
+    }
+    .field--name-field-title {
+      color: $black;
+    }
+    .field--name-field-items {
+      &::before, &::after {
+        background: $secondary;
+      }
+    }
+  }
+
+  &.blue {
+    background: $primary;
+    .icon {
+      color: $primary-light;
+    }
+    .field--name-field-subtitle {
+      color: $primary-light;
+    }
+    .field--name-field-title {
+      color: $white;
+    }
+    .field--name-field-items {
+      &::before, &::after {
+        background: $primary-light;
+      }
+    }
+  }
+
+  &.gold {
+    background: $secondary;
+    .icon {
+      color: $secondary-lighter;
+    }
+    .field--name-field-subtitle {
+      color: $secondary-lighter;
+    }
+    .field--name-field-title {
+      color: $white;
+    }
+    .field--name-field-items {
+      &::before, &::after {
+        background: $secondary-light;
+      }
+    }
+  }
+
+  &.black {
+    background: $black;
+    .icon {
+      color: $secondary;
+    }
+    .field--name-field-subtitle {
+      color: $secondary;
+    }
+    .field--name-field-title {
+      color: $white;
+    }
+    .field--name-field-items {
+      &::before, &::after {
+        background: $primary;
+      }
+    }
+  }
+}

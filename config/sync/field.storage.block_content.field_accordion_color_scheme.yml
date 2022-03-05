@@ -1,0 +1,30 @@
+uuid: 7588850d-746f-4607-bbab-1837b83acb04
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_accordion_color_scheme
+field_name: field_accordion_color_scheme
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: white
+      label: White
+    -
+      value: blue
+      label: Blue
+    -
+      value: gold
+      label: Gold
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

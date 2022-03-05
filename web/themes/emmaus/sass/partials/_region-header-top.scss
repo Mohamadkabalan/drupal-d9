@@ -1,0 +1,33 @@
+.region-header-top {
+  background-color: $primary_dark;
+  display: none;
+  @media only screen and (min-width : 64em) {
+    display: block;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .block-menu {
+    ul {
+      margin: 0;
+
+      a {
+        font-size: rem-calc(14px);
+        font-weight: 700;
+        color: $white;
+        line-height: 24px;
+        display: block;
+        padding: 5px 10px;
+        transition: background-color 0.4s;
+
+        &:hover {
+          background-color: $primary_darker;
+        }
+      }
+    }
+  }
+}

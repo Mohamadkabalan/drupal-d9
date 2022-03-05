@@ -1,0 +1,15 @@
+uuid: 1216a0b7-edcf-42f7-9389-e51786ffc492
+langcode: en
+status: true
+dependencies: {  }
+name: 46x46
+label: 46x46
+effects:
+  511a8da9-804f-48a5-a725-f0c12c09f663:
+    uuid: 511a8da9-804f-48a5-a725-f0c12c09f663
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 46
+      height: 46
+      anchor: center-center

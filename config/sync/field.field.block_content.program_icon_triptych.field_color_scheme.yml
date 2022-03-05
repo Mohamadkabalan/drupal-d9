@@ -1,0 +1,23 @@
+uuid: 6d5e78fe-4015-4dc7-9ac2-428c911498f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.program_icon_triptych
+    - field.storage.block_content.field_color_scheme
+  module:
+    - options
+id: block_content.program_icon_triptych.field_color_scheme
+field_name: field_color_scheme
+entity_type: block_content
+bundle: program_icon_triptych
+label: 'Color Scheme'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: white_with_blue
+default_value_callback: ''
+settings: {  }
+field_type: list_string

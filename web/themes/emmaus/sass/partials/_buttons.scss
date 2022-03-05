@@ -1,0 +1,52 @@
+.em-button {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.25rem;
+    border: 2px solid transparent;
+    background: transparent;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 100ms ease-in;
+    color: $primary;
+    font-weight: 700;
+    i {
+        color: $primary;
+    }
+    &:hover, &:hover i {
+        background: transparent;
+        color: $primary-dark;
+    }
+    &--primary {
+        @extend .em-button;
+        background: $primary;
+        color: $white;
+        &:hover, &:hover i {
+            background: $primary-dark;
+        }
+    }
+    &--secondary {
+        @extend .em-button;
+        background: $secondary;
+        color: $white;
+        &:hover, &:hover i {
+            background: $secondary-dark;
+        }
+    }
+    &--black {
+        @extend .em-button;
+        background: $black;
+        color: $white;
+        &:hover, &:hover i {
+            background: $gray_darker;
+        }
+    }
+    &--white {
+        @extend .em-button;
+        background: $white;
+        color: $black;
+        &:hover, &:hover i {
+            background: $gray_lighter;
+        }
+    }
+}

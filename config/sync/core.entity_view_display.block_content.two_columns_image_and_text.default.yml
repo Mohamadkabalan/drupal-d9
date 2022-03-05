@@ -1,0 +1,83 @@
+uuid: 489f7e97-9c66-4574-aeb6-4132fec7e45b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.two_columns_image_and_text
+    - field.field.block_content.two_columns_image_and_text.body
+    - field.field.block_content.two_columns_image_and_text.field_button
+    - field.field.block_content.two_columns_image_and_text.field_color_scheme
+    - field.field.block_content.two_columns_image_and_text.field_font_awesome_icon
+    - field.field.block_content.two_columns_image_and_text.field_media
+    - field.field.block_content.two_columns_image_and_text.field_position
+    - field.field.block_content.two_columns_image_and_text.field_title
+  module:
+    - link
+    - media
+    - options
+    - text
+id: block_content.two_columns_image_and_text.default
+targetEntityType: block_content
+bundle: two_columns_image_and_text
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_button:
+    weight: 7
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_color_scheme:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_font_awesome_icon:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_media:
+    type: media_thumbnail
+    weight: 6
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+  field_position:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

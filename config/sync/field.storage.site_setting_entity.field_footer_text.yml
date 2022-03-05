@@ -1,0 +1,19 @@
+uuid: e64787de-8ae5-4191-abf3-36982b1ede61
+langcode: en
+status: true
+dependencies:
+  module:
+    - site_settings
+    - text
+id: site_setting_entity.field_footer_text
+field_name: field_footer_text
+entity_type: site_setting_entity
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

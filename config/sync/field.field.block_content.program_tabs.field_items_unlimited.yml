@@ -1,0 +1,76 @@
+uuid: 06b1ba03-0528-4a5c-8b9a-48308f4d5e17
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.program_tabs
+    - field.storage.block_content.field_items_unlimited
+    - paragraphs.paragraphs_type.program_tab
+  module:
+    - entity_reference_revisions
+id: block_content.program_tabs.field_items_unlimited
+field_name: field_items_unlimited
+entity_type: block_content
+bundle: program_tabs
+label: Items
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      program_tab: program_tab
+    target_bundles_drag_drop:
+      accordion:
+        weight: 17
+        enabled: false
+      accordion_item:
+        weight: 12
+        enabled: false
+      button_with_icon:
+        weight: 13
+        enabled: false
+      cta_homepage_hero:
+        weight: 14
+        enabled: false
+      document_list_item:
+        weight: 15
+        enabled: false
+      faq_item:
+        weight: 16
+        enabled: false
+      grid_item:
+        weight: 17
+        enabled: false
+      icon_and_title:
+        weight: 18
+        enabled: false
+      image_button_grid_item:
+        weight: 19
+        enabled: false
+      item:
+        weight: 20
+        enabled: false
+      program_tab:
+        enabled: true
+        weight: 27
+      simple_table:
+        weight: 28
+        enabled: false
+      simple_table_row:
+        weight: 29
+        enabled: false
+      tab_item:
+        weight: 21
+        enabled: false
+      testimonial:
+        weight: 22
+        enabled: false
+      textarea:
+        weight: 32
+        enabled: false
+field_type: entity_reference_revisions

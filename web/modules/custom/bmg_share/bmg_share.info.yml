@@ -1,0 +1,5 @@
+name: BMG Share
+type: module
+description: Custom block that outputs sahre links
+core_version_requirement: ^8.8 || ^9
+package: 'Devvly'

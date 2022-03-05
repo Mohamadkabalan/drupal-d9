@@ -1,0 +1,21 @@
+uuid: 3fd9dfc9-0e89-43a7-8d92-1f1a703ac275
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.simple_textarea
+    - field.storage.block_content.field_padding_right
+  module:
+    - options
+id: block_content.simple_textarea.field_padding_right
+field_name: field_padding_right
+entity_type: block_content
+bundle: simple_textarea
+label: 'Padding right'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

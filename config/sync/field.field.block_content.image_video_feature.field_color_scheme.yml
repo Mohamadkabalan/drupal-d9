@@ -1,0 +1,23 @@
+uuid: fa440ea8-832b-4423-a316-63b009014a09
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_video_feature
+    - field.storage.block_content.field_color_scheme
+  module:
+    - options
+id: block_content.image_video_feature.field_color_scheme
+field_name: field_color_scheme
+entity_type: block_content
+bundle: image_video_feature
+label: 'Color Scheme'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: white_with_blue
+default_value_callback: ''
+settings: {  }
+field_type: list_string

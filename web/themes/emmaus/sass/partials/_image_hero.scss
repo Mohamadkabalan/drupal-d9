@@ -1,0 +1,39 @@
+.image-hero {
+  padding: 90px 0 60px 0;
+  @media only screen and (min-width : 64em) {
+    padding: 160px 0 130px 0;
+  }
+
+  .block-title {
+    color: $white;
+    margin-bottom: 15px;
+  }
+
+  .field--name-field-text-subtitle {
+    text-align: center;
+    color: $white;
+  }
+
+  .field--name-field-button {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    @media only screen and (min-width : 48em) {
+      flex-direction: row;
+      margin-top: 45px;
+    }
+
+    & > .field__item {
+      & + .field__item {
+        margin-top: 20px;
+        @media only screen and (min-width : 48em) {
+          margin-top: 0;
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+}

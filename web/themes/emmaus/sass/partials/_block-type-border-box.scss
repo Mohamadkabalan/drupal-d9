@@ -1,0 +1,38 @@
+.block-type-border_box {
+    text-align: center;
+    padding: 3rem 0;
+    &__wrapper {
+        border: 1px solid $gray_light;
+        padding: 3rem 2rem;
+        @include breakpoint(medium) {
+            padding: 3rem;
+        }
+    }
+    &__icon {
+        position: relative;
+        display: inline-block;
+        &::before, &::after {
+            position: absolute;
+            content: '';
+            width: 90px;
+            height: 2px;
+            background: $gray;
+            top: calc(50% - 1px);
+        }
+        &::before {
+            right: calc(100% + 1.5rem);
+        }
+        &::after {
+            left: calc(100% + 1.5rem);
+        }
+        i {
+            font-size: 2rem;
+            color: $secondary;
+        }
+    }
+    .field--name-field-title {
+        font-size: 2rem;
+        color: $primary;
+        font-weight: 900;
+    }
+}

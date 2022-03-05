@@ -1,0 +1,25 @@
+uuid: 2dd7a876-f672-441d-8d1d-77cee5824a09
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.program_tabs
+    - field.field.block_content.program_tabs.field_items_unlimited
+  module:
+    - entity_reference_revisions
+id: block_content.program_tabs.default
+targetEntityType: block_content
+bundle: program_tabs
+mode: default
+content:
+  field_items_unlimited:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  search_api_excerpt: true

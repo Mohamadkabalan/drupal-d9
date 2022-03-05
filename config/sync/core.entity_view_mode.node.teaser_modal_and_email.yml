@@ -1,0 +1,10 @@
+uuid: 0d933740-ea7d-4a3a-a710-98c1b56a5d23
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.teaser_modal_and_email
+label: 'Teaser (modal and email)'
+targetEntityType: node
+cache: true

@@ -1,0 +1,19 @@
+uuid: f55755d2-d31b-4c60-9e92-41a88bf07c79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_font_awesome_icon
+    - paragraphs.paragraphs_type.grid_item
+id: paragraph.grid_item.field_font_awesome_icon
+field_name: field_font_awesome_icon
+entity_type: paragraph
+bundle: grid_item
+label: 'Font awesome icon'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

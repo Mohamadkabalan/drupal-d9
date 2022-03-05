@@ -1,0 +1,21 @@
+uuid: 6b5de345-3ab3-4a9d-8040-2731ab54d96f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.video
+    - field.storage.block_content.field_padding_bottom
+  module:
+    - options
+id: block_content.video.field_padding_bottom
+field_name: field_padding_bottom
+entity_type: block_content
+bundle: video
+label: 'Padding bottom'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

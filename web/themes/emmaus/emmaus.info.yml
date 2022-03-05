@@ -1,0 +1,28 @@
+name: "Emmaus D9"
+type: theme
+base theme: classy
+description: Devvly subtheme D9 Theme
+package: Core
+version: 1.0
+core_version_requirement: ^8 || ^9
+engine: twig
+screenshot: screenshot.png
+
+regions:
+  header_top: 'Header Top'
+  header: 'Header'
+  header_bottom: 'Header Bottom'
+  navigation: 'Navigation'
+  breadcrumb: 'Breadcrumb'
+  help: 'Help'
+  featured: 'Featured'
+  content: 'Content'
+  sidebar_first: 'Sidebar First'
+  sidebar_second: 'Sidebar Second'
+  footer_left: 'Footer Left'
+  footer_middle: 'Footer Middle'
+  footer_right: 'Footer Right'
+  footer_bottom: 'Footer Bottom'
+
+libraries:
+  - emmaus/global-styling

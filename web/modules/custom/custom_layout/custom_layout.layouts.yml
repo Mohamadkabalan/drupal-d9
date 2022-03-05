@@ -1,0 +1,90 @@
+custom_layout_one_column:
+  label: One Column
+  path: layouts/one_column
+  category: Custom Layouts
+  template: one-column
+  library: custom_layout/custom_layout
+  default_region: content
+  icon_map:
+    - [ first ]
+  regions:
+    content:
+      label: Content
+
+custom_layout_two_columns:
+  label: 'Two column'
+  path: layouts/two_columns
+  category: 'Custom Layouts'
+  template: two-columns
+  library: custom_layout/custom_layout
+  default_region: content
+  icon_map:
+    - [first, second]
+
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+
+custom_layout_three_columns:
+  label: 'Three Columns'
+  path: layouts/three_columns
+  category: 'Custom Layouts'
+  template: three-columns
+  library: custom_layout/custom_layout
+  default_region: content
+  icon_map:
+    - [first, second, third]
+
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+    third:
+      label: Third
+
+custom_layout_stacked_columns:
+  label: 'Stacked Columns'
+  path: layouts/stacked_columns
+  category: 'Custom Layouts'
+  template: stacked-columns
+  library: custom_layout/custom_layout
+  default_region: content
+  icon_map:
+    - [top]
+    - [first, second]
+    - [bottom]
+
+  regions:
+    top:
+      label: Top
+    first:
+      label: First
+    second:
+      label: Second
+    bottom:
+      label: Bottom
+
+custom_layout_columns_in_columns:
+  label: 'Columns in columns'
+  path: layouts/columns_in_columns
+  category: 'Custom Layouts'
+  template: columns-in-columns
+  library: custom_layout/custom_layout
+  default_region: content
+  icon_map:
+    - [sidebar, second_top_first, second_top_second]
+    - [sidebar, second_bottom, second_bottom]
+
+  regions:
+    first:
+      label: First
+    second_top_first:
+      label: Second top first
+    second_top_second:
+      label: Second top second
+    second_bottom:
+      label: Second bottom
+

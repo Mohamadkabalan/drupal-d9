@@ -1,0 +1,23 @@
+uuid: 27214cd3-0714-49f3-8390-0995c33271b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.programs_grid
+    - field.storage.block_content.field_link_unlimited
+  module:
+    - link
+id: block_content.programs_grid.field_link_unlimited
+field_name: field_link_unlimited
+entity_type: block_content
+bundle: programs_grid
+label: 'Link unlimited'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

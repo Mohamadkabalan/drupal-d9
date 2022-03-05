@@ -1,0 +1,21 @@
+.block-type-video {
+    .field--name-field-media-oembed-video {
+        overflow: hidden;
+        position: relative;
+        width:100%;
+    }
+    
+    .field--name-field-media-oembed-video::after {
+        padding-top: 56.25%;
+        display: block;
+        content: '';
+    }
+    
+    .field--name-field-media-oembed-video iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -1,0 +1,22 @@
+<?php 
+
+/**
+ * @file
+ * Add content classes to the views template
+ */
+function views_content_class_preprocess_views_view(&$variables) {
+  $view = $variables['view'];
+  // Get the current display.
+  $display = $view->getDisplay();
+  // And get the list of extenders for this display.
+  $extenders = $display->getExtenders();
+  // Check for a css_content_class
+  if(!empty($extenders['views_content_class']) && !empty($extenders['views_content_class']->options)) {
+    $css_content_class = $extenders['views_content_class']->options['css_content_class'];
+    if (!empty($css_content_class)) {
+      $variables['css_content_class'] = ' ' . preg_replace('/[^a-zA-Z0-9- ]/', '-', $css_content_class);
+    }
+  }
+}
+  
+?>

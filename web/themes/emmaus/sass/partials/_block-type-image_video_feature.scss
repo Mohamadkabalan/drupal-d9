@@ -1,0 +1,279 @@
+.block-type-audio_feature,
+.block-type-image_video_feature {
+  color: $black;
+  padding: 40px 0;
+  @include breakpoint(medium) {
+    padding: 80px 0;
+  }
+  .mejs__container {
+    background-color: $primary_dark;
+  }
+  .audiofield-player label {
+    color: $primary_darker;
+  }
+
+  .field--name-field-button {
+    .field__item {
+      a {
+        @extend .em-button--primary;
+      }
+    }
+  }
+
+  &.color-scheme-blue {
+    color: $white;
+    background: $primary_dark;
+
+    .field--name-field-text-subtitle {
+      color: $primary_light;
+    }
+    .field--name-field-title {
+      color: $white;
+
+      &::after {
+        background: $primary_light;
+      }
+    }
+    .field--name-field-button {
+      .field__item {
+        a {
+          @extend .em-button--secondary;
+        }
+      }
+    }
+
+    .mejs__container {
+      background-color: $primary;
+    }
+    .audiofield-player label {
+      color: $white;
+    }
+  }
+
+  &.color-scheme-gold {
+    color: $white;
+    background: $secondary_dark;
+
+    .field--name-field-text-subtitle {
+      color: $secondary_light;
+    }
+    .field--name-field-title,
+    .field--name-field-feature-title {
+      color: $white;
+
+      &::after {
+        background: $secondary_light;
+      }
+    }
+    .field--name-field-button {
+      .field__item {
+        a {
+          @extend .em-button--primary;
+        }
+      }
+    }
+    .mejs__container {
+      background-color: $secondary;
+    }
+    .audiofield-player label {
+      color: $white;
+    }
+  }
+
+  &.color-scheme-black {
+    color: $white;
+    background: $black;
+
+    .field--name-field-text-subtitle {
+      color: $gray_light;
+    }
+    .field--name-field-title,
+    .field--name-field-feature-title {
+      color: $white;
+
+      &::after {
+        background: $gray_light;
+      }
+    }
+    .field--name-field-button {
+      .field__item {
+        a {
+          @extend .em-button--primary;
+        }
+      }
+    }
+    .mejs__container {
+      background-color: $secondary;
+    }
+    .audiofield-player label {
+      color: $white;
+    }
+  }
+
+  &.color-scheme-white_with_gold {
+    .field--name-field-text-subtitle {
+      color: $secondary_dark;
+    }
+    .field--name-field-title {
+      color: $secondary;
+
+      &::after {
+        background: $secondary_dark;
+      }
+    }
+    .field--name-field-button {
+      .field__item {
+        a {
+          @extend .em-button--secondary;
+        }
+      }
+    }
+    .mejs__container {
+      background-color: $secondary_dark;
+    }
+    .audiofield-player label {
+      color: $secondary_darker;
+    }
+  }
+
+  &.color-scheme-white_with_black {
+    .field--name-field-text-subtitle {
+      color: $gray_dark;
+    }
+    .field--name-field-title {
+      color: $black;
+
+      &::after {
+        background: $gray;
+      }
+    }
+    .field--name-field-button {
+      .field__item {
+        a {
+          @extend .em-button--primary;
+        }
+      }
+    }
+
+    .mejs__container {
+      background-color: $primary_dark;
+    }
+    .audiofield-player label {
+      color: $primary_darker;
+    }
+  }
+
+  &.position-left {
+    .wrapper {
+      flex-direction: row-reverse;
+    }
+    .right-side {
+      @media only screen and (min-width : 64em) {
+        padding-left: 0;
+        padding-right: 45px;
+      }
+    }
+
+  }
+
+  .wrapper {
+    align-items: center;
+  }
+
+  .left-side {
+    margin-bottom: 40px;
+    @media only screen and (min-width : 64em) {
+      margin-bottom: 0;
+    }
+  }
+
+  .right-side {
+    margin-bottom: 0;
+
+    @media only screen and (min-width : 64em) {
+      padding-left: 45px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .field--name-field-title,
+  .field--name-field-feature-title {
+    font-size: rem-calc(32);
+    font-weight: 900;
+    line-height: 42px;
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+    position: relative;
+    color: $primary;
+
+    &::after {
+      content: '';
+      width: 100px;
+      height: 4px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: $primary_dark;
+    }
+
+    @media only screen and (min-width : 64em) {
+      font-size: rem-calc(38);
+      line-height: 48px;
+    }
+    @media only screen and (min-width : 75em) {
+      font-size: rem-calc(48);
+      line-height: 55px;
+    }
+  }
+
+  .field--name-field-text-subtitle {
+    font-size: rem-calc(18);
+    font-weight: 800;
+    line-height: 22px;
+    margin-bottom: 5px;
+    color: $primary_dark;
+
+    @media only screen and (min-width : 64em) {
+      font-size: rem-calc(20);
+      line-height: 28px;
+    }
+    @media only screen and (min-width : 75em) {
+      font-size: rem-calc(24);
+      line-height: 30px;
+    }
+  }
+
+  .field--name-field-media-oembed-video,
+  .field--name-field-media {
+    iframe {
+      width: 100%;
+      height: 270px;
+      @media only screen and (min-width : 48em) {
+        height: 400px;
+      }
+    }
+  }
+
+  .field--name-field-button {
+    margin-top: 20px;
+  }
+}
+
+.mejs__controls {
+  background: transparent !important;
+}
+.mejs__container {
+  width: 100% !important;
+  min-width: 100px;
+}
+.audiofield-player {
+  margin-bottom: 10px;
+
+  label {
+    font-weight: bold;
+  }
+}

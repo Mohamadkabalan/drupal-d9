@@ -1,0 +1,52 @@
+#mp-pusher.mp-pushed {
+  &::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 36px;
+    height: 36px;
+    background: url('data:image/svg+xml,<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.5 2.615L19.385 0.5L11 8.885L2.615 0.5L0.5 2.615L8.885 11L0.5 19.385L2.615 21.5L11 13.115L19.385 21.5L21.5 19.385L13.115 11L21.5 2.615Z" fill="%23ffffff"/></svg>') no-repeat 50% 50%;
+    background-size: 22px 22px;
+    z-index: 10;
+    cursor: pointer;
+    transition: all .5s;
+    border-radius: 50%;
+  }
+  &::after {
+    z-index: 9;
+  }
+
+  .mp-level {
+    background-color: $primary_dark;
+  }
+
+    h2 {
+      color: $white;
+    }
+
+  ul {
+    li {
+      border-bottom: 1px solid $white;
+      display: block;
+
+      &:before {
+        line-height: 3;
+        color: $white;
+      }
+
+      a {
+        color: $white;
+        font-weight: bold;
+        box-shadow: none;
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
+        line-height: 1.5;
+      }
+
+      i {
+        display: none;
+      }
+    }
+  }
+}
+

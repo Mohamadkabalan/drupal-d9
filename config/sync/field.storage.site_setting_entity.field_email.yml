@@ -1,0 +1,18 @@
+uuid: fd9e87bc-23be-4262-8d15-caae7f546470
+langcode: en
+status: true
+dependencies:
+  module:
+    - site_settings
+id: site_setting_entity.field_email
+field_name: field_email
+entity_type: site_setting_entity
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

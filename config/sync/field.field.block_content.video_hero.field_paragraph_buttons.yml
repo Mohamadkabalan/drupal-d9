@@ -1,0 +1,43 @@
+uuid: 1afde98b-8879-4de8-8eb6-5889176181c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.video_hero
+    - field.storage.block_content.field_paragraph_buttons
+    - paragraphs.paragraphs_type.button_with_icon
+  module:
+    - entity_reference_revisions
+id: block_content.video_hero.field_paragraph_buttons
+field_name: field_paragraph_buttons
+entity_type: block_content
+bundle: video_hero
+label: Buttons
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      button_with_icon: button_with_icon
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 6
+        enabled: false
+      button_with_icon:
+        enabled: true
+        weight: 7
+      cta_homepage_hero:
+        weight: 8
+        enabled: false
+      item:
+        weight: 9
+        enabled: false
+      tab_item:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

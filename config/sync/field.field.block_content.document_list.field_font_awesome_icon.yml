@@ -1,0 +1,19 @@
+uuid: 50104dd8-93bd-4380-bdeb-832d27b6ad58
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.document_list
+    - field.storage.block_content.field_font_awesome_icon
+id: block_content.document_list.field_font_awesome_icon
+field_name: field_font_awesome_icon
+entity_type: block_content
+bundle: document_list
+label: 'Font awesome icon'
+description: 'Search for icons at https://fontawesome.com/icons. Then paste the style and name here, for example fas fa-star'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

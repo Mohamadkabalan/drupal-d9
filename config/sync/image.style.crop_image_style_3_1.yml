@@ -1,0 +1,17 @@
+uuid: 479e4ebf-f2aa-4d8b-bfbc-4d0a47fe82b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.crop_3_1
+  module:
+    - crop
+name: crop_image_style_3_1
+label: 'Crop Image Style 3:1'
+effects:
+  e9bda8b2-96d1-447c-b071-5904beb93157:
+    uuid: e9bda8b2-96d1-447c-b071-5904beb93157
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: crop_3_1

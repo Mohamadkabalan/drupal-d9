@@ -1,0 +1,69 @@
+uuid: 7ed3fb7f-7860-47ee-949b-a4ded1eb4b53
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.video_hero
+    - field.field.block_content.video_hero.field_paragraph_buttons
+    - field.field.block_content.video_hero.field_text_subtitle
+    - field.field.block_content.video_hero.field_title
+    - field.field.block_content.video_hero.field_video
+  module:
+    - media_library
+    - paragraphs
+id: block_content.video_hero.default
+targetEntityType: block_content
+bundle: video_hero
+mode: default
+content:
+  field_paragraph_buttons:
+    type: paragraphs
+    weight: 4
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: button_with_icon
+      features:
+        add_above: '0'
+        collapse_edit_all: '0'
+        duplicate: '0'
+    third_party_settings: {  }
+    region: content
+  field_text_subtitle:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_title:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_video:
+    weight: 1
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    type: media_library_widget
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

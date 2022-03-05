@@ -1,0 +1,19 @@
+uuid: dd491744-f17d-48b4-b261-34287955ea68
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.three_items_with_icons
+    - field.storage.block_content.field_title
+id: block_content.three_items_with_icons.field_title
+field_name: field_title
+entity_type: block_content
+bundle: three_items_with_icons
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

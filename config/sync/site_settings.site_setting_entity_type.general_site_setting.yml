@@ -1,0 +1,8 @@
+uuid: 3fdc88df-247e-4dd8-b34b-cd40c2d284bf
+langcode: en
+status: true
+dependencies: {  }
+id: general_site_setting
+label: 'General site setting'
+fieldset: 'general settings'
+multiple: false

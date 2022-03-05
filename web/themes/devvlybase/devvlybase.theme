@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function devvlybase_preprocess_page(&$variables) {
+  // Set a title variable for page templates and an content type class
+  if(isset($variables['node'])) {
+    $variables['title'] = $variables['node']->title->value;
+    $variables['node_class'] = 'nodetype-' . $variables['node']->getType();
+  }
+  else{
+    $variables['title'] = $variables['page']['#title'];
+  }
+
+  // Make sure that site name is set
+  $site_name = isset($variables['site_name']) ? $variables['site_name'] : \Drupal::config('system.site')->get('name');
+  $variables['site_name'] = $site_name;
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function devvlybase_preprocess_block(&$variables) {
+  // Adds custom edit block buttons for the front end
+  $variables['edit_block'] = FALSE;
+  if($variables['configuration']['provider'] == 'block_content') {
+    $user = \Drupal::currentUser();
+    if($user->hasPermission('access content overview')) {
+      $variables['attributes']['class'][] = 'editable-block';
+      $variables['edit_block'] = TRUE;
+      $variables['content_block_id'] = $variables['content']['#block_content']->id();
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_node
+ *
+ * Add template suggestions and classes
+ */
+function devvlybase_preprocess_node(&$variables) {
+  // Add node--node_type--view_mode.html.twig suggestions
+  $variables['theme_hook_suggestions'][] = 'node__' . $variables['elements']['#node']->bundle() . '__' . $variables['view_mode'];
+
+  // Add a class for the view mode.
+  if (!$variables['teaser']) {
+    $variables['content_attributes']['class'][] = 'view-mode-' . $variables['view_mode'];
+  }
+
+  // Add a class to the node title h1 tag
+  $variables['title_attributes']['class'][] = 'node-title';
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function devvlybase_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  // create a page--node-BUNDLE.html.twig template suggestion
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    if (is_numeric($node)) {
+      $node = Node::load($node);
+    }
+    if ($node instanceof NodeInterface) {
+      array_splice($suggestions, 1, 0, 'page__node__' . $node->bundle());
+    }
+  }
+}

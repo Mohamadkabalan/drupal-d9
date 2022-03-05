@@ -1,0 +1,8 @@
+uuid: 1542a808-9d39-4235-9266-c779dccbf66b
+langcode: en
+status: true
+dependencies: {  }
+id: blockquote
+label: Blockquote
+revision: 0
+description: ''

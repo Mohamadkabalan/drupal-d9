@@ -1,0 +1,78 @@
+.block-type-quote {
+  padding: 3rem 1rem;
+  @include breakpoint(medium) {
+    padding: 8rem 1rem;
+  }
+  .field--name-field-text-long {
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: $white;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    z-index: 1;
+    @include breakpoint(medium) {
+      width: 130%;
+    }
+    &::after {
+      content: '';
+      height: 4px;
+      width: 100px;
+      background: $secondary;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    &::before {
+      position: absolute;
+      content: '“”';
+      width: 5rem;
+      height: 5rem;
+      top: calc(0% - 6rem);
+      left: 0;
+      font-family: 'Mulish', sans-serif;
+      font-size: 6rem;
+      color: $secondary;
+      text-align: center;
+    }
+  }
+  .field--name-field-name {
+    font-size: 1rem;
+    font-weight: 900;
+    color: $white;
+  }
+  .field--name-field-text-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    color: $white;
+  }
+  &__content {
+    padding: 8rem 2rem 2rem;
+    height: 100%;
+    width: 100%;
+    background: $primary;
+    @include breakpoint(medium) {
+      padding: 8rem 0 5rem 5rem;
+    }
+
+  }
+  .field--name-field-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    img {
+      position: relative;
+      top: 0;
+      height: auto;
+      @include breakpoint(medium) {
+        position: absolute;
+        top: -15%;
+        left: 0;
+        width: 100%;
+        height: 130%;
+        object-fit: cover;
+      }
+    }
+  }
+}

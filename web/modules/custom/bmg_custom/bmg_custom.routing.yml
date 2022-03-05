@@ -1,0 +1,7 @@
+bmg_custom.modal:
+  path: '/open-modal/{nid}'
+  defaults:
+    _controller: '\Drupal\bmg_custom\Controller\OpenInModal::content'
+  requirements:
+    _format: 'html'
+    _access: 'TRUE'

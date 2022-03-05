@@ -1,0 +1,24 @@
+{
+  "name": "devvly",
+  "version": "1.0.0",
+  "description": "Drupal 8 theming tools",
+  "main": "gulpfile.js",
+  "scripts": {
+    "watch": "gulp watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-pro": "^5.12.1",
+    "foundation-sites": "^6.6.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-mode": "^1.0.2",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^1.5.2",
+    "motion-ui": "^2.0.3"
+  }
+}

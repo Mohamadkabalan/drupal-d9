@@ -1,0 +1,62 @@
+.block-type-blockquote {
+    padding: 1.5rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    @include breakpoint(medium) {
+        padding: 1.5rem 1rem;
+    }
+    .field--name-field-text-long {
+        text-align: center;
+        position: relative;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: $primary;
+        margin-bottom: 0;
+        padding: 2rem 0;
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 150px;
+            background: $secondary;
+            left: calc(50% - 75px);
+        }
+        &::before {
+            top: 0;
+        }
+        &::after {
+            top: 100%;
+        }
+    }
+
+    &.highlight-color-gold {
+        .field--name-field-text-long {
+            color: $secondary;
+            &::before,
+            &::after {
+                background: $primary;
+            }
+        }
+    }
+
+    &.highlight-color-black {
+        .field--name-field-text-long {
+            color: $black;
+            &::before,
+            &::after {
+                background: $secondary;
+            }
+        }
+    }
+
+    &.highlight-color-white {
+        .field--name-field-text-long {
+            color: $white;
+            &::before,
+            &::after {
+                background: $secondary;
+            }
+        }
+    }
+}

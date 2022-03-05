@@ -1,0 +1,10 @@
+uuid: df772e55-cb1f-4ddd-ae32-52152b1bd7ca
+langcode: en
+status: true
+dependencies: {  }
+id: simple_table
+label: 'Simple Table'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

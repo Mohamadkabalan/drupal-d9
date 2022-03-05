@@ -1,0 +1,34 @@
+uuid: fcb15e03-9634-415d-83f1-3898a97d552b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.document_list_item.field_font_awesome_icon
+    - field.field.paragraph.document_list_item.field_link
+    - paragraphs.paragraphs_type.document_list_item
+  module:
+    - link
+id: paragraph.document_list_item.default
+targetEntityType: paragraph
+bundle: document_list_item
+mode: default
+content:
+  field_font_awesome_icon:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_link:
+    weight: 0
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+hidden:
+  created: true
+  status: true

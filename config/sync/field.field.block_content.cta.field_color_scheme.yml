@@ -1,0 +1,23 @@
+uuid: 02d040b1-6115-485b-ab14-3e94d79f18d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta
+    - field.storage.block_content.field_color_scheme
+  module:
+    - options
+id: block_content.cta.field_color_scheme
+field_name: field_color_scheme
+entity_type: block_content
+bundle: cta
+label: 'Color Scheme'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: blue
+default_value_callback: ''
+settings: {  }
+field_type: list_string

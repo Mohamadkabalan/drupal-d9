@@ -1,0 +1,79 @@
+.block-type-program_tabs {
+    padding: 5rem 0;
+    background: $gray_lighter;
+    &__tabs {
+        display: block;
+        margin-bottom: 0;
+        margin-left: 0;
+        list-style: none;
+        @include breakpoint(medium) {
+            display: flex;
+        }
+        li {
+            padding-left: 0;
+            padding: 0;
+            @include breakpoint(medium) {
+                padding: 0 0.5rem;
+                &:first-child {
+                    padding: 0 0.5rem 0 0;
+                }
+            }
+            a {
+                display: block;
+                padding: 0.75rem 0;
+                color: $gray;
+                font-size: 1.125rem;
+                text-transform: uppercase;
+                font-weight: 900;
+            }
+            &.active {
+                a {
+                    color: $primary;
+                    border-bottom: 3px solid $primary;
+                }
+            }
+        }
+    }
+    .tab-content {
+        padding: 2rem 0;
+        .paragraph--type--program-tab {
+            & > .field--name-field-title {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: $black;
+                text-transform: uppercase;
+                display: none;
+            }
+        }
+        .paragraph--type--accordion-item {
+            .field--name-field-title {
+                padding-right: 0;
+                padding-left: 0;
+            }
+            &.active {
+                .field--name-field-title {
+                    background: transparent;
+                }
+            }
+            .field--name-field-text {
+                padding: 0 0rem 1.5rem;
+            }
+        }
+        .paragraph--type--simple-table {
+            .paragraph--type--simple-table-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                border-bottom: 1px solid $gray_light;
+                .field__item {
+                    padding: 0.75rem 0.5rem;
+                    &:first-child {
+                        font-weight: 700;
+                    }
+                    &:last-child {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+}

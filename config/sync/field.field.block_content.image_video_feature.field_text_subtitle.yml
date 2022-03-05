@@ -1,0 +1,19 @@
+uuid: 9764a807-4462-4b3b-b8ff-1a59b7208e92
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_video_feature
+    - field.storage.block_content.field_text_subtitle
+id: block_content.image_video_feature.field_text_subtitle
+field_name: field_text_subtitle
+entity_type: block_content
+bundle: image_video_feature
+label: Subtitle
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

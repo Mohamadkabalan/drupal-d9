@@ -1,0 +1,202 @@
+.block-type-three_items_with_icons {
+  padding: 40px 0;
+  @media only screen and (min-width : 64em) {
+    padding: 80px 0;
+  }
+
+  &.blue {
+    background-color: $primary_dark;
+    color: $white;
+
+    i {
+      color: $primary_light;
+    }
+
+    .field--name-field-button {
+      a {
+        border: 2px solid $primary_light;
+        background-color: $primary;
+        color: $white;
+
+        &:hover {
+          color: $white;
+          background: $primary_light;
+        }
+      }
+
+      &.with-arrow {
+        a {
+          &:after {
+            background: url('data:image/svg+xml;utf8,<svg width="16" height="29" viewBox="0 0 16 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.33438 0.845998L0.908383 2.272C0.453716 2.72666 0.226383 3.11933 0.226383 3.45C0.267716 3.73933 0.515716 4.11133 0.970383 4.566L11.0144 14.548L0.970383 24.53C0.515716 24.9847 0.267716 25.3773 0.226383 25.708C0.226383 25.9973 0.453716 26.3693 0.908383 26.824L2.33438 28.25L15.0444 15.664C15.8297 14.92 15.8297 14.176 15.0444 13.432L2.33438 0.845998Z" fill="%23ffffff"/> </svg>') no-repeat 50% 50%;
+            background-size: 16px 16px;
+          }
+        }
+      }
+    }
+  }
+  &.gold {
+    background-color: $secondary_dark;
+    color: $white;
+
+    i {
+      color: $secondary_light;
+    }
+
+    .field--name-field-button {
+      text-align: center;
+      a {
+        border: 2px solid $secondary_light;
+        color: $white;
+
+        &:hover {
+          background: $secondary_light;
+        }
+      }
+
+      &.with-arrow {
+        a {
+          &:after {
+            background: url('data:image/svg+xml;utf8,<svg width="16" height="29" viewBox="0 0 16 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.33438 0.845998L0.908383 2.272C0.453716 2.72666 0.226383 3.11933 0.226383 3.45C0.267716 3.73933 0.515716 4.11133 0.970383 4.566L11.0144 14.548L0.970383 24.53C0.515716 24.9847 0.267716 25.3773 0.226383 25.708C0.226383 25.9973 0.453716 26.3693 0.908383 26.824L2.33438 28.25L15.0444 15.664C15.8297 14.92 15.8297 14.176 15.0444 13.432L2.33438 0.845998Z" fill="%23ffffff"/> </svg>') no-repeat 50% 50%;
+            background-size: 16px 16px;
+          }
+        }
+      }
+    }
+  }
+  &.white_with_blue {
+    background-color: $white;
+    color: $black;
+
+    i {
+      color: $primary;
+    }
+
+    .field--name-field-button {
+      text-align: center;
+      a {
+        background-color: $primary;
+        color: $white;
+
+        &:hover {
+          background-color: $secondary;
+        }
+      }
+    }
+  }
+  &.white_with_gold {
+    background-color: $white;
+    color: $black;
+
+    i {
+      color: $secondary;
+    }
+
+    .field--name-field-button {
+      text-align: center;
+      a {
+        color: $white;
+      }
+    }
+  }
+
+  .container > .field--name-field-title {
+    font-size: rem-calc(32);
+    font-weight: 900;
+    text-align: center;
+    line-height: 42px;
+    margin-bottom: 10px;
+
+    @media only screen and (min-width : 64em) {
+      font-size: rem-calc(38);
+      line-height: 48px;
+    }
+    @media only screen and (min-width : 75em) {
+      font-size: rem-calc(48);
+      line-height: 55px;
+    }
+  }
+
+  .field--name-field-subtitle {
+    font-size: rem-calc(18);
+    font-weight: 800;
+    text-align: center;
+    line-height: 22px;
+    margin-bottom: 25px;
+
+    @media only screen and (min-width : 64em) {
+      font-size: rem-calc(20);
+      line-height: 28px;
+      margin-bottom: 45px;
+    }
+    @media only screen and (min-width : 75em) {
+      font-size: rem-calc(24);
+      line-height: 30px;
+    }
+  }
+
+  .field--name-field-items {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    @media only screen and (min-width : 48em) {
+      flex-direction: row;
+      column-gap: 30px;
+    }
+
+    & > .field__item {
+      flex: 0 1 100%;
+      max-width: 300px;
+
+      & + .field__item {
+        margin-top: 30px;
+      }
+      @media only screen and (min-width : 48em) {
+        flex: 0 1 33.3%;
+        max-width: none;
+
+        & + .field__item {
+          margin-top: 0;
+        }
+      }
+    }
+
+    .field--name-field-image {
+      margin-bottom: 15px;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .icon {
+      margin-bottom: 15px;
+      text-align: center;
+
+      i {
+        font-size: rem-calc(48);
+      }
+    }
+
+    .field--name-field-title {
+      font-size: rem-calc(24);
+      font-weight: 800;
+      text-align: center;
+      line-height: 30px;
+      margin-bottom: 5px;
+    }
+
+    .field--name-field-text {
+      font-size: rem-calc(16);
+      font-weight: 400;
+      text-align: center;
+      line-height: 20px;
+    }
+
+    .field--name-field-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
+}

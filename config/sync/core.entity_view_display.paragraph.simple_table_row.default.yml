@@ -1,0 +1,31 @@
+uuid: d40ca150-6a9e-4648-8b06-a8d1fb82717a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.simple_table_row.field_label
+    - field.field.paragraph.simple_table_row.field_subtitle
+    - paragraphs.paragraphs_type.simple_table_row
+id: paragraph.simple_table_row.default
+targetEntityType: paragraph
+bundle: simple_table_row
+mode: default
+content:
+  field_label:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_subtitle:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

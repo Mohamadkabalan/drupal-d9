@@ -1,0 +1,9 @@
+/**
+ * Toolbar tab icon.
+ */
+
+.toolbar .toolbar-admin-icon-content:before { background-image: url("/core/themes/stable/images/core/icons/787878/file.svg"); }
+.toolbar .toolbar-admin-icon-users:before { background-image: url("/core/themes/stable/images/core/icons/787878/people.svg"); }
+.toolbar .toolbar-admin-icon-configure:before,
+.toolbar .toolbar-admin-icon-settings:before { background-image: url("/core/themes/stable/images/core/icons/787878/cog.svg"); }
+.adminimal-admin-toolbar .toolbar-oriented .user-toolbar-tab { float:left; }

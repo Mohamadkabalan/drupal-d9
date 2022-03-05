@@ -1,0 +1,56 @@
+uuid: e76a74ab-1c74-4849-90a7-0ef1052e340c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.program_icon_triptych
+    - field.field.block_content.program_icon_triptych.field_color_scheme
+    - field.field.block_content.program_icon_triptych.field_items
+    - field.field.block_content.program_icon_triptych.field_padding_bottom
+    - field.field.block_content.program_icon_triptych.field_padding_top
+  module:
+    - paragraphs
+id: block_content.program_icon_triptych.default
+targetEntityType: block_content
+bundle: program_icon_triptych
+mode: default
+content:
+  field_color_scheme:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_items:
+    weight: 26
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: icon_and_title
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_padding_bottom:
+    weight: 29
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_padding_top:
+    weight: 28
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

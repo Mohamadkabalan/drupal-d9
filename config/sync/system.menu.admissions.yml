@@ -1,0 +1,8 @@
+uuid: c95c60f0-a124-4b83-b8cb-7b2279a89cd0
+langcode: en
+status: true
+dependencies: {  }
+id: admissions
+label: Admissions
+description: ''
+locked: false

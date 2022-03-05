@@ -1,0 +1,26 @@
+uuid: 7fdf4968-e853-4a7d-81e0-d70ae9d7ee02
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_gallery
+    - field.field.block_content.image_gallery.field_images
+    - field.field.block_content.image_gallery.field_images_per_row
+  module:
+    - media
+id: block_content.image_gallery.default
+targetEntityType: block_content
+bundle: image_gallery
+mode: default
+content:
+  field_images:
+    type: media_thumbnail
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_images_per_row: true

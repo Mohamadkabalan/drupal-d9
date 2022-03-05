@@ -1,0 +1,66 @@
+uuid: 62b59003-1afe-4552-9e33-96858cfd1904
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.item.field_button
+    - field.field.paragraph.item.field_font_awesome_icon
+    - field.field.paragraph.item.field_image
+    - field.field.paragraph.item.field_text
+    - field.field.paragraph.item.field_title
+    - image.style.360x250
+    - paragraphs.paragraphs_type.item
+  module:
+    - link
+    - media
+    - text
+id: paragraph.item.default
+targetEntityType: paragraph
+bundle: item
+mode: default
+content:
+  field_button:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_font_awesome_icon:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: 360x250
+      image_link: ''
+    third_party_settings: {  }
+    type: media_thumbnail
+    region: content
+  field_text:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_title:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

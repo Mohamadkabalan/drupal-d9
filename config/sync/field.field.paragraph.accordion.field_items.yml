@@ -1,0 +1,76 @@
+uuid: b280d878-e0ab-452d-b011-9d4695d2ec12
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_items
+    - paragraphs.paragraphs_type.accordion
+    - paragraphs.paragraphs_type.accordion_item
+  module:
+    - entity_reference_revisions
+id: paragraph.accordion.field_items
+field_name: field_items
+entity_type: paragraph
+bundle: accordion
+label: Items
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      accordion_item: accordion_item
+    target_bundles_drag_drop:
+      accordion:
+        weight: 13
+        enabled: false
+      accordion_item:
+        enabled: true
+        weight: 14
+      button_with_icon:
+        weight: 15
+        enabled: false
+      cta_homepage_hero:
+        weight: 16
+        enabled: false
+      document_list_item:
+        weight: 17
+        enabled: false
+      faq_item:
+        weight: 18
+        enabled: false
+      grid_item:
+        weight: 19
+        enabled: false
+      icon_and_title:
+        weight: 20
+        enabled: false
+      image_button_grid_item:
+        weight: 21
+        enabled: false
+      item:
+        weight: 22
+        enabled: false
+      program_tab:
+        weight: 27
+        enabled: false
+      simple_table:
+        weight: 28
+        enabled: false
+      simple_table_row:
+        weight: 29
+        enabled: false
+      tab_item:
+        weight: 23
+        enabled: false
+      testimonial:
+        weight: 24
+        enabled: false
+      textarea:
+        weight: 32
+        enabled: false
+field_type: entity_reference_revisions

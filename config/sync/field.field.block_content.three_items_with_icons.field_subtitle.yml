@@ -1,0 +1,21 @@
+uuid: 53521f5b-667b-44a7-9811-65c8619bee2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.three_items_with_icons
+    - field.storage.block_content.field_subtitle
+  module:
+    - text
+id: block_content.three_items_with_icons.field_subtitle
+field_name: field_subtitle
+entity_type: block_content
+bundle: three_items_with_icons
+label: Subtitle
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

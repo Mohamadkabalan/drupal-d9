@@ -1,0 +1,35 @@
+uuid: 06a22ae5-14d4-49b2-871e-b5908fae611c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.program_tabs
+    - field.field.block_content.program_tabs.field_items_unlimited
+  module:
+    - paragraphs
+id: block_content.program_tabs.default
+targetEntityType: block_content
+bundle: program_tabs
+mode: default
+content:
+  field_items_unlimited:
+    weight: 26
+    settings:
+      title: Tab
+      title_plural: Tabs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: program_tab
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

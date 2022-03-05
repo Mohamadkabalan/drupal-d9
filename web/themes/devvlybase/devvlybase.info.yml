@@ -1,0 +1,23 @@
+name: "Devvly Base"
+type: theme
+base theme: classy
+description: Devvly Drupal 8 Theme with normalize and defaults
+package: Core
+version: 1.0
+core_version_requirement: ^8 || ^9
+engine: twig
+screenshot: screenshot.png
+
+regions:
+  header: 'Header'
+  content: 'Content'
+  sidebar_first: 'Sidebar First'
+  sidebar_second: 'Sidebar Second'
+  footer: 'Footer'
+  breadcrumb: 'Breadcrumb'
+  help: 'Help'
+  highlighted: 'Highlighted'
+  featured: 'Featured'
+
+libraries:
+  - devvlybase/global-styling

@@ -1,0 +1,44 @@
+uuid: f7f74899-bd5d-49f9-b250-65d54190ea9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.three_items_with_icons
+    - field.field.block_content.three_items_with_icons.field_color_scheme
+    - field.field.block_content.three_items_with_icons.field_items
+    - field.field.block_content.three_items_with_icons.field_subtitle
+    - field.field.block_content.three_items_with_icons.field_title
+  module:
+    - entity_reference_revisions
+    - text
+id: block_content.three_items_with_icons.default
+targetEntityType: block_content
+bundle: three_items_with_icons
+mode: default
+content:
+  field_items:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_subtitle:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  field_color_scheme: true

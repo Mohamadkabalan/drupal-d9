@@ -1,0 +1,21 @@
+.block-type-heading {
+    padding: 5rem 0 2rem;
+    text-align: center;
+    color: $black;
+    text-transform: uppercase;
+    .title-separator {
+        margin-bottom: 1rem;
+    }
+    &.highlight-color-blue {
+        color: $primary;
+    }
+    &.highlight-color-gold {
+        color: $secondary;
+    }
+    &.highlight-color-white {
+        color: $white;
+        .title-separator {
+            @extend .title-separator--white;
+        }
+    }
+}

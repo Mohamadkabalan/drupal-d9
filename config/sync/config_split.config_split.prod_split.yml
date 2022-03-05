@@ -1,0 +1,16 @@
+uuid: c30243ed-3f62-48d0-8b50-d559dd3fcf5f
+langcode: en
+status: false
+dependencies: {  }
+id: prod_split
+label: 'Prod Split'
+description: ''
+folder: ../config/envs/prod
+module:
+  syslog: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

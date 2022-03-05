@@ -1,0 +1,8 @@
+uuid: a6b22bc5-825b-47ff-9419-c83964862478
+langcode: en
+status: true
+dependencies: {  }
+id: image_hero
+label: 'Image Hero'
+revision: 0
+description: ''

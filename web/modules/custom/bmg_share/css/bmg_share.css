@@ -1,0 +1,6 @@
+#share-facebook .fa-circle { color: #3f5c9a; }
+#share-twitter .fa-circle { color: #55acee; }
+#share-google .fa-circle { color: #dd4b39; }
+#block-shareblock a.share-it { display: inline-block; }
+#block-shareblock a.share-it .fa { line-height: 40px; }
+#block-shareblock { text-align: right; margin-bottom: 10px; }

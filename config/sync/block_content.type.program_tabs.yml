@@ -1,0 +1,8 @@
+uuid: d81af32f-b0f7-4b15-817b-8127defffac8
+langcode: en
+status: true
+dependencies: {  }
+id: program_tabs
+label: 'Program Tabs'
+revision: 0
+description: ''

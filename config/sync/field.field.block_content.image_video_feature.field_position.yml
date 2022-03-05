@@ -1,0 +1,23 @@
+uuid: e75e78e6-b6e6-4ccb-bd74-623e21e9ee3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_video_feature
+    - field.storage.block_content.field_position
+  module:
+    - options
+id: block_content.image_video_feature.field_position
+field_name: field_position
+entity_type: block_content
+bundle: image_video_feature
+label: 'Image/Video Position'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: right
+default_value_callback: ''
+settings: {  }
+field_type: list_string

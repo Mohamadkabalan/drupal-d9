@@ -1,0 +1,21 @@
+uuid: c27167d3-d671-4899-a323-9bed73000c10
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.program_icon_triptych
+    - field.storage.block_content.field_padding_bottom
+  module:
+    - options
+id: block_content.program_icon_triptych.field_padding_bottom
+field_name: field_padding_bottom
+entity_type: block_content
+bundle: program_icon_triptych
+label: 'Padding bottom'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

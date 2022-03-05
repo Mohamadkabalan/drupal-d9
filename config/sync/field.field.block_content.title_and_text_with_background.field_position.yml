@@ -1,0 +1,23 @@
+uuid: 6e8d0376-6267-4a98-9f0a-0315116b864b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.title_and_text_with_background
+    - field.storage.block_content.field_position
+  module:
+    - options
+id: block_content.title_and_text_with_background.field_position
+field_name: field_position
+entity_type: block_content
+bundle: title_and_text_with_background
+label: Position
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

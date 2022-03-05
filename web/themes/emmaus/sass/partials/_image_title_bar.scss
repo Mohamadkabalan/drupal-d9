@@ -1,0 +1,11 @@
+.image-title-bar {
+  padding: 40px 0 35px 0;
+  @media only screen and (min-width : 64em) {
+    padding: 70px 0 75px 0;
+  }
+
+  h2 {
+    color: $white;
+    text-align: center;
+  }
+}

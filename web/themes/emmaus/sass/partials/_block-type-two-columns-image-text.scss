@@ -1,0 +1,199 @@
+.block-type-two_columns_image_and_text {
+    background: $white;
+    .field--name-field-media {
+        height: 100%;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .field--name-field-media-image {
+            height: 100%;
+        }
+    }
+    .field--name-field-title {
+        font-family: $header-font-family;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: $primary;
+        font-size: 3rem;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+    }
+    .field--name-body {
+        margin-bottom: 1.5rem;
+        color: $gray_darker;
+    }
+    .field--name-field-button {
+        .field__item {
+            display: inline-block;
+            margin-right: 1rem;
+            &:last-child {
+                margin-right: 0;
+            }
+            a {
+                @extend .em-button--primary;
+            }
+        }
+    }
+    &__content {
+        padding: 2rem 2rem 5rem;
+        position: relative;
+        order: 2;
+        @include breakpoint(medium) {
+            padding: 5rem 5rem 5rem 2.5rem;
+        }
+    }
+    &__media {
+        order: 1;
+    }
+    &__icon {
+        position: absolute;
+        top: calc(100% - 2rem);
+        left: calc(50% - 2rem);
+        width: 4rem;
+        height: 4rem;
+        border-radius: 4rem;
+        background: $gray_lighter;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        i {
+            font-size: 2rem;
+            color: $primary;
+        }
+        @include breakpoint(medium) {
+            top: calc(50% - 2rem);
+            left: calc(0% - 2rem);
+        }
+    }
+    &.image-position-right {
+        .block-type-two_columns_image_and_text__content {
+            padding: 2rem 2rem 5rem;
+            order: 1;
+            @include breakpoint(medium) {
+                padding: 5rem 2.5rem 5rem 5rem;
+            }
+        }
+        .block-type-two_columns_image_and_text__media {
+            order: 2;
+        }
+        .block-type-two_columns_image_and_text__icon {
+            left: calc(50% - 2rem);
+            @include breakpoint(medium) {
+                left: calc(100% - 2rem);
+            }
+        }
+    }
+
+    &.color-scheme-white_with_blue {
+    }
+
+    &.color-scheme-white_with_gold {
+        .field--name-field-title {
+            color: $secondary;
+        }
+        .field--name-field-button {
+            .field__item {
+                a {
+                    @extend .em-button--secondary;
+                }
+            }
+        }
+        .block-type-two_columns_image_and_text__icon {
+            background: $white;
+            i {
+                color: $secondary;
+            }
+        }
+    }
+
+    &.color-scheme-white_with_black {
+        .field--name-field-title {
+            color: $black;
+        }
+        .field--name-field-button {
+            .field__item {
+                a {
+                    @extend .em-button--black;
+                }
+            }
+        }
+        .block-type-two_columns_image_and_text__icon {
+            background: $white;
+            i {
+                color: $gray_dark;
+            }
+        }
+    }
+
+    &.color-scheme-blue {
+        background: $primary;
+        .field--name-field-title {
+            color: $white;
+        }
+        .field--name-body {
+            color: $gray_light;
+        }
+        .field--name-field-button {
+            .field__item {
+                a {
+                    @extend .em-button--secondary;
+                }
+            }
+        }
+        .block-type-two_columns_image_and_text__icon {
+            background: $primary-dark;
+            i {
+                color: $white;
+            }
+        }
+    }
+
+    &.color-scheme-gold {
+        background: $secondary;
+        .field--name-field-title {
+            color: $white;
+        }
+        .field--name-body {
+            color: $white;
+        }
+        .field--name-field-button {
+            .field__item {
+                a {
+                    @extend .em-button--primary;
+                }
+            }
+        }
+        .block-type-two_columns_image_and_text__icon {
+            background: $secondary-dark;
+            i {
+                color: $white;
+            }
+        }
+    }
+
+    &.color-scheme-black {
+        background: $black;
+        .field--name-field-title {
+            color: $white;
+        }
+        .field--name-body {
+            color: $gray_light;
+        }
+        .field--name-field-button {
+            .field__item {
+                a {
+                    @extend .em-button--white;
+                }
+            }
+        }
+        .block-type-two_columns_image_and_text__icon {
+            background: $gray_darker;
+            i {
+                color: $gray;
+            }
+        }
+    }
+}

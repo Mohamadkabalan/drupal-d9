@@ -1,0 +1,21 @@
+uuid: 6e8c22c1-8c75-4991-93c3-d7134d0eba23
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.text_with_background
+    - field.storage.block_content.field_padding_bottom
+  module:
+    - options
+id: block_content.text_with_background.field_padding_bottom
+field_name: field_padding_bottom
+entity_type: block_content
+bundle: text_with_background
+label: 'Padding bottom'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

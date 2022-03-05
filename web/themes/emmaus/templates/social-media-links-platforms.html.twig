@@ -1,0 +1,41 @@
+{#
+/**
+ * @ingroup themeable
+ */
+#}
+
+{%
+  set classes = [
+    'social-media-links--platforms',
+    'platforms',
+    appearance.orientation == 'h' ? 'inline horizontal' : 'vertical',
+  ]
+%}
+
+<ul{{ attributes.addClass(classes) }}>
+  {% for platform in platforms %}
+    <li>
+      <a class="social-media-link-icon--{{ platform.id }}" href="{{ platform.url }}" {{ platform.attributes }} >
+        {% if platform.id == 'twitter' %}
+          <i class="fab fa-twitter"></i>
+        {% endif %}
+
+        {% if platform.id == 'facebook' %}
+          <i class="fab fa-facebook-f"></i>
+        {% endif %}
+
+        {% if platform.id == 'youtube' %}
+          <i class="fab fa-youtube"></i>
+        {% endif %}
+
+        {% if platform.id == 'linkedin' %}
+          <i class="fab fa-linkedin-in"></i>
+        {% endif %}
+
+        {% if platform.id == 'instagram' %}
+          <i class="fab fa-instagram"></i>
+        {% endif %}
+      </a>
+    </li>
+  {% endfor %}
+</ul>

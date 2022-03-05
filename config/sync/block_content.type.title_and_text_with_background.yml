@@ -1,0 +1,8 @@
+uuid: 3781a332-cff5-4553-b629-4c5b9ffa6175
+langcode: en
+status: true
+dependencies: {  }
+id: title_and_text_with_background
+label: 'Title and text with background'
+revision: 0
+description: ''

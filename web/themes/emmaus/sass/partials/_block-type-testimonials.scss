@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@900&display=swap');
+
+.block-type-testimonials {
+  .testimonial-type-boxes {
+    padding: 3rem 0;
+  }
+  .field--name-field-items {
+    position: relative;
+
+
+    & > .field__item {
+/*       width: 100%;
+      margin-bottom: 1.5rem;
+      @media only screen and (min-width: 48em) {
+        width: 50%;
+      }
+      @media only screen and (min-width: 64em) {
+        width: 33.3%;
+      } */
+    }
+  }
+
+  .paragraph--type--testimonial {
+
+    .field--name-field-description {
+      font-style: italic;
+      background-color: $gray_lighter;
+      padding: 1.5rem 1.75rem;
+      position: relative;
+      margin-bottom: 20px;
+      line-height: 24px;
+      color: $black;
+      border-radius: 8px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid $gray_lighter;
+        bottom: -10px;
+        left: 20px;
+      }
+    }
+
+    .wrp-author {
+      display: flex;
+    }
+
+    .field--name-field-image {
+      margin-right: 12px;
+      img {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+
+    .right-side {
+      .field--name-field-title {
+        font-weight: $fw-bold;
+        color: $primary;
+        margin-bottom: 0;
+      }
+      .field--name-field-subtitle {
+        color: $gray;
+      }
+    }
+  }
+
+}
+
+.testimonial-type-boxes {
+  .field__item {
+    margin-bottom: 1rem;
+  }
+}
+
+.testimonial-type-slider {
+  background: $primary;
+  .slick-slide {
+    padding: 5rem 0 0;
+  }
+  .slick-prev:before, .slick-next:before {
+    color: $white;
+  }
+  &__background {
+    padding: 3rem 1rem;
+    @include breakpoint(medium) {
+      padding: 5rem 0;
+    }
+  }
+  &__quote {
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: $white;
+    text-align: center;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    &::after {
+      content: '';
+      height: 4px;
+      width: 100px;
+      background: $secondary;
+      position: absolute;
+      bottom: 0;
+      left: calc(50% - 50px);
+    }
+    &::before {
+      position: absolute;
+      content: '“”';
+      width: 5rem;
+      height: 5rem;
+      top: calc(0% - 6rem);
+      left: calc(50% - 50px);
+      font-family: 'Mulish', sans-serif;
+      font-size: 6rem;
+      color: $secondary;
+      text-align: center;
+    }
+  }
+  &__person {
+    display: flex;
+    justify-content: center;
+    &-image {
+      margin-right: 12px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    &-info {}
+    &-name {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: $white;
+      text-align: center;
+    }
+    &-title {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: $white;
+      text-align: center;
+    }
+  }
+}

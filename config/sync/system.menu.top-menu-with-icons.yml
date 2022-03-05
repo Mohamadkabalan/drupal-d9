@@ -1,0 +1,8 @@
+uuid: 54eab599-4f17-44db-a4d4-10abc498433d
+langcode: en
+status: true
+dependencies: {  }
+id: top-menu-with-icons
+label: 'Top menu (with icons)'
+description: ''
+locked: false

@@ -1,0 +1,10 @@
+uuid: 53863f5c-c288-49b4-b734-a3f4933c0874
+langcode: en
+status: true
+dependencies: {  }
+id: cta_homepage_hero
+label: 'CTA (Homepage Hero)'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

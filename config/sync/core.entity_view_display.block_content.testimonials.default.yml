@@ -1,0 +1,45 @@
+uuid: 8ea4448d-c61c-43e8-96a6-94eb36ed0b8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.testimonials
+    - field.field.block_content.testimonials.field_image
+    - field.field.block_content.testimonials.field_items
+    - field.field.block_content.testimonials.field_testimonial_type
+  module:
+    - entity_reference_revisions
+    - media
+    - options
+id: block_content.testimonials.default
+targetEntityType: block_content
+bundle: testimonials
+mode: default
+content:
+  field_image:
+    weight: 4
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: media_thumbnail
+    region: content
+  field_items:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_testimonial_type:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+hidden:
+  search_api_excerpt: true

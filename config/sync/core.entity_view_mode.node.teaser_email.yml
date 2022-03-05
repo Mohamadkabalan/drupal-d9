@@ -1,0 +1,10 @@
+uuid: b13b029b-2919-4141-a210-ed2bfcd5092e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.teaser_email
+label: 'Teaser (email)'
+targetEntityType: node
+cache: true

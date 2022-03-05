@@ -1,0 +1,395 @@
+uuid: 42edc951-4205-4dbd-bcbb-e0c891b838f6
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 14
+template: false
+archive: false
+id: plan_your_own_visit
+title: 'Plan Your Own Visit'
+description: 'Primary form for prospective students to schedule a campus visit'
+category: ''
+elements: |-
+  personal_info_heading:
+    '#type': processed_text
+    '#text': |
+      <h2>1. Personal Information</h2>
+    '#format': basic_html
+  name_gender:
+    '#type': webform_flexbox
+    name:
+      '#type': webform_name
+      '#title': Name
+      '#title_display': ''
+      '#title__access': false
+      '#first__placeholder': First
+      '#first__title_display': invisible
+      '#middle__access': false
+      '#last__placeholder': Last
+      '#last__title_display': invisible
+      '#suffix__access': false
+      '#degree__access': false
+    gender:
+      '#type': radios
+      '#title': Gender
+      '#options': gender
+      '#options_display': side_by_side
+      '#required': true
+  personal_info:
+    '#type': webform_flexbox
+    birth_date:
+      '#type': date
+      '#title': 'Birth Date'
+      '#required': true
+    t_shirt_size:
+      '#type': select
+      '#title': 'T-shirt size'
+      '#description': 'For your free t-shirt!'
+      '#options':
+        Small: Small
+        Medium: Medium
+        Large: Large
+        XL: XL
+        XXL: XXL
+        XXXL: XXXL
+  contact_info:
+    '#type': webform_flexbox
+    email:
+      '#type': email
+      '#title': Email
+      '#required': true
+    phone_number:
+      '#type': tel
+      '#title': 'Phone Number'
+  address:
+    '#type': webform_address
+    '#title': 'Mailing Address'
+    '#title_display': ''
+  what_program_s_are_you_interested_in_:
+    '#type': checkboxes
+    '#title': 'What program(s) are you interested in?'
+    '#options':
+      Undecided: Undecided
+      '1 Year Bible Certificate': '1 Year Bible Certificate'
+      'Applied Mathematics': 'Applied Mathematics'
+      'Biblical Studies': 'Biblical Studies'
+      Business: Business
+      'Computer Studies': 'Computer Studies'
+      'Counseling Psychology': 'Counseling Psychology'
+      'Educational Ministries': 'Educational Ministries'
+      'General Studies': 'General Studies'
+      'Health Sciences': 'Health Sciences'
+      'Intercultural Studies': 'Intercultural Studies'
+      Music: Music
+      'Teacher Education': 'Teacher Education'
+      '3+1 Transfer Program': '3+1 Transfer Program'
+    '#options_display': two_columns
+    '#required': true
+  educational_information:
+    '#type': webform_flexbox
+    high_school_graduation_year:
+      '#type': textfield
+      '#title': 'High School Graduation Year'
+    intended_semester_of_enrollment_at_emmaus:
+      '#type': select
+      '#title': 'Intended semester of enrollment at Emmaus'
+      '#options':
+        'Spring 2022': 'Spring 2022'
+        'Fall 2022': 'Fall 2022'
+        'Spring 2023': 'Spring 2023'
+        'Fall 2023': 'Fall 2023'
+        'Spring 2024': 'Spring 2024'
+        'Fall 2024': 'Fall 2024'
+      '#required': true
+  have_you_taken_any_college_level_courses_:
+    '#type': radios
+    '#title': 'Have you taken any college level courses?'
+    '#options':
+      'Yes': 'Yes'
+      'No': 'No'
+    '#options_display': side_by_side
+    '#required': true
+  horizontal_rule:
+    '#type': webform_horizontal_rule
+  schedule_your_visit_text:
+    '#type': processed_text
+    '#text': |
+      <h2>2. Schedule your visit</h2>
+
+      <p>In an effort to properly serve your request, we ask that you schedule your visit at least one week in advance. If you would like to schedule a campus visit with less than three day's notice, please call (563) 588-8000 ext. 1320.</p>
+
+      <p>When scheduling your visit, keep in mind that the Enrollment Office will not offer campus visits on the following dates:</p>
+
+      <ul>
+      	<li>Thursday, December 23 through Monday, January 3 (Christmas/New Year’s)</li>
+      	<li>Friday, January 7 (New Student Arrival Day)</li>
+      	<li>Tuesday, January 18 (enrollment in-service day</li>
+      	<li>Thursday, March 24 (Discover Emmaus Weekend)</li>
+      	<li>Friday, March 25 (Discover Emmaus Weekend)</li>
+      	<li>Friday, April 15 (Good Friday)</li>
+      	<li>Tuesday, May 10 (college in-service day)</li>
+      	<li>Wednesday, May 11 (college in-service day)</li>
+      	<li>Monday, May 30 (Memorial Day)</li>
+      </ul>
+
+      <p>When classes are not in session (Christmas break, Thanksgiving break, Spring break, Easter break, Summer break, Finals Week) class visits may not be available.</p>
+
+      <p>For the Fall 2021 semester these are the dates that are unavailable for class visits:</p>
+
+      <ul>
+      	<li>Monday, October 18. 2021</li>
+      	<li>Monday, November 22 through Friday, November 26</li>
+      	<li>Tuesday, December 7 through Friday, December 10</li>
+      </ul>
+
+      <p>For the&nbsp;Spring 2022 semester these are the dates that are unavailable for class visits:</p>
+
+      <ul>
+      	<li>Friday, January 28</li>
+      	<li>Monday, March 7 through Friday, March 11</li>
+      	<li>Tuesday, April 5</li>
+      	<li>Friday, April 15</li>
+      	<li>Monday, April 18</li>
+      	<li>Monday, May 2 through Friday, May 6</li>
+      </ul>
+
+      <p>During the academic year, we recommend arriving at 10:00 AM on Monday/Wednesday/Friday, or 10:40 AM on Tuesday/Thursday. During summer and other school breaks, we recommend arriving at 9:00 AM on weekdays.&nbsp;<strong>Weekend visits are only available by special arrangment with your admissions counselor.</strong></p>
+    '#format': basic_html
+  date_and_arrival_time_of_visit:
+    '#type': datetime
+    '#title': 'Date and Arrival Time of Visit'
+    '#date_date_format': ''
+    '#date_time_format': ''
+  will_your_parents_and_or_anyone_else_be_joining_you_:
+    '#type': radios
+    '#title': 'Will your parents and/or anyone else be joining you?'
+    '#options':
+      'Yes': 'Yes'
+      'No': 'No'
+  please_list_the_names_of_anyone_joining_you_for_the_visit_:
+    '#type': textarea
+    '#title': 'Please list the names of anyone joining you for the visit.'
+    '#states':
+      visible:
+        ':input[name="will_your_parents_and_or_anyone_else_be_joining_you_"]':
+          value: 'Yes'
+  horizontal_rule_2:
+    '#type': webform_horizontal_rule
+  campus_visit_options_text:
+    '#type': processed_text
+    '#text': |
+      <h2>3. Campus Visit Options</h2>
+
+      <p>All visits will include 20 minutes with an admissions counselor.</p>
+    '#format': basic_html
+  select_the_options_that_you_would_like_for_your_visit_:
+    '#type': checkboxes
+    '#title': 'Select the options that you would like for your visit.'
+    '#description': |-
+      <p><em>*Please note that these options are only available during the academic year when classes are in session.</em></p>
+
+      <p><em>**We can give you general information about transferring credits, but we will need your unofficial college transcripts sent to the admissions office at least 5 days prior to your visit day in order to have you meet with the Registrar (pictures or scans of the transcripts are fine).</em></p>
+    '#options':
+      'Campus Tour (45 min)': 'Campus Tour (45 min)'
+      'Class Visit (M/W/F 50 min; T/Th 75 min)*': 'Class Visit (M/W/F 50 min; T/Th 75 min)*'
+      'Attend Chapel (M/W/F 45 min)*': 'Attend Chapel (M/W/F 45 min)*'
+      'Complimentary Lunch (11:30-12:30)*': 'Complimentary Lunch (11:30-12:30)*'
+      'Learn more about your major (30 min)': 'Learn more about your major (30 min)'
+      'Learn more about finances at Emmaus (30 min)': 'Learn more about finances at Emmaus (30 min)'
+      'Discover if any college credits that you have taken will transfer to Emmaus**': 'Discover if any college credits that you have taken will transfer to Emmaus**'
+  are_you_interested_in_speaking_to_a_coach_about_being_recruited_:
+    '#type': radios
+    '#title': 'Are you interested in speaking to a coach about being recruited for one of our intercollegiate sports?'
+    '#options':
+      'Yes': 'Yes'
+      'No': 'No'
+    '#required': true
+  any_questions_or_comments_in_advance_of_your_visit_:
+    '#type': textarea
+    '#title': 'Any questions or comments in advance of your visit?'
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: both
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_disable_remote_addr: false
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  form_method: ''
+  form_action: ''
+  form_attributes: {  }
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: false
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: page
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+  token_delete: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }
+variants: {  }

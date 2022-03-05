@@ -1,0 +1,53 @@
+.bmg-share-block {
+
+  .wrp-share-it {
+    display: flex;
+  }
+
+  h4 {
+    font-size: rem-calc(18);
+    text-transform: uppercase;
+    color: $primary_dark;
+    margin-bottom: 20px;
+  }
+
+  .share-it {
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & + .share-it {
+      margin-left: 10px;
+    }
+
+    &:hover {
+      i {
+        transform: scale(1.1);
+      }
+    }
+
+    i {
+      width: 40px;
+      height: 40px;
+      background-color: rgba($white, 0.4);
+      border-radius: 50%;
+      color: $white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s;
+    }
+
+    &#share-facebook {
+      background-color: #3b59a1;
+    }
+    &#share-twitter {
+      background-color: #46b0e4;
+    }
+    &#share-linkedin {
+      background-color: #46b0e4;
+    }
+  }
+}

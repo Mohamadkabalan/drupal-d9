@@ -1,0 +1,5 @@
+name: BMG Custom
+description: Custom hook and alter functions
+core_version_requirement: ^8.8 || ^9
+type: module
+package: 'Devvly'

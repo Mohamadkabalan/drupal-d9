@@ -1,0 +1,123 @@
+.block-type-cta {
+  background-color: $gray_light;
+  padding: 72px 0 80px;
+  text-align: center;
+
+  .field--name-field-title {
+    text-transform: uppercase;
+  }
+
+  .field--name-field-text-subtitle {
+    color: $white;
+    position: relative;
+    font-size: rem-calc(18px);
+  }
+
+  .field--name-field-button {
+    text-align: center;
+    margin-top: 32px;
+    .field__item {
+      display: inline-block;
+      margin: 0 8px;
+      a {
+        @media only screen and (min-width : 64em) {
+          font-size: rem-calc(18px);
+          padding: 24px 32px;
+        }
+      }
+    }
+  }
+
+  &.color-scheme-blue {
+    background-color: $primary;
+    .field--name-field-title {
+      color: $white;
+    }
+    .field--name-field-text-subtitle {
+      color: $white;
+    }
+  }
+
+  &.color-scheme-gold {
+    background-color: $secondary;
+    .field--name-field-title {
+      color: $white;
+    }
+    .field--name-field-text-subtitle {
+      color: $white;
+    }
+    .field--name-field-button {
+      .field__item {
+        a {
+          background: $primary;
+          color: $white;
+          &:hover {
+            background: $primary_dark;
+          }
+        }
+      }
+    }
+  }
+
+  &.color-scheme-black {
+    background-color: $black;
+    .field--name-field-title {
+      color: $white;
+    }
+    .field--name-field-text-subtitle {
+      color: $white;
+    }
+  }
+
+  &.color-scheme-white_with_blue {
+    background-color: $gray_lighter;
+    .field--name-field-title {
+      color: $primary;
+    }
+    .field--name-field-text-subtitle {
+      color: $black;
+    }
+    .field--name-field-button {
+      .field__item {
+        a {
+          background: $primary;
+          color: $white;
+          &:hover {
+            background: $secondary;
+          }
+        }
+      }
+    }
+  }
+
+  &.color-scheme-white_with_gold {
+    background-color: $gray_lighter;
+    .field--name-field-title {
+      color: $secondary;
+    }
+    .field--name-field-text-subtitle {
+      color: $black;
+    }
+  }
+
+  &.color-scheme-white_with_black {
+    background-color: $gray_lighter;
+    .field--name-field-title {
+      color: $black;
+    }
+    .field--name-field-text-subtitle {
+      color: $black;
+    }
+    .field--name-field-button {
+      .field__item {
+        a {
+          background: $black;
+          color: $white;
+          &:hover {
+            background: $secondary;
+          }
+        }
+      }
+    }
+  }
+}

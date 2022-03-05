@@ -1,0 +1,93 @@
+.node--type-profile.node--view-mode-full,
+.node--type-profile.node--view-mode-modal {
+  padding-bottom: 45px;
+
+  .profile-top {
+    display: flex;
+    margin-bottom: 30px;
+
+    .field--name-field-image {
+      width: 100%;
+      @media only screen and (min-width : 40em) {
+        width: 30%;
+      }
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .profile-data {
+      width: 100%;
+      @media only screen and (min-width : 40em) {
+        width: 60%;
+        padding-left: 30px;
+      }
+    }
+  }
+
+  .node-title {
+    color: $primary_dark;
+  }
+
+  .field--name-field-subtitle {
+    margin-bottom: 0.75em;
+    position: relative;
+    padding-left: 15px;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      background-color: $text;
+      position: absolute;
+      left: 0;
+      top: 7px;
+    }
+  }
+
+  .field--name-body {
+    h2, h3, h4 {
+      color: $primary_dark;
+    }
+  }
+}
+
+.node--type-profile.node--view-mode-modal {
+  padding-top: 45px;
+}
+
+/* .node--type-profile.node--view-mode-teaser,
+.node--type-profile.node--view-mode-teaser-modal,
+.node--type-profile.node--view-mode-teaser-email,
+.node--type-profile.node--view-mode-teaser-modal-and-email {
+  padding-top: 45px;
+
+  .field--name-field-image {
+    margin-bottom: 20px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .node-title {
+    color: $primary_dark;
+  }
+
+  .field--name-field-subtitle {
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+    color: $text;
+  }
+
+  .field--name-field-email {
+    a {
+      color: $text;
+    }
+  }
+} */

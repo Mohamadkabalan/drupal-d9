@@ -1,0 +1,148 @@
+.block-type-tabs {
+  background-color: $gray_lighter;
+  padding: 40px 0;
+  @media only screen and (min-width : 64em) {
+    padding: 80px 0;
+  }
+
+  &.color-scheme-blue {
+    background-color: $primary;
+
+    .cmml-tab {
+      background-color: rgba($black, 0.4);
+      color: $white;
+
+      &.active {
+        color: $primary;
+        background: $white;
+
+        &::after {
+          border-color: $white transparent transparent transparent;
+        }
+      }
+    }
+
+    .field--name-field-items {
+      color: $white;
+
+      .field--name-field-title {
+        color: $white;
+      }
+    }
+  }
+  &.color-scheme-gold {
+    background-color: $secondary;
+
+
+    .cmml-tab {
+      background-color: rgba($black, 0.4);
+      color: $white;
+
+      &.active {
+        color: $secondary;
+        background: $white;
+
+        &::after {
+          border-color: $white transparent transparent transparent;
+        }
+      }
+    }
+
+    .field--name-field-items {
+      color: $white;
+
+      .field--name-field-title {
+        color: $white;
+      }
+    }
+  }
+
+  .cmml-tabs,
+  .field--name-field-items {
+    max-width: $global-width;
+    margin: 0 auto;
+  }
+
+  .cmml-tabs {
+    display: flex;
+  }
+
+  .cmml-tab {
+    font-size: rem-calc(18);
+    font-weight: 800;
+    text-align: center;
+    line-height: 22px;
+    padding: 15px;
+    background-color: rgba($white, 0.4);
+    color: $black;
+    cursor: pointer;
+
+    & + .cmml-tab {
+      margin-left: 16px;
+    }
+
+    @media only screen and (min-width : 64em) {
+      font-size: rem-calc(20);
+      line-height: 28px;
+      padding: 24px;
+    }
+    @media only screen and (min-width : 75em) {
+      font-size: rem-calc(24);
+      line-height: 30px;
+    }
+
+    &.active {
+      position: relative;
+      color: $white;
+      background: $primary;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -18px;
+        width: 0;
+        height: 0;
+        border-width: 17px 18px 0 18px;
+        border-color: $primary transparent transparent transparent;
+        border-style: solid;
+      }
+    }
+  }
+
+  .field--name-field-items {
+    padding: 35px 20px 0;
+    color: $black;
+
+    .field--name-field-label {
+      display: none;
+    }
+
+    .field--name-field-title {
+      font-size: rem-calc(18);
+      font-weight: 800;
+      line-height: 18px;
+      color: $black;
+      margin-bottom: 15px;
+
+      @media only screen and (min-width : 64em) {
+        font-size: rem-calc(20);
+        line-height: 28px;
+      }
+      @media only screen and (min-width : 75em) {
+        font-size: rem-calc(24);
+        line-height: 30px;
+      }
+    }
+
+    & > .field__item {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+}

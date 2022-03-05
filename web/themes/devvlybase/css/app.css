@@ -1,0 +1,60 @@
+.messages {
+  padding: 15px;
+  margin:15px 0;
+  border-radius: 3px;
+  padding-left: 45px;
+  font:normal 14px/18px Helvetica, Arial, sans-serif;
+  border-style: solid;
+  border-width: 1px;
+  border-left-width: 5px;
+  position: relative;
+}
+.messages a, .messages a:visited { text-decoration: none; }
+.messages a:hover { text-decoration: underline; }
+.messages ul { margin:0; padding:0; list-style: none; }
+.messages h4 {
+  margin-top: 0;
+  color: inherit;
+}
+.messages .messages-link {
+  font-weight: bold;
+}
+.messages > p,
+.messages > ul {
+  margin-bottom: 0;
+}
+.messages > p + p {
+  margin-top: 5px;
+}
+.messages > span.icon {
+  position:absolute;
+  top: 50%;
+  left: 13px;
+  margin-top: -10px;
+}
+
+.messages.status { background:#d3ffc6; border-color: #4aa92d; color:#373737; }
+.messages.status a, .messages.status a:visited { color: #40a023; }
+.messages.status span.icon { color: #4aa92d; }
+.messages.error {background:#fbc0c0; border-color:#c42828; color:#373737; }
+.messages.error a, .messages.error a:visited { color: #c42828;}
+.messages.error span.icon { color:#c42828; }
+.messages.info { background:#b2e3f9; border-color:#288fc4; color:#373737; }
+.messages.info a, .messages.info a:visited { color: #0b79b1;}
+.messages.info span.icon { color:#288fc4; left: 20px; }
+.messages.warning { background:#fefedc; border-color:#f0c020; color:#373737; }
+.messages.warning a, .messages.warning a:visited { color: #baa40c;}
+.messages.warning span.icon { color:#f0c020; }
+
+ul.menu { margin-left: 0; }
+
+.editable-block { position:relative; }
+a.block-edit, a.block-edit:visited { position:absolute; top: -5px; right: -5px; z-index: 999; display:block; padding: 5px; font-size: .875rem;  background: #fff; border: 1px solid #000; border-radius: 3px; color: #000; text-decoration: none; text-transform: uppercase; }
+a.block-edit:hover { color: #000; background: #f7f7f7; }
+
+/* Tab navigation */
+nav.tabs ul { white-space:nowrap; height: 35px; display:block; list-style:none; margin:10px 0; padding: 0; line-height:normal; border-bottom:1px solid #ddd; }
+nav.tabs ul li { margin:0; margin-bottom: -1px; padding:0; float:left; display:block; position: relative;}
+nav.tabs ul li a { height: 35px; line-height: 35px; float:left; margin-right:2px; padding:0 20px; text-decoration:none; border-radius: 3px 3px 0px 0px; }
+nav.tabs ul li a.is-active, nav.tabs ul li a.is-active:hover { border:1px solid #ddd; border-bottom-color:#fff; background-color:transparent; }
+nav.tabs ul li a:hover { background-color:#eee; border-bottom:1px solid #ddd;}

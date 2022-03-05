@@ -1,0 +1,110 @@
+.block-type-video_hero {
+  position: relative;
+  background-color: $primary-dark;
+  @media only screen and (min-width : 48em) {
+    background-color: transparent;
+  }
+
+  .field--name-field-video {
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .hero-content {
+    max-width: $global-width;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 15px;
+    color: $white;
+    text-align: center;
+
+    @media only screen and (min-width : 48em) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    h2 {
+      font-size: rem-calc(32);
+      line-height: 35px;
+      margin-bottom: 20px;
+      @media only screen and (min-width : 48em) {
+        font-size: rem-calc(42);
+        line-height: 45px;
+      }
+      @media only screen and (min-width : 64em) {
+        font-size: rem-calc(52);
+        line-height: 55px;
+      }
+    }
+    .field--name-field-text-subtitle {
+      font-size: rem-calc(18);
+      font-style: italic;
+      margin-bottom: 40px;
+      @media only screen and (min-width : 48em) {
+        font-size: rem-calc(24);
+      }
+    }
+
+    .field--name-field-paragraph-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      @media only screen and (min-width : 40em) {
+        flex-direction: row;
+      }
+
+      & > .field__item {
+        & + .field__item {
+          margin: 20px 0 0 0;
+          @media only screen and (min-width : 40em) {
+            margin: 0 0 0 20px;
+          }
+        }
+      }
+
+      .field--name-field-button {
+        a {
+          @media only screen and (min-width : 64em) {
+            font-size: rem-calc(24px);
+            padding: 30px 60px;
+            i {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes video-hero-arrow-animation {
+    0% {
+      bottom: 1rem;
+    }
+    50% {
+      bottom: 2rem;
+    }
+    100% {
+      bottom: 1rem;
+    }
+  }
+
+  @media only screen and (min-width : 48em) {
+    &::after {
+      font-family: "Font Awesome 5 Pro"; font-weight: 300; content: "\f063";
+      position: absolute;
+      font-size: 2.5rem;
+      color: $white;
+      bottom: 1rem;
+      left: 50%;
+      margin-left: -17px;
+      animation: video-hero-arrow-animation 1s infinite;
+    }
+  }
+
+}

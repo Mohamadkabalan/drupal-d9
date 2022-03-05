@@ -1,0 +1,30 @@
+uuid: f5296a6b-735a-47ee-84b1-ce908f199e09
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.simple_textarea
+    - field.field.block_content.simple_textarea.body
+    - field.field.block_content.simple_textarea.field_padding_bottom
+    - field.field.block_content.simple_textarea.field_padding_left
+    - field.field.block_content.simple_textarea.field_padding_right
+    - field.field.block_content.simple_textarea.field_padding_top
+  module:
+    - text
+id: block_content.simple_textarea.default
+targetEntityType: block_content
+bundle: simple_textarea
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_padding_bottom: true
+  field_padding_left: true
+  field_padding_right: true
+  field_padding_top: true

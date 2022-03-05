@@ -1,0 +1,72 @@
+<div id="wrapper" >
+  <div class="mp-pusher" id="mp-pusher">
+    <nav id="mp-menu" class="mp-menu">
+      <div class="mp-level">
+        <h2>Menu</h2>
+        {{ mobile_main_menu }}
+        {{ mobile_header_menu_left_menu }}
+        {{ mobile_header_menu_right_menu }}
+        {{ mobile_top_menu_with_icons_menu }}
+      </div>
+    </nav>
+    <header class="section top-nav">
+      {% if page.header_top|render|striptags|trim|length > 0%}
+        {{ page.header_top }}
+      {% endif %}
+      {% if page.header|render|striptags|trim|length > 0%}
+        {{ page.header }}
+      {% endif %}
+      {% if page.header_bottom|render|striptags|trim|length > 0%}
+        {{ page.header_bottom }}
+      {% endif %}
+    </header><!-- section -->
+
+    {% block main %}
+    <div class="section subpage">
+    {#  <div class="container">#}
+    {#    <div class="row">#}
+          {% if page.sidebar_first|render|striptags|trim|length > 0%}
+            <aside id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar" role="complementary">
+              {{ page.sidebar_first }}
+            </aside>
+          {% endif %}
+          <main id="main" class="{{ main_grid }} columns" role="main">
+            <a id="main-content"></a>
+            {% if breadcrumb %} {{ breadcrumb }} {% endif %}
+            <section>
+              {{ page.content }}
+            </section>
+          </main>
+          {% if page.sidebar_second|render|striptags|trim|length > 0 %}
+            <aside id="sidebar-second" class="{{ sidebar_sec_grid }} columns sidebar" role="complementary">
+              {{ page.sidebar_second }}
+            </aside>
+          {% endif %}
+    {#    </div>#}
+    {#  </div><!-- container -->#}
+    </div><!-- section -->
+    {% endblock %}
+    {% if page.dashboard_bottom|render|striptags|trim|length > 0%}
+      {{ page.dashboard_bottom }}
+    {% endif %}
+    <div id="footer" class="section footer">
+      <div class="container">
+        {{ page.footer_left }}
+        {{ page.footer_middle }}
+        {{ page.footer_right }}
+      </div><!-- container -->
+    </div><!-- section -->
+
+    <div class="copyright">
+      <div id="toTop"><i class="fas fa-arrow-up"></i></div>
+      <div class="container">
+        {{ page.footer_bottom }}
+        <div class="copyright-text">Copyright © {{ 'now'|date('Y') }}. All Rights Reserved.</div>
+        <div class="siteby">
+          Site by <a href="http://www.devvly.com" target="_blank" title="Site by Devvly">Devvly</a>
+        </div><!-- end footer-copy -->
+      </div>
+    </div>
+
+  </div>
+</div><!-- End of wrapper -->

@@ -1,0 +1,4 @@
+bmg-custom:
+  css:
+    theme:
+      css/bmg_custom.css: {}

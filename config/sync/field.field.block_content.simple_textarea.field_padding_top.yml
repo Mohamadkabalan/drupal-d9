@@ -1,0 +1,21 @@
+uuid: d51b7a2e-20dc-4538-bb98-11a48897ec23
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.simple_textarea
+    - field.storage.block_content.field_padding_top
+  module:
+    - options
+id: block_content.simple_textarea.field_padding_top
+field_name: field_padding_top
+entity_type: block_content
+bundle: simple_textarea
+label: 'Padding top'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

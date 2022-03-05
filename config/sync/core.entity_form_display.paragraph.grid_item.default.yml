@@ -1,0 +1,52 @@
+uuid: 73acec8c-c4e7-4117-9508-9fd1337b19ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.grid_item.field_description
+    - field.field.paragraph.grid_item.field_font_awesome_icon
+    - field.field.paragraph.grid_item.field_link
+    - field.field.paragraph.grid_item.field_title
+    - paragraphs.paragraphs_type.grid_item
+  module:
+    - link
+id: paragraph.grid_item.default
+targetEntityType: paragraph
+bundle: grid_item
+mode: default
+content:
+  field_description:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_font_awesome_icon:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_link:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

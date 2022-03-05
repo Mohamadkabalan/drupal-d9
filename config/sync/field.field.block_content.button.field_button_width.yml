@@ -1,0 +1,23 @@
+uuid: 60930cea-b97b-45b8-93f3-a964d1ca8f36
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.button
+    - field.storage.block_content.field_button_width
+  module:
+    - options
+id: block_content.button.field_button_width
+field_name: field_button_width
+entity_type: block_content
+bundle: button
+label: Width
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: auto
+default_value_callback: ''
+settings: {  }
+field_type: list_string

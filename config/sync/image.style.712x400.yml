@@ -1,0 +1,25 @@
+uuid: e1a320c5-7608-455b-a25b-9949a0534b16
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.16_9
+  module:
+    - crop
+name: 712x400
+label: 712x400
+effects:
+  f7e97479-7d97-410e-a8fe-73cb5c319040:
+    uuid: f7e97479-7d97-410e-a8fe-73cb5c319040
+    id: image_scale_and_crop
+    weight: -9
+    data:
+      width: 712
+      height: 400
+      anchor: center-center
+  cfee1231-f593-4f6c-8caf-ca1aa400f40b:
+    uuid: cfee1231-f593-4f6c-8caf-ca1aa400f40b
+    id: crop_crop
+    weight: -10
+    data:
+      crop_type: '16_9'

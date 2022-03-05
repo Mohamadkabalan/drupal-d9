@@ -1,0 +1,69 @@
+.block-type-accordion {
+  background-color: $gray_lighter;
+  padding: 40px 15px;
+  @media only screen and (min-width: 64em) {
+    padding: 80px 0;
+  }
+
+  .block-title {
+    max-width: $global_width;
+    margin: 0 auto;
+    padding: 0 15px;
+
+    @media only screen and (min-width: 64em) {
+      padding: 0;
+    }
+
+    h2 {
+      margin-bottom: 35px;
+    }
+  }
+
+  .field--name-field-paragraphs {
+    max-width: $global-width;
+    margin: 0 auto;
+    color: $gray-dark;
+  }
+
+  &.color-scheme-blue {
+    background-color: $primary;
+    .block-title {
+      color: $white;
+    }
+    .paragraph--type--accordion-item {
+      .field--name-field-title {
+        color: $white;
+      }
+      &.active {
+        .field--name-field-title {
+          color: $white;
+          background: $primary-dark;
+        }
+      }
+      .field--name-field-text {
+        color: $white;
+      }
+    }
+  }
+
+  &.color-scheme-gold {
+    background-color: $secondary;
+    .block-title {
+      color: $white;
+    }
+    .paragraph--type--accordion-item {
+      .field--name-field-title {
+        color: $white;
+      }
+      &.active {
+        .field--name-field-title {
+          color: $white;
+          background: $secondary-dark;
+        }
+      }
+      .field--name-field-text {
+        color: $white;
+      }
+    }
+  }
+}
