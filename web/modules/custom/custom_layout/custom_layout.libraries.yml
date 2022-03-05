@@ -1,5 +1,0 @@
-custom_layout:
-  version: VERSION
-  css:
-    theme:
-      css/custom_layout.css: {}

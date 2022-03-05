@@ -1,5 +1,0 @@
-name: 'Views Content Class'
-description: 'Adds a settings to views to include classes for the view content wrapper div'
-core_version_requirement: ^8.8 || ^9
-package: 'Devvly'
-type: module

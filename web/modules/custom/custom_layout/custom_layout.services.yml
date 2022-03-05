@@ -1,6 +1,0 @@
-services:
-  custom_layout.route_alter:
-    class: Drupal\custom_layout\Routing\CustomLayoutRouteAlter
-    tags:
-    - { name: 'event_subscriber' }
-

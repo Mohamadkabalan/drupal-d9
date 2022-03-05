@@ -1,7 +1,0 @@
-name: 'Custom Layout'
-type: module
-description: 'Provides a way for building layout'
-core_version_requirement: ^8.8 || ^9
-package: 'Devvly'
-dependencies:
-  - layout_builder:layout_builder

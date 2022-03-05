@@ -1,5 +1,0 @@
-name: 'BMG Site Settings'
-description: 'Custom form for admins to control site settings.'
-core_version_requirement: ^8.8 || ^9
-package: 'Devvly'
-type: module

@@ -1,5 +1,0 @@
-bmg_site_settings.form:
-  route_name: bmg_site_settings.form
-  title: 'Site Settings'
-  description: 'Site Settings'
-  parent: system.admin_config_system

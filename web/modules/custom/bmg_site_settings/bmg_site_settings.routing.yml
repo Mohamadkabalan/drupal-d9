@@ -1,7 +1,0 @@
-bmg_site_settings.form:
-  path: /admin/config/system/site-settings
-  defaults:
-    _title: 'Site Settings'
-    _form: \Drupal\bmg_site_settings\Form\BmgSiteSettingsForm
-  requirements:
-    _permission: 'edit bmg site settings'
