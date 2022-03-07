@@ -78,6 +78,13 @@ class RemotePostWebformHandler extends WebformHandlerBase {
   protected $elementManager;
 
   /**
+   * The current request.
+   *
+   * @var \Symfony\Component\HttpFoundation\Request
+   */
+  protected $request;
+
+  /**
    * The request stack.
    *
    * @var \Symfony\Component\HttpFoundation\RequestStack
@@ -273,12 +280,14 @@ class RemotePostWebformHandler extends WebformHandlerBase {
       '#title' => $this->t('Method'),
       '#description' => $this->t('The <b>POST</b> request method requests that a web server accept the data enclosed in the body of the request message. It is often used when uploading a file or when submitting a completed webform. In contrast, the HTTP <b>GET</b> request method retrieves information from the server.'),
       '#required' => TRUE,
+      // phpcs:disable DrupalPractice.General.OptionsT.TforValue
       '#options' => [
         'POST' => 'POST',
         'PUT' => 'PUT',
         'PATCH' => 'PATCH',
         'GET' => 'GET',
       ],
+      // phpcs:enable DrupalPractice.General.OptionsT.TforValue
       '#default_value' => $this->configuration['method'],
     ];
     $form['additional']['type'] = [
@@ -420,7 +429,7 @@ class RemotePostWebformHandler extends WebformHandlerBase {
       ];
       $form['submission_data']['managed_file_message_no_data'] = [
         '#type' => 'webform_message',
-        '#message_message' => $this->t('Upload files will include the file\'s id, name and uri.'),
+        '#message_message' => $this->t("Upload files will include the file's id, name and uri."),
         '#message_type' => 'warning',
         '#message_close' => TRUE,
         '#message_id' => 'webform_node.references',
@@ -855,9 +864,9 @@ class RemotePostWebformHandler extends WebformHandlerBase {
     return $this->isDraftEnabled() && ($this->getWebform()->getSetting('form_convert_anonymous') === TRUE);
   }
 
-  /****************************************************************************/
+  /* ************************************************************************ */
   // Debug and exception handlers.
-  /****************************************************************************/
+  /* ************************************************************************ */
 
   /**
    * Display debugging information.
@@ -1058,7 +1067,7 @@ class RemotePostWebformHandler extends WebformHandlerBase {
     }
 
     // Redirect the current request to the error url.
-    $error_url = $this->configuration['error_url'];
+    $error_url = $this->replaceTokens($this->configuration['error_url'], $this->getWebformSubmission());
     if ($error_url && PHP_SAPI !== 'cli') {
       // Convert error path to URL.
       if (strpos($error_url, '/') === 0) {
@@ -1107,11 +1116,13 @@ class RemotePostWebformHandler extends WebformHandlerBase {
       $status_code = $response->getStatusCode();
       foreach ($this->configuration['messages'] as $message_item) {
         if ((int) $message_item['code'] === (int) $status_code) {
-          return $message_item['message'];
+          return $this->replaceTokens($message_item['message'], $this->getWebformSubmission());
         }
       }
     }
-    return (!empty($this->configuration['message']) && $default) ? $this->configuration['message'] : '';
+    return (!empty($this->configuration['message']) && $default)
+      ? $this->replaceTokens($this->configuration['message'], $this->getWebformSubmission())
+      : '';
   }
 
   /**

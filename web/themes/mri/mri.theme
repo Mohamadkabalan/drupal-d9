@@ -350,7 +350,10 @@ function mri_preprocess_block(&$variables) {
           $variables['faq_categories'] = Markup::create($faq_categories);
         }
       break;
-
+      case 'spacer':
+        $height = $content['#block_content']->get('field_spacer_height')->getValue();
+        $variables['height'] = $height;
+      break;
       case 'document_list':
       case 'border_box':
         $variables['title_icon'] = '';

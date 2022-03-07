@@ -23,10 +23,9 @@ function url_alias_permissions_help(string $route_name, RouteMatchInterface $rou
 }
 
 /**
- * Implements hook_field_widget_multivalue_form_alter().
+ * Implements hook_field_widget_complete_form_alter().
  */
-function url_alias_permissions_field_widget_multivalue_form_alter(array &$elements, FormStateInterface $form_state, array $context) {
-  // Don't disable fields when we're not on an entity form.
+function url_alias_permissions_field_widget_complete_form_alter(array &$field_widget_complete_form, FormStateInterface $form_state, array $context) {
   if (!$form_state->getFormObject() instanceof EntityFormInterface) {
     return;
   }
@@ -66,5 +65,5 @@ function url_alias_permissions_field_widget_multivalue_form_alter(array &$elemen
     return;
   }
 
-  $elements['#access'] = \Drupal::currentUser()->hasPermission($permission);
+  $field_widget_complete_form['#access'] = \Drupal::currentUser()->hasPermission($permission);
 }

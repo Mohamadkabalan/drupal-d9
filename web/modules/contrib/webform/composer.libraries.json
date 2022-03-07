@@ -29,6 +29,7 @@
         "forum": "https://drupal.stackexchange.com/questions/tagged/webform"
     },
     "require": {
+        "composer/installers": "*",
         "algolia/places": "*",
         "choices/choices": "*",
         "ckeditor/autogrow": "*",
@@ -95,13 +96,13 @@
             "type": "package",
             "package": {
                 "name": "ckeditor/autogrow",
-                "version": "4.16.2",
+                "version": "4.17.1",
                 "type": "drupal-library",
                 "extra": {
                     "installer-name": "ckeditor.autogrow"
                 },
                 "dist": {
-                    "url": "https://download.ckeditor.com/autogrow/releases/autogrow_4.16.2.zip",
+                    "url": "https://download.ckeditor.com/autogrow/releases/autogrow_4.17.1.zip",
                     "type": "zip"
                 }
             }
@@ -125,13 +126,13 @@
             "type": "package",
             "package": {
                 "name": "ckeditor/fakeobjects",
-                "version": "4.16.2",
+                "version": "4.17.1",
                 "type": "drupal-library",
                 "extra": {
                     "installer-name": "ckeditor.fakeobjects"
                 },
                 "dist": {
-                    "url": "https://download.ckeditor.com/fakeobjects/releases/fakeobjects_4.16.2.zip",
+                    "url": "https://download.ckeditor.com/fakeobjects/releases/fakeobjects_4.17.1.zip",
                     "type": "zip"
                 }
             }
@@ -140,13 +141,13 @@
             "type": "package",
             "package": {
                 "name": "ckeditor/image",
-                "version": "4.16.2",
+                "version": "4.17.1",
                 "type": "drupal-library",
                 "extra": {
                     "installer-name": "ckeditor.image"
                 },
                 "dist": {
-                    "url": "https://download.ckeditor.com/image/releases/image_4.16.2.zip",
+                    "url": "https://download.ckeditor.com/image/releases/image_4.17.1.zip",
                     "type": "zip"
                 }
             }
@@ -155,13 +156,13 @@
             "type": "package",
             "package": {
                 "name": "ckeditor/link",
-                "version": "4.16.2",
+                "version": "4.17.1",
                 "type": "drupal-library",
                 "extra": {
                     "installer-name": "ckeditor.link"
                 },
                 "dist": {
-                    "url": "https://download.ckeditor.com/link/releases/link_4.16.2.zip",
+                    "url": "https://download.ckeditor.com/link/releases/link_4.17.1.zip",
                     "type": "zip"
                 }
             }
@@ -236,7 +237,7 @@
                     "installer-name": "jquery.icheck"
                 },
                 "dist": {
-                    "url": "https://github.com/fronteed/icheck/archive/1.0.2.zip",
+                    "url": "https://github.com/dargullin/icheck/archive/refs/tags/1.0.2.zip",
                     "type": "zip"
                 }
             }
@@ -365,13 +366,13 @@
             "type": "package",
             "package": {
                 "name": "progress-tracker/progress-tracker",
-                "version": "2.0.6",
+                "version": "2.0.7",
                 "type": "drupal-library",
                 "extra": {
                     "installer-name": "progress-tracker"
                 },
                 "dist": {
-                    "url": "https://github.com/NigelOToole/progress-tracker/archive/2.0.6.zip",
+                    "url": "https://github.com/NigelOToole/progress-tracker/archive/2.0.7.zip",
                     "type": "zip"
                 }
             }

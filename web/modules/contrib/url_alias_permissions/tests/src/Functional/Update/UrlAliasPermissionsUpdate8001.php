@@ -40,7 +40,7 @@ class UrlAliasPermissionsUpdate8001 extends UpdatePathTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  protected function setUp(): void {
     parent::setUp();
 
     $this->roleStorage = $this->container->get('entity_type.manager')->getStorage('user_role');

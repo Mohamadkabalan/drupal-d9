@@ -88,7 +88,7 @@ class WebformLibrariesManager implements WebformLibrariesManagerInterface {
     $libraries = $this->getLibraries();
 
     // Defined REQUIREMENT constants which may not be loaded.
-    // @see /private/var/www/sites/d8_webform/web/core/includes/install.inc
+    // @see ~/Sites/drupal_webfor/mweb/core/includes/install.inc
     if (!defined('REQUIREMENT_OK')) {
       define('REQUIREMENT_INFO', -1);
       define('REQUIREMENT_OK', 0);
@@ -212,13 +212,7 @@ class WebformLibrariesManager implements WebformLibrariesManagerInterface {
   }
 
   /**
-   * Determine if a library's directory exist.
-   *
-   * @param string $name
-   *   The library's directory name.
-   *
-   * @return bool
-   *   TRUE if the library's directory exist.
+   * {@inheritdoc}
    */
   public function exists($name) {
     // @todo Inject dependency once Drupal 8.9.x is only supported.
@@ -231,16 +225,8 @@ class WebformLibrariesManager implements WebformLibrariesManagerInterface {
   }
 
   /**
-   * Finds files that are located in the supported 'libraries' directories.
-   *
-   * @param string $path
-   *   The path for the library file to find.
-   *
-   * @return string|false
-   *   The real path to the library file relative to the root directory. If the
-   *   library cannot be found then FALSE.
+   * {@inheritdoc}
    */
-
   public function find($name) {
     if (\Drupal::hasService('library.libraries_directory_file_finder')) {
       return \Drupal::service('library.libraries_directory_file_finder')->find($name);
@@ -458,8 +444,8 @@ class WebformLibrariesManager implements WebformLibrariesManagerInterface {
       'description' => $this->t("A flexible SASS component to illustrate the steps in a multi-step process e.g. a multi-step form, a timeline or a quiz."),
       'notes' => $this->t('Progress Tracker is used by multi-step wizard forms.'),
       'homepage_url' => Url::fromUri('http://nigelotoole.github.io/progress-tracker/'),
-      'download_url' => Url::fromUri('https://github.com/NigelOToole/progress-tracker/archive/2.0.6.zip'),
-      'version' => '2.0.6',
+      'download_url' => Url::fromUri('https://github.com/NigelOToole/progress-tracker/archive/2.0.7.zip'),
+      'version' => '2.0.7',
     ];
     $libraries['signature_pad'] = [
       'title' => $this->t('Signature Pad'),
@@ -475,7 +461,7 @@ class WebformLibrariesManager implements WebformLibrariesManagerInterface {
       'description' => $this->t("Tabby provides lightweight, accessible vanilla JS toggle tabs."),
       'notes' => $this->t('Tabby is used to display tabs in the administrative UI'),
       'homepage_url' => Url::fromUri('https://github.com/cferdinandi/tabby'),
-      'download_url' =>  Url::fromUri('https://github.com/cferdinandi/tabby/archive/v12.0.3.zip'),
+      'download_url' => Url::fromUri('https://github.com/cferdinandi/tabby/archive/v12.0.3.zip'),
       'version' => '12.0.3',
     ];
     // Drupal 8 and 9 supports different version of PopperJS which is a
@@ -486,7 +472,7 @@ class WebformLibrariesManager implements WebformLibrariesManagerInterface {
       'description' => $this->t("Tippy.js is the complete tooltip, popover, dropdown, and menu solution for the web, powered by Popper."),
       'notes' => $this->t('Tippy.js is used to provide a tooltips. Tippy.js 5.x is compatible with Drupal 8.x.'),
       'homepage_url' => Url::fromUri('https://github.com/atomiks/tippyjs'),
-      'download_url' =>  Url::fromUri('https://unpkg.com/tippy.js@5.2.1/dist/tippy-bundle.iife.min.js'),
+      'download_url' => Url::fromUri('https://unpkg.com/tippy.js@5.2.1/dist/tippy-bundle.iife.min.js'),
       'version' => '5.2.1',
       'core' => 8,
     ];
@@ -495,7 +481,7 @@ class WebformLibrariesManager implements WebformLibrariesManagerInterface {
       'description' => $this->t("Tippy.js is the complete tooltip, popover, dropdown, and menu solution for the web, powered by Popper."),
       'notes' => $this->t('Tippy.js is used to provide a tooltips. Tippy.js 6.x is compatible with Drupal 9.x.'),
       'homepage_url' => Url::fromUri('https://github.com/atomiks/tippyjs'),
-      'download_url' =>  Url::fromUri('https://unpkg.com/tippy.js@6.2.6/dist/tippy-bundle.umd.min.js'),
+      'download_url' => Url::fromUri('https://unpkg.com/tippy.js@6.2.6/dist/tippy-bundle.umd.min.js'),
       'version' => '6.2.6',
       'core' => 9,
     ];
@@ -557,7 +543,7 @@ class WebformLibrariesManager implements WebformLibrariesManagerInterface {
       // Add name to all libraries, so that it can be modified if a ckeditor
       // plugin is installed without the ckeditor.* prefix.
       $libraries[$library_name]['name'] = $library_name;
-      if (strpos($library_name, 'ckeditor.') === 0) {
+      if (strpos($library_name, 'ckeditor.') === 0 && !$this->find($library_name)) {
         $ckeditor_library_name = str_replace('ckeditor.', '', $library_name);
         $library_path = $this->find($ckeditor_library_name);
         if ($library_path) {
@@ -631,6 +617,10 @@ class WebformLibrariesManager implements WebformLibrariesManagerInterface {
     // Get CKEditor semantic version number from the JS file.
     // @see core/core.libraries.yml
     $definition = $this->libraryDiscovery->getLibraryByName('core', 'ckeditor');
+    if (!$definition) {
+      return NULL;
+    }
+
     $ckeditor_version = $definition['js'][0]['version'];
 
     // Parse CKEditor semantic version number from security patches
